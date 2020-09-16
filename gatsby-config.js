@@ -8,7 +8,7 @@ module.exports = {
     tagline: `Developers of rich applications`,
     description: `this is the site descritpion`,
     language: `en`,
-    siteUrl: `www.livewebsiteURL.com`,
+    siteUrl: `https://www.livewebsiteURL.com`,
     author: `@jammersio`,
     pages: [
       { page: "home", to: "/" },
@@ -76,5 +76,6 @@ module.exports = {
       },
     },
   ],
-  pathPrefix: "/starter-master-gatsby",
+  pathPrefix: "/starter-master-gatsby", // for ghpages
+  // https://blog.bitsrc.io/deploy-a-gatsby-site-on-github-pages-for-free-f18853c1b7a9
 }

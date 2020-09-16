@@ -1,3 +1,11 @@
+Prerequisites:
+
+- [x] `node -v `
+- [x] `npm -v `
+- [x] `yarn add gatsby-cli`
+
+dependencies:
+
 - [x] gatsby
 - [x] gatsby-image
 - [ ] gatsby-background-image / intersection-observer???
@@ -11,33 +19,24 @@
 - [x] gatsby-plugin-typescript -- automatically included -- not needed unless `.tsconfig` needs changes
 - [x] gatsby-source-filesystem
 - [x] prop-types
-
 - [ ] gatsby-source-strapi
-
 - [x] gatsby-plugin-sass
 - [x] node-sass
 - [x] focus-visible
 - [x] gatsby-plugin-chakra-ui
 - [x] chakra-ui
-
 - [x] emotion
 - [x] emotion-theming
 - [x] emotion/styled
-
 - [ ] Framer-motion
 - [ ] popmotion/popcorn
 - [ ] react-cool-inview
-
-- [ ] gh-pages
+- [x] gh-pages
 - [ ] gatsby-plugin-crisp-chat
 - [ ] Gatsby-plugin-google-analytics
 - [ ] beautiful-react-hooks
 
-Prerequisites:
 
-- [ ] `node -v `
-- [ ] `npm -v `
-- [ ] `yarn add gatsby-cli`
 
 1. Install Gatsby Starter:
 
@@ -216,3 +215,4 @@ Prerequisites:
   ```shell
   yarn deploy
   ```
+
