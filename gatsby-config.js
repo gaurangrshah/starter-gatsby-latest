@@ -4,18 +4,17 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Penn Star`,
-    tagline: `Land Transfer`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `G.Shah Dev`,
+    tagline: `Developers of rich applications`,
+    description: `this is the site descritpion`,
     language: `en`,
-    siteUrl: `http://www.pennstarland.com`,
+    siteUrl: `www.livewebsiteURL.com`,
     author: `@jammersio`,
     pages: [
       { page: "home", to: "/" },
       { page: "about us", to: "/about/" },
       { page: "services", to: "/services/" },
       { page: "policies", to: "/policies/" },
-      { page: "covid", to: "/covid/" },
       { page: "contact", to: "/contact/" },
     ],
     socialLinks: [
