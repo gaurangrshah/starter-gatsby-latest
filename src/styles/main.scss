@@ -1,0 +1,29 @@
+@import "global/variables";
+@import "theme";
+// @import 'global/mixins';
+// @import 'base';
+@import "pages/index";
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.test {
+  border: 1px solid red;
+}
+
+.active {
+  background: #5057e4;
+  color: white;
+}
+
+.no-bar::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}

@@ -1,0 +1,68 @@
+// @import url('https://fonts.googleapis.com/css?family=Roboto:300;400;700&display=swap');
+
+// Set Fonts
+// $font-family-base:          'Roboto', serif !default;
+
+// COLORS
+$purple: #b063c5;
+$yellow: #f6f078;
+$lightgrey: lightgrey !default;
+$darkgrey: darkgrey !default;
+$black: black !default;
+$white: #f2f2f2;
+
+$blueDark: #1a2849;
+$blueLight: #e3e5f9;
+$pink: lighten(pink, 0.125);
+$primary: #505bda !default;
+
+$info: $purple;
+$warning: $yellow;
+
+$bg-light-blue: lighten($primary, 35%) !default;
+$bg-dark-blue: #1a2849 !default;
+
+// Typography
+// $headings-font-family:        'Roboto' !default;
+$headings-font-weight: 700;
+
+$border-radius: 0.2rem;
+$border-radius-lg: 0.25rem;
+$border-radius-sm: 0.15rem;
+
+$text-shadow-dark: -1px -1px 5px rgba(169, 169, 169, 0.55);
+$box-shadow-top-dark: 1px -4px 12px -10px rgba(169, 169, 169, 1);
+$linear-gradient-blue-green: linear-gradient(
+  0deg,
+  rgba(255, 255, 255, 0.7) 0%,
+  rgba(80, 91, 218, 1) 100%
+);
+
+$background-patterned-1: linear-gradient(
+    135deg,
+    $primary 21px,
+    lighten($primary, 2%) 22px,
+    lighten($primary, 2%) 24px,
+    transparent 24px,
+    transparent 67px,
+    lighten($primary, 2%) 67px,
+    lighten($primary, 2%) 69px,
+    transparent 69px
+  ),
+  linear-gradient(
+      225deg,
+      $primary 21px,
+      lighten($primary, 2%) 22px,
+      lighten($primary, 2%) 24px,
+      transparent 24px,
+      transparent 67px,
+      lighten($primary, 2%) 67px,
+      lighten($primary, 2%) 69px,
+      transparent 69px
+    )
+    0 64px;
+
+$background-plus-patterned: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23adb0b6' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+$brand-gradient: linear-gradient(#c9cdd8, #c2c9d8);
+$brand-gradient2: linear-gradient(rgb(193, 194, 194), rgb(238, 242, 243));
