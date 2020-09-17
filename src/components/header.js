@@ -13,7 +13,7 @@ export const Header = ({ siteTitle, siteTagline, ...rest }) => {
     <Content
       as="header"
       bg={`brand`}
-      color={`mode.${colorMode}.bg`}
+      color={`mode.${colorMode}.textAlt`}
       shadow="minbttm"
     >
       <Flex {...component.header} color={`mode.${"light"}.navLink`}>

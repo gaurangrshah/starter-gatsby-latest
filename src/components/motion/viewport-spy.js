@@ -19,3 +19,5 @@ export const ViewportSpy = ({ options, debug, children }) => {
     </>
   )
 }
+
+export const PresenceBox = ({ options, debug, presenceProps, children }) => {}

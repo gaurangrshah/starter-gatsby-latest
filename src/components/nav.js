@@ -1,18 +1,10 @@
 import React, { useState } from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion"
-import { Box, Button, PseudoBox, useColorMode } from "@chakra-ui/core"
+import { Button, PseudoBox, useColorMode } from "@chakra-ui/core"
 
 import { Burger } from "./burger"
-import {
-  PseudoMotionBox,
-  MotionButton,
-  MotionHeading,
-  MotionText,
-} from "./motion"
 
 import useSiteMetadata from "../hooks/use-site-metadata"
-import { test } from "../utils"
 
 const NavLink = ({ to = "#", title = "", idx = 0, children }) => {
   const { colorMode } = useColorMode()
@@ -34,7 +26,7 @@ const NavLink = ({ to = "#", title = "", idx = 0, children }) => {
       whiteSpace="nowrap"
       _hover={{
         bg: `mode.${colorMode}.textAlt`,
-        color: `mode.${colorMode}.text`,
+        color: `inherit`,
       }}
     >
       {children || title}
@@ -47,8 +39,6 @@ export const Nav = () => {
   const handleToggle = () => setShow(!show)
   const site = useSiteMetadata()
   const { pages } = site
-  const { colorMode } = useColorMode()
-
   const { length: l, [l - 1]: contact } = pages
   // https://stackoverflow.com/questions/45801067/get-all-array-elements-except-for-first-and-last
 
@@ -68,7 +58,6 @@ export const Nav = () => {
         py={["0.3em", null, null, 0]}
         flex={1}
         fontSize={["sm", null, null, "md"]}
-        color={`mode.${"light"}.bg`}
         overflowY={[`auto`, null, null, `initial`]} // used to overflow on smaller screens
       >
         {links?.map((link, i) => {
@@ -80,6 +69,7 @@ export const Nav = () => {
           bg="transparent"
           border="1px"
           textTransform="capitalize"
+          color="inherit"
           borderColor={`currentColor`}
           size="sm"
           mt={{ base: 10, lg: -1 }}
