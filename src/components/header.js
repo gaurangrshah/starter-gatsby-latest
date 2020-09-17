@@ -6,18 +6,16 @@ import { Flex, Heading, useColorMode } from "@chakra-ui/core"
 import { Nav } from "./nav"
 import { Content } from "./chakra-ui"
 import { component } from "../utils"
+import { AnimatePresence } from "framer-motion"
+import { MotionBox, MotionFlex, MotionHeading } from "./motion/motion"
 
 export const Header = ({ siteTitle, siteTagline, ...rest }) => {
   const { colorMode } = useColorMode()
   return (
-    <Content
-      as="header"
-      bg={`brand`}
-      color={`mode.${colorMode}.textAlt`}
-      shadow="minbttm"
-    >
-      <Flex {...component.header} color={`mode.${"light"}.navLink`}>
+    <Content as="header" bg={`brand`} shadow="minbttm">
+      <Flex color={`mode.${"light"}.navLink`} {...component.header}>
         <Heading
+          layout
           as="h1"
           m={0}
           color="inherit"
@@ -35,7 +33,9 @@ export const Header = ({ siteTitle, siteTagline, ...rest }) => {
           </Link>
         </Heading>
 
-        <Nav />
+        <AnimatePresence exitBeforeEnter>
+          <Nav />
+        </AnimatePresence>
       </Flex>
     </Content>
   )
