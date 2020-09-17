@@ -63,19 +63,19 @@ const theme = {
         transparent: "rgba(255,255,255,0)",
       },
       dark: {
-        brand: "#1F7A8C", // metallic seaweed
-        alt: "#67B26F", // medium sea green
-        alt2: "#9BEE81", // light green
-        alt3: "#6571CD", // violet blue crayola
+        brand: "#00072D", // oxford blue
+        alt: "#000C52", // midnight blue
+        alt2: "#00127A", // phthalo blue
+        alt3: "#0018A3", // zaffre
         cardBG: "#8DE2D4", // middle blue green
         cardBG2: "#939CDC", // maximum blue purple
         text: "#C9D7E3", // beau blue
-        textAlt: "#2b4054", // charcoal
-        heading: "#C3EFBD", // tea green
+        textAlt: "#C3EFBD", // tea green
+        heading: "#2b4054", // charcoal
         icon: "#3C5168", // independence
         link: "#006aa3", // sapphire blue
-        background: "#20233D", // space cadet
-        bg: "#282A48", // space cadet
+        background: "#00072D", // oxford blue
+        bg: "#001C55", // royal blue dark
         bg2: "#363960", // space cadet
         bg3: "#434878", // purple navy
         bg4: "#555B9B", // liberty
@@ -95,8 +95,8 @@ const theme = {
     default: "0px 1px 0px 0px rgba(9,30,66,.25)",
     max: "0 1px 5px rgba(0, 0, 0, 0.15)",
     inset: "0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset",
-    maxbttm: "0 8px 8px -6px,  rgba(0,0,0,.25)",
-    minbttm: "0 0 10px 2px,  rgba(0,0,0,.25)",
+    maxbttm: "0 8px 8px -6px rgba(0,0,0,.25)",
+    minbttm: "0 0 10px 2px rgba(0,0,0,.25)",
     smdarkbox: "0 4px 4px 0 rgba(0,0,0,.1)",
     smlightbox: "0 4px 4px 0 rgba(0,0,0,.05)",
   },

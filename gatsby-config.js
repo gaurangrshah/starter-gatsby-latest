@@ -4,24 +4,24 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `G.Shah Dev`,
+    title: `gsd`,
     tagline: `Developers of rich applications`,
     description: `this is the site descritpion`,
     language: `en`,
     siteUrl: `https://www.livewebsiteURL.com`,
     author: `@jammersio`,
     pages: [
-      { page: "home", to: "/" },
-      { page: "about us", to: "/about/" },
-      { page: "services", to: "/services/" },
-      { page: "policies", to: "/policies/" },
-      { page: "contact", to: "/contact/" },
+      { label: "home", path: "/" },
+      { label: "about us", path: "/about/" },
+      { label: "services", path: "/services/" },
+      { label: "policies", path: "/policies/" },
+      { label: "contact", path: "/contact/" },
     ],
     socialLinks: [
-      { channel: "facebook", to: "https://www.facebook.com" },
-      { channel: "twitter", to: "https://www.twitter.com" },
-      { channel: "instagram", to: "https://www.instagram.com" },
-      { channel: "linkedin", to: "https://www.linkedin.com" },
+      { label: "facebook", path: "https://www.facebook.com" },
+      { label: "twitter", path: "https://www.twitter.com" },
+      { label: "instagram", path: "https://www.instagram.com" },
+      { label: "linkedin", path: "https://www.linkedin.com" },
     ],
     brandColors: {
       primary: "#1F7A8C",

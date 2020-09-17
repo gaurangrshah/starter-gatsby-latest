@@ -19,9 +19,9 @@ export const Global = () => {
           border: 0;
           margin: 0;
           padding: 0;
-          box-sizing: inherit;
+          box-sizing: border-box;
           & :before {
-            box-sizing: inherit;
+            box-sizing: border-box;
           }
         }
 
@@ -79,15 +79,12 @@ export const Global = () => {
           max-width: 100%;
           height: 100%;
         }
-        /* #content-wrapper {
-          margin: 0;
-          padding: 0;
+        #content-wrapper {
           display: flex;
           flex-direction: column;
-          flex: 1;
           max-width: 100%;
-          z-index: 0;
           overflow-x: hidden;
+          z-index: 0;
         }
         header,
         footer {
@@ -98,15 +95,14 @@ export const Global = () => {
         header {
           top: 0;
         }
+        main {
+          flex: 1 0 auto;
+          overflow: auto;
+          max-width: 100%;
+        }
         footer {
           bottom: 0;
         }
-        main {
-          flex: 1 0 auto;
-          background: white;
-          max-width: 100%;
-          padding-bottom: 3em;
-        } */
       `}
     />
   )

@@ -10,12 +10,12 @@ type Props = {
       siteUrl: string
       author: string
       pages: {
-        page: string
-        to: string
+        label: string
+        path: string
       }
       socialLinks: {
-        channel: string
-        to: string
+        label: string
+        path: string
       }
       brandColors: {
         key: string
@@ -37,12 +37,12 @@ const useSiteMetadata = () => {
           siteUrl
           author
           pages {
-            page
-            to
+            label
+            path
           }
           socialLinks {
-            channel
-            to
+            label
+            path
           }
           brandColors {
             primary

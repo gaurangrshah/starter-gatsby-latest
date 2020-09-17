@@ -28,7 +28,7 @@ export function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
-export const randomNumGenerator = (
+export const randomNumGen = (
   // array of random nums
   num, // number of random numbers to generate
   limit = 100 // highest number possible

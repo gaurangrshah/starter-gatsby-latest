@@ -16,7 +16,7 @@ dependencies:
 - [x] react-helmet
 - [x] gatsby-plugin-sharp
 - [x] gatsby-transformer-sharp
-- [x] gatsby-plugin-typescript -- automatically included -- not needed unless `.tsconfig` needs changes
+- [ ] gatsby-plugin-typescript -- automatically included -- not needed unless `.tsconfig` needs changes
 - [x] gatsby-source-filesystem
 - [x] prop-types
 - [ ] gatsby-source-strapi
@@ -28,13 +28,17 @@ dependencies:
 - [x] emotion
 - [x] emotion-theming
 - [x] emotion/styled
-- [ ] Framer-motion
-- [ ] popmotion/popcorn
-- [ ] react-cool-inview
+- [x] Framer-motion
+- [x] popmotion/popcorn
+- [ ] react-cool-inview - opted for {viewportspy} from beautiful-react-hooks
 - [x] gh-pages
 - [ ] gatsby-plugin-crisp-chat
-- [ ] Gatsby-plugin-google-analytics
-- [ ] beautiful-react-hooks
+- [ ] gatsby-plugin-google-analytics
+- [x] beautiful-react-hooks
+
+
+
+
 
 
 
@@ -191,6 +195,26 @@ dependencies:
      <Box fontFamily="body">{children}</Box>
    </DefaultLayout>
    ```
+   
+   
+
+6. Install framer-motion
+
+   ```shell
+   yarn add framer-motion
+   ```
+
+
+
+7. Install popmotion
+
+   ```shell
+   yarn add @popmotion/popcorn
+   ```
+
+   
+
+
 
 - Install Git Hub Pages
 
@@ -216,3 +240,25 @@ dependencies:
   yarn deploy
   ```
 
+
+
+
+
+included hooks:
+
+- [ ] use-body-scrolllock
+- [ ] use-input-autofill
+- [ ] use-site-metadata
+- [ ] use-window-scroll
+
+included utils:
+
+- [ ] shortId
+- [ ] isBoolean
+- [ ] makeArray
+- [ ] isExternal
+- [ ] doesInclude
+- [ ] formatNumber
+- [ ] randomNumGenerator
+- [ ] randomConditional
+- [ ] isSSR
