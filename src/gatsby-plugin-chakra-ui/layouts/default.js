@@ -12,11 +12,13 @@ import theme from "../theme"
 import { Global } from "./global"
 
 import SEO from "../../components/seo"
-import { Header, Footer, ModeToggle } from "../../components"
+import { Header, Footer, ModeToggle, Sidebar } from "../../components"
 
 import useSiteMetadata from "../../hooks/use-site-metadata"
 
 import "../../styles/main.scss"
+
+import { isDev } from "../../utils/tools/tools"
 
 const DefaultLayout = ({
   header = true,
@@ -49,6 +51,7 @@ const DefaultLayout = ({
       <ThemeProvider theme={themeUpdate}>
         <CSSReset />
         <ColorModeProvider>
+          {isDev && <Sidebar />}
           <ModeToggle />
           <Box
             id="content-wrapper"
@@ -60,10 +63,7 @@ const DefaultLayout = ({
               {children}
             </Box>
           </Box>
-          <Footer
-            siteTitle={title}
-            // siteTagline={pageTagline}
-          />
+          <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
         </ColorModeProvider>
       </ThemeProvider>
     </>

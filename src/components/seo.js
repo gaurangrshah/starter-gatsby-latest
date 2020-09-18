@@ -137,6 +137,8 @@ const SEO = ({
         SameSite="None"
         Secure
       />
+      <script src="https://unpkg.com/@ungap/custom-elements-builtin" />
+      <script type="module" src="https://unpkg.com/x-frame-bypass" />
     </Helmet>
   )
 }

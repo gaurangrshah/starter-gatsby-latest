@@ -5,7 +5,6 @@ import { useViewportSpy } from "beautiful-react-hooks"
 export const ViewportSpy = ({ options, debug, children }) => {
   const ref = useRef()
   const isVisible = useViewportSpy(ref, { threshold: 0.3, ...options })
-
   return (
     <>
       <Box ref={ref} py={6}>
@@ -20,4 +19,4 @@ export const ViewportSpy = ({ options, debug, children }) => {
   )
 }
 
-export const PresenceBox = ({ options, debug, presenceProps, children }) => {}
+// export const PresenceBox = ({ options, debug, presenceProps, children }) => {}
