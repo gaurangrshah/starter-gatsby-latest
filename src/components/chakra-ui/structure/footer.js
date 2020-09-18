@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Box } from "@chakra-ui/core"
 
-import { Content } from "../layout/content"
+import { Content } from "../layout"
 import { SocialLinks } from "./social-links"
 import { component } from "../chakra"
 

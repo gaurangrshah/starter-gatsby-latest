@@ -4,7 +4,7 @@ import { Flex, Heading, useColorMode } from "@chakra-ui/core"
 
 import { Nav } from "./nav"
 import { Logo } from "./logo"
-import { Content } from ".."
+import { Content } from "../layout"
 import { component } from "../chakra"
 
 export const Header = ({ siteTitle, siteTagline, ...rest }) => {
