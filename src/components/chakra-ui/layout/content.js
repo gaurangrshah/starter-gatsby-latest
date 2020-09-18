@@ -1,6 +1,6 @@
 import React from "react"
-import { Box, PseudoBox, useColorMode } from "@chakra-ui/core"
-import { isBoolean, test } from "../../../utils/tools/tools"
+import { Box, useColorMode } from "@chakra-ui/core"
+import { isBoolean } from "../../../utils/tools/tools"
 
 export const Content = ({
   bg,

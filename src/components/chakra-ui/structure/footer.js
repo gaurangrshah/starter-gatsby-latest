@@ -1,21 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Box, useColorMode } from "@chakra-ui/core"
-// import { Content, Row } from "../elements"
+import { Box } from "@chakra-ui/core"
+
+import { Content } from "../layout/content"
 import { SocialLinks } from "./social-links"
-import { box, flex, component, test } from "../utils"
+import { component } from "../chakra"
 
 export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
-  const { colorMode } = useColorMode()
   return (
-    <Box
+    <Content
       as="footer"
-      bg={`mode.${colorMode}.brand`}
-      color={`mode.${colorMode}.textAlt`}
+      bg={`brand`}
+      color={`background`}
       shadow={"maxbttm"}
       {...rest}
     >
-      <Box position="relative" {...component.footer}>
+      <Box position="relative" {...component?.footer}>
         <Box
           width={["100%", null, null, "80%"]}
           fontSize={["10px", "sm"]}
@@ -35,6 +35,6 @@ export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
           <SocialLinks />
         </Box>
       </Box>
-    </Box>
+    </Content>
   )
 }

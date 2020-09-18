@@ -90,7 +90,7 @@ export const Global = () => {
         footer {
           position: fixed;
           width: 100%;
-          z-index: 200;
+          z-index: 1500;
         }
         header {
           top: 0;

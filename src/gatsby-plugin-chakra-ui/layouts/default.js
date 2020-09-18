@@ -1,8 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import {
   Box,
-  Text,
   CSSReset,
   ThemeProvider,
   ColorModeProvider,
@@ -11,10 +10,9 @@ import {
 
 import theme from "../theme"
 import { Global } from "./global"
-import { ModeToggle } from "../mode-toggle"
 
 import SEO from "../../components/seo"
-import { Header, Footer } from "../../components"
+import { Header, Footer, ModeToggle } from "../../components"
 
 import useSiteMetadata from "../../hooks/use-site-metadata"
 
@@ -29,8 +27,6 @@ const DefaultLayout = ({
   children,
   ...rest
 }) => {
-  // const [isNavOpen, setIsNavOpen] = useState(false)
-  // const toggleIsNavOpen = () => setIsNavOpen(oldState => !oldState)
   const { colorMode } = useColorMode()
   const site = useSiteMetadata()
   const { title, brandColors } = site

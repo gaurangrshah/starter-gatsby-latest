@@ -4,9 +4,7 @@ import { Box, Button } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
-import { Image, TrackingBox } from "../components"
-
-import { box, test } from "../utils"
+import { box, test, Image, TrackingBox } from "../components"
 
 const IndexPage = () => {
   return (
@@ -35,7 +33,7 @@ const IndexPage = () => {
           variant={"fade-up"}
           once={false}
         >
-          <Box {...box.base} {...box.fixedWidth} background="blue" my={4} />
+          <Box {...box?.base} {...box?.fixedWidth} background="blue" my={4} />
         </TrackingBox>
         <Link to="/page-2/">Go to page 2</Link> <br />
         <Link to="/using-typescript/">Go to "Using TypeScript"</Link>

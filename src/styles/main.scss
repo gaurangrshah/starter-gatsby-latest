@@ -27,24 +27,3 @@
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
-
-.scale-up {
-  // Transition OUT : not hover
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
-  transform: scale(0.8);
-}
-
-.scale-up:hover {
-  // TRANSITION IN : hover
-  cursor: pointer;
-  transform: scale(1);
-  -webkit-transition: transform 0.3s ease-out;
-  -moz-transition: transform 0.3s ease-out;
-  -ms-transition: transform 0.3s ease-out;
-  -o-transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}

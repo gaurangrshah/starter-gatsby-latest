@@ -1,14 +1,8 @@
 import React from "react"
 import { Box, PseudoBox } from "@chakra-ui/core"
-import { MotionBox } from "./motion"
-export const Burger = ({ handleToggle, ...rest }) => {
+export const Burger = ({ ...rest }) => {
   return (
-    <Box
-      pr={8}
-      display={["inline-block", null, null, "none"]}
-      onClick={handleToggle}
-      {...rest}
-    >
+    <Box display={["inline-block", null, null, "none"]} {...rest}>
       <PseudoBox
         as="svg"
         fill={`currentColor`}

@@ -73,6 +73,9 @@ const theme = {
         textAlt: "#C3EFBD", // tea green
         heading: "#2b4054", // charcoal
         icon: "#3C5168", // independence
+        navlink: "#FFFFFF", //
+        navlinkActive: "##F8F8FF", //
+        navlinkHover: "#EBEBFF", //
         link: "#006aa3", // sapphire blue
         background: "#00072D", // oxford blue
         bg: "#001C55", // royal blue dark
