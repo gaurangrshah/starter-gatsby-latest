@@ -1,7 +1,5 @@
-import React, { useRef, useContext } from "react"
+import React, { useRef } from "react"
 import {
-  Button,
-  Divider,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -12,7 +10,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/core"
 import { MotionButton } from "../../../motion"
-import { box } from "../../chakra"
 
 export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
   const { colorMode } = useColorMode()
@@ -59,6 +56,7 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
 
             <iframe
               is="x-frame-bypass"
+              title="sidebarframe"
               src={"https://google.com/search?igu=1"}
               width="100%"
               height="100%"
