@@ -12,7 +12,7 @@ export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
       as="footer"
       bg={`brand`}
       color={`background`}
-      shadow={"maxbttm"}
+      shadow={"maxtop"}
       {...rest}
     >
       <Box position="relative" {...component?.footer}>

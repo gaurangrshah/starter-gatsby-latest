@@ -99,6 +99,7 @@ const theme = {
     max: "0 1px 5px rgba(0, 0, 0, 0.15)",
     inset: "0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset",
     maxbttm: "0 8px 8px -6px rgba(0,0,0,.25)",
+    maxtop: "0px 0px 4px 5px rgba(0, 0, 0, 0.15)",
     minbttm: "0 0 10px 2px rgba(0,0,0,.25)",
     smdarkbox: "0 4px 4px 0 rgba(0,0,0,.1)",
     smlightbox: "0 4px 4px 0 rgba(0,0,0,.05)",

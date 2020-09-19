@@ -40,7 +40,7 @@ const IndexPage = () => {
         </Content>
       </BaseContainer>
       <BaseContainer fluid pattern py={12}>
-        <Content w="80%" h="100vh" mx="auto" bg rounded shadow="maxbttm">
+        <Content w="80%" h="20vh" mx="auto" bg rounded shadow="maxbttm">
           Hello
         </Content>
       </BaseContainer>
