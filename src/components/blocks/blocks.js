@@ -19,13 +19,14 @@ export const Block = ({
   taglineProps,
   content,
   contentProps,
+  childrenProps,
   topPadding,
   padSpacing = 8,
   children,
   ...rest
 }) => {
   return (
-    <Row flexDirection="column" color={`text`} py={6} {...rest}>
+    <Row flexDirection="column" color={`inherit`} py={6} {...rest}>
       {lead && (
         <Text as="small" pb={4} {...leadProps}>
           {lead}
@@ -60,7 +61,9 @@ export const Block = ({
             {item}
           </Text>
         ))}
-      <Box py={6}>{children}</Box>
+      <Box py={6} color="inherit" {...childrenProps}>
+        {children}
+      </Box>
     </Row>
   )
 }

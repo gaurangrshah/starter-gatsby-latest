@@ -32,6 +32,7 @@ const row = ({ responsive, reverse, center, ...rest }) => ({
 export const Content = ({
   bg,
   bg2,
+  color,
   shadow,
   rounded,
   contentProps,
@@ -39,10 +40,15 @@ export const Content = ({
   ...rest
 }) => {
   const { colorMode } = useColorMode()
+  const currentColor = color
+    ? isBoolean(color)
+      ? "background"
+      : color
+    : "background"
   return (
     <>
       <Box
-        color={`mode.${colorMode}.text`}
+        color={`mode.${colorMode}.${currentColor}`}
         bg={bg ? `mode.${colorMode}.${isBoolean(bg) ? "bg" : bg}` : bg2 && bg2}
         shadow={isBoolean(shadow) ? `sm${colorMode}box` : shadow}
         rounded={isBoolean(rounded) ? "5px" : "rounded"}
@@ -56,7 +62,7 @@ export const Content = ({
   )
 }
 
-export const BaseContainer = ({ fluid, max, pattern, children, ...rest }) => {
+export const BaseContainer = ({ children, ...rest }) => {
   return (
     <Content
       as="section"

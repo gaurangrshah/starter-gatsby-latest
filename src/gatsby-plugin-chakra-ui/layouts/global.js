@@ -99,6 +99,7 @@ export const Global = () => {
           flex: 1 0 auto;
           overflow: auto;
           max-width: 100%;
+          overflow-x: hidden;
         }
         footer {
           bottom: 0;

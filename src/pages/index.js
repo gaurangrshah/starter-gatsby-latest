@@ -1,42 +1,49 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Box, Button } from "@chakra-ui/core"
+import { Box, Button, Flex, Text } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
-import { box, TrackingBox, Block, Content } from "../components"
+import {
+  box,
+  test,
+  linearGradient,
+  BackgroundImage,
+  BaseContainer,
+  Block,
+  Content,
+  Row,
+  TrackingBox,
+} from "../components"
 
 const IndexPage = () => {
   return (
     <DefaultLayout pageTagline={""}>
-      {/* <BackgroundImage> */}
-      <Content rounded shadow my={12}>
-        <Block heading="Hi People" Box="Welcome to your new Gatsby site.">
-          <Button>Text One</Button>
-          <p>Now go build something great.</p>
-        </Block>
-        <div
-          style={{
-            maxWidth: `300px`,
-            marginTop: `120vh`,
-            marginBottom: `1.45rem`,
-          }}
-        ></div>
-        <TrackingBox
-          key="box-check-1"
-          presenceProps={{ initial: false }}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variant={"fade-up"}
-          once={false}
+      <BaseContainer fluid minH="600px" maxH="600px">
+        <BackgroundImage gradientOverlay={linearGradient(11)} />
+        <Content
+          position="absolute"
+          top={0}
+          textAlign="left"
+          ml={12 * 2}
+          mt={12 * 4}
         >
-          <Box {...box?.base} {...box?.fixedWidth} background="blue" my={4} />
-        </TrackingBox>
-        <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-      </Content>
-      {/* </BackgroundImage> */}
+          <Block
+            position="relative"
+            heading="Hello Nurse!"
+            content={["Welcome to your new Gatsby site."]}
+            height="100%"
+            my="auto"
+            childrenProps={{ textAlign: "right" }} // passes props to children container
+          >
+            <Button variantColor="blue">Text One</Button>
+          </Block>
+        </Content>
+      </BaseContainer>
+      <BaseContainer fluid pattern py={12}>
+        <Content w="80%" h="100vh" mx="auto" bg rounded shadow="maxbttm">
+          Hello
+        </Content>
+      </BaseContainer>
     </DefaultLayout>
   )
 }

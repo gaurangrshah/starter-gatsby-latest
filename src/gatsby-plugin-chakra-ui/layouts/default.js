@@ -12,13 +12,13 @@ import theme from "../theme"
 import { Global } from "./global"
 
 import SEO from "../../components/seo"
-import { Header, Footer, ModeToggle, Sidebar } from "../../components"
+import { test, Header, Footer, ModeToggle, Sidebar } from "../../components"
 
 import useSiteMetadata from "../../hooks/use-site-metadata"
 
 import "../../styles/main.scss"
 
-import { isDev } from "../../utils/tools/tools"
+import { isDev } from "../../utils"
 
 const DefaultLayout = ({
   header = true,
@@ -59,7 +59,7 @@ const DefaultLayout = ({
             fontFamily="body"
           >
             {header && <Header siteTitle={title} siteTagline={pageTagline} />}
-            <Box as="main" {...rest} my="4rem">
+            <Box as="main" {...rest} my="5rem">
               {children}
             </Box>
           </Box>

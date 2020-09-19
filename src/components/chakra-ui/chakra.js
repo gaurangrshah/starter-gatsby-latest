@@ -161,7 +161,9 @@ export const gradients = [
   { start: "241, 242, 181", end: "19, 80, 88" }, // 13
   { start: "123, 67, 151", end: "220, 36, 48" }, // 14
   { start: "142, 158, 171", end: "238, 242, 243" }, // 15
+  { start: "227, 255, 231", end: "217, 231, 255" }, // 16
 ]
+
 export const colors = [
   { start: "121269", end: "121269" },
   { start: "272C54", end: "272C54" },
@@ -170,3 +172,6 @@ export const colors = [
   { start: "102342", end: "102342" },
   { start: "282A3E", end: "282A3E" },
 ]
+
+export const linearGradient = (i, opacity = 0.3) =>
+  `linear-gradient(90deg, rgba(${gradients[i].start}, ${opacity}) 0%, rgba(${gradients[i].end}, ${opacity}) 100%)`
