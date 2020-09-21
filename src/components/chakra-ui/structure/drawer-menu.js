@@ -41,8 +41,8 @@ export const DrawerMenu = ({
         isFullHeight
         finalFocusRef={ref}
       >
-        <DrawerOverlay />
-        <DrawerContent color={`mode.${colorMode}.background`}>
+        <DrawerOverlay zIndex={8} />
+        <DrawerContent color={`mode.${colorMode}.background`} zIndex={9}>
           <DrawerCloseButton />
           <DrawerHeader
             border="none"

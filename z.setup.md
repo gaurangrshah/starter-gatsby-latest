@@ -8,7 +8,7 @@ dependencies:
 
 - [x] gatsby
 - [x] gatsby-image
-- [ ] gatsby-background-image / intersection-observer???
+- [x] gatsby-background-image -- custom implementation
 - [x] gatsby-plugin-manifest
 - [x] gatsby-plugin-offline
 - [x] gatsby-plugin-web-font-loader
@@ -30,17 +30,11 @@ dependencies:
 - [x] emotion/styled
 - [x] Framer-motion
 - [x] popmotion/popcorn
-- [ ] react-cool-inview - opted for {viewportspy} from beautiful-react-hooks
+- [x] react-cool-inview - opted for {viewportspy} from beautiful-react-hooks
 - [x] gh-pages
 - [ ] gatsby-plugin-crisp-chat
 - [ ] gatsby-plugin-google-analytics
 - [x] beautiful-react-hooks
-
-
-
-
-
-
 
 1. Install Gatsby Starter:
 
@@ -195,8 +189,6 @@ dependencies:
      <Box fontFamily="body">{children}</Box>
    </DefaultLayout>
    ```
-   
-   
 
 6. Install framer-motion
 
@@ -204,17 +196,11 @@ dependencies:
    yarn add framer-motion
    ```
 
-
-
 7. Install popmotion
 
    ```shell
    yarn add @popmotion/popcorn
    ```
-
-   
-
-
 
 - Install Git Hub Pages
 
@@ -239,10 +225,6 @@ dependencies:
   ```shell
   yarn deploy
   ```
-
-
-
-
 
 included hooks:
 
