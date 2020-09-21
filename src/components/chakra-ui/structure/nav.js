@@ -73,7 +73,9 @@ export const Nav = ({ siteTitle, siteTagline }) => {
           <Button
             {...buttonVariants?.buttons?.contact?.mobile}
             variantColor="blue"
-            size="lg"
+            size={["md", null, null, "lg"]}
+            px={[3, null, null, 0]}
+            py={[2, null, null, 0]}
             leftIcon="email"
           >
             {contact?.label}
