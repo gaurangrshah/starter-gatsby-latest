@@ -75,6 +75,20 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.GATSBY_STRAPI_API_URL || "http://localhost:1337",
+        contentTypes: [
+          // List of the Content Types you want to be able to request from Gatsby.
+          "block",
+          "section",
+          "page",
+        ],
+        // singleTypes: ["page"],
+        queryLimit: 1000,
+      },
+    },
   ],
   pathPrefix: "/starter-master-gatsby", // for ghpages
   // https://blog.bitsrc.io/deploy-a-gatsby-site-on-github-pages-for-free-f18853c1b7a9

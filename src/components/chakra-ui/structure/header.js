@@ -10,7 +10,7 @@ import { component } from "../chakra"
 export const Header = ({ siteTitle, siteTagline, ...rest }) => {
   const { colorMode } = useColorMode()
   return (
-    <Content as="header" bg={`brand`} color={`background`} shadow="minbttm">
+    <Content as="header" bg={`brand`} shadow="minbttm">
       <Flex color={`mode.${colorMode}.background`} {...component?.header}>
         <Heading
           layout
