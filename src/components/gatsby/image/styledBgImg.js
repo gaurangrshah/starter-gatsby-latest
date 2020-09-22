@@ -12,13 +12,13 @@ export const BgImage = styled(Img)`
   width: 100%;
   height: ${({ height }) => (height ? height : "")};
   z-index: -1;
-  overflow-x: hidden;
 
   & > img {
     object-fit: cover !important;
     object-position: 0% 0% !important;
     font-family: "object-fit: cover !important; object-position: 0% 0% !important;";
     border: 4px solid red;
+    overflow-x: hidden;
   }
 
   @media screen and (max-width: 600px) {

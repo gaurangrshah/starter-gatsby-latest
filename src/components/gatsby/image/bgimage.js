@@ -15,7 +15,7 @@ export const BackgroundImage = ({
 }) => {
   const { mobileImage, desktopImage } = useStaticQuery(graphql`
     query {
-      mobileImage: file(name: { eq: "unsplash2" }) {
+      mobileImage: file(name: { eq: "fingers-star" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 900) {
             ...GatsbyImageSharpFluid_withWebp
@@ -23,7 +23,7 @@ export const BackgroundImage = ({
           }
         }
       }
-      desktopImage: file(name: { eq: "unsplash2" }) {
+      desktopImage: file(name: { eq: "fingers-star" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 4000) {
             ...GatsbyImageSharpFluid_withWebp

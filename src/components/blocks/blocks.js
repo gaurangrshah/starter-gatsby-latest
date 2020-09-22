@@ -11,6 +11,7 @@ export const headingDefaults = {
 }
 
 export const Block = ({
+  block,
   lead,
   leadProps,
   heading,
@@ -25,6 +26,7 @@ export const Block = ({
   children,
   ...rest
 }) => {
+  console.log(block)
   return (
     <Row flexDirection="column" color={`inherit`} py={6} {...rest}>
       {lead && (

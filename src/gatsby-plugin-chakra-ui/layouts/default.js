@@ -72,7 +72,10 @@ const DefaultLayout = ({
 
 DefaultLayout.propTypes = {
   header: PropTypes.bool,
-  bg: PropTypes.string,
+  fixHeader: PropTypes.bool,
+  topBar: PropTypes.bool,
+  shapes: PropTypes.bool,
+  pageTagline: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 

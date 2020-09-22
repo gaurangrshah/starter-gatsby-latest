@@ -90,6 +90,6 @@ module.exports = {
       },
     },
   ],
-  pathPrefix: "/starter-master-gatsby", // for ghpages
+  pathPrefix: "/starter-master-gatsby", // for ghpages - must match repo name
   // https://blog.bitsrc.io/deploy-a-gatsby-site-on-github-pages-for-free-f18853c1b7a9
 }
