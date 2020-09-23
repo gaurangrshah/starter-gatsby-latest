@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Divider, Heading, Text } from "@chakra-ui/core"
 
 import { textShadow, LinkWrapper, Row } from "../chakra-ui"
-import { isBoolean, isTruthy, doesInclude } from "../../utils"
+import { isBoolean, isTruthy, truncateOnWord, doesInclude } from "../../utils"
 
 export const headingDefaults = {
   fontSize: ["2xl", null, null, "4xl"],
@@ -13,7 +13,11 @@ export const headingDefaults = {
 
 const DEFAULT_ORDER = [0, 1, 2, 3, 6, 10] // [lead, heading, tagline, misc, content, link]
 
-export const borderBottom = (bool, settings = "1px solid currentColor") =>
+export const borderBottom = (
+  bool,
+  color = "white",
+  settings = `1px solid ${color}`
+) =>
   bool && {
     borderBottom: settings,
     pb: 6,
@@ -41,8 +45,15 @@ export const BlockText = ({
 export const TextContent = ({ content, ...rest }) =>
   content?.length
     ? content.map((textContent, i) => (
-        <Text key={i} py={2} color="inherit" lineHeight="1.75em" {...rest}>
-          {textContent.content}
+        <Text
+          as={Box}
+          key={i}
+          py={2}
+          color="inherit"
+          lineHeight="1.75em"
+          {...rest}
+        >
+          {truncateOnWord(textContent.content.toString(), 70)}
         </Text>
       ))
     : null

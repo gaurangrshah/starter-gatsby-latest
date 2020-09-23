@@ -16,7 +16,7 @@ import {
 } from "../components"
 
 const IndexPage = ({ data }) => {
-  const [homeHero, homeAuthority] = data.allStrapiSection.edges
+  const [preFooter, homeHero, homeAuthority] = data.allStrapiSection.edges
 
   return (
     <DefaultLayout pageTagline={""}>
@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
           top={0}
           textAlign="left"
           ml={[12, null, null, 12 * 4]}
-          mt={[12, null, null, 12 * 4]}
+          mt={[12, "20%", null, 12 * 4]}
         >
           <Block
             shadow
@@ -82,7 +82,13 @@ const IndexPage = ({ data }) => {
               isInline
             >
               {homeAuthority?.node?.block?.cards?.map((card, i) => (
-                <SimpleCard key={i} maxW="280px" minH="250px" {...card} />
+                <SimpleCard
+                  key={i}
+                  maxW="280px"
+                  minH="250px"
+                  config={{ text: { borderBottom: true } }}
+                  {...card}
+                />
               ))}
             </SimpleGrid>
           </Block>

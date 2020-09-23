@@ -49,6 +49,7 @@ export const PreFooter = ({ ...rest }) => {
   `)
 
   const { block, pages } = data.strapiSection
+  // console.log("⭕️pages", pages)
   const {
     email,
     phone,
@@ -79,8 +80,8 @@ export const PreFooter = ({ ...rest }) => {
         />
       </Box>
       <Row
-        w={["100%", null, null, "45%"]}
-        py={[6, null, null, 0]}
+        w={["100%", null, null, "50%"]}
+        py={[8, null, null, 0]}
         responsive
         flexDirection={["column", "row", null, null]}
         justifyContent={{ lg: "flex-end" }}

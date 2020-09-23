@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { SimpleGrid } from "@chakra-ui/core"
+import { Box, Grid, SimpleGrid } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
@@ -12,11 +12,14 @@ import {
   Block,
   Content,
   PreFooter,
+  Row,
   SimpleCard,
 } from "../components"
 
 const ServicesPage = ({ data }) => {
-  // const [homeHero, homeAuthority] = data.allStrapiSection.edges
+  const [preFoooter, servicesHero, services] = data.allStrapiSection.edges
+
+  console.log(services)
 
   return (
     <DefaultLayout pageTagline={""}>
@@ -26,15 +29,74 @@ const ServicesPage = ({ data }) => {
           maxH="80vh"
           gradientOverlay={linearGradient(14)}
         />
-        <Content
-          color
+        <Row
           position="absolute"
-          top={0}
-          textAlign="left"
-          ml={[12, null, null, 12 * 4]}
-          mt={[12, null, null, 12 * 4]}
+          top="0"
+          // right="0"
+          flexDirection="column"
+          alignItems="flex-end"
+          w="100%"
         >
-          Hiya
+          <Content position="relative" color textAlign="left">
+            <Block
+              mr={[12, null, null, 12 * 4]}
+              mt={[12, "20%", null, 12 * 4]}
+              shadow
+              position="relative"
+              config={{
+                heading: { border: true },
+                tagline: { border: true, fontSize: "xl" },
+                link: {
+                  isDefault: false,
+                  isMoreLink: true,
+                  alignSelf: "flex-end",
+                },
+              }}
+              {...servicesHero.node.block.block}
+            />
+          </Content>
+          <Content w="70%" mr={5}>
+            <SimpleGrid
+              colums={3}
+              minChildWidth="150px"
+              spacing={3}
+              justify="center"
+            >
+              {servicesHero.node.block.cards.map((card, i) => (
+                <SimpleCard
+                  key={i}
+                  h="100%"
+                  mx="auto"
+                  maxW="250px"
+                  minH="250px"
+                  {...card}
+                  config={{ link: { as: Box }, icon: { color: "lightblue" } }}
+                />
+              ))}
+            </SimpleGrid>
+          </Content>
+        </Row>
+      </BaseContainer>
+      <BaseContainer fluid pattern h="100%" py={12} mx="auto">
+        <Content
+          position="relative"
+          w="80%"
+          h="800px"
+          mx="auto"
+          display="flex"
+          justifyContent="center"
+          flexWrap="wrap"
+        >
+          {services.node.block.cards.map((card, i) => (
+            <SimpleCard
+              key={i}
+              mx="auto"
+              w="250px"
+              h="180px"
+              {...card}
+              config={{ link: { padding: "1em" } }}
+            />
+          ))}
         </Content>
       </BaseContainer>
     </DefaultLayout>
@@ -50,47 +112,44 @@ export const query = graphql`
     ) {
       edges {
         node {
-          name
-          order
           block {
-            name
             block {
               text {
-                text
                 type
+                text
                 order
-              }
-              content {
-                content
-              }
-              image {
-                alternativeText
-                name
-                height
-                width
-                formats {
-                  large {
-                    url
-                    size
-                    name
-                  }
-                  medium {
-                    url
-                    size
-                    name
-                  }
-                }
               }
               link {
                 path
                 label
                 isEnabled
               }
+              image {
+                alternativeText
+                caption
+                size
+                name
+                formats {
+                  large {
+                    url
+                    width
+                    height
+                  }
+                  medium {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+              content {
+                content
+              }
             }
             cards {
               text {
-                text
                 type
+                text
               }
               link {
                 path
@@ -102,20 +161,9 @@ export const query = graphql`
                 content
               }
             }
-            addons {
-              city
-              email
-              id
-              phone
-              state
-              streetAddress
-              suite
-              zip
-            }
           }
-          pages {
-            name
-          }
+          name
+          order
         }
       }
     }

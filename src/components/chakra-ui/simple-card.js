@@ -1,9 +1,10 @@
 import React from "react"
-import { Box } from "@chakra-ui/core"
+import { Box, Button } from "@chakra-ui/core"
 
 import { box } from "./components"
 import { LinkWrapper } from "./link-wrapper"
-import { Content } from "./layout"
+import { Content, Row } from "./layout"
+
 import {
   headingDefaults,
   BlockText,
@@ -12,23 +13,81 @@ import {
 } from "../blocks"
 import { isTruthy } from "../../utils"
 
-export const SimpleCard = ({ icon, text, content, link, ...rest }) => {
+export const SimpleCard = ({ icon, text, content, link, config, ...rest }) => {
   const isHeading = text[0].type === "heading"
   return (
-    <LinkWrapper variant="unstyled" {...link}>
-      <Content rounded shadow="maxbttm" bg="bg4" px={4} py={8} {...rest}>
+    <LinkWrapper as={Box} variant="unstyled" {...link} {...config?.link}>
+      <Content
+        rounded
+        bg="bg4"
+        shadow="maxbttm"
+        px={4}
+        pt={3}
+        pb={8}
+        display="flex"
+        flexDirection="column"
+        {...rest}
+      >
         {icon && (
-          <Box as="i" color="inherit" className={`fas fa-${icon} fa-4x`} />
+          <BGIcon
+            bg="lightblue"
+            icon="stop"
+            size="2x"
+            config={{ icon: { color: "inerit" } }}
+          />
         )}
         <BlockText
           as={isHeading ? "h3" : "p"}
           text={text[0].text}
+          color="lightblue"
           {...isTruthy(isHeading, headingDefaults)}
           fontSize="md"
-          {...borderBottom(true)}
+          {...borderBottom(config?.text?.borderBottom)}
+          {...config?.text}
         />
-        <TextContent fontSize={"sm"} w="85%" mx="auto" content={content} />
+        <TextContent
+          fontWeight={500}
+          fontSize={"xs"}
+          w="85%"
+          mx="auto"
+          color="inherit"
+          truncate
+          content={content}
+          {...config?.content}
+          whiteSpace="normal"
+        />
+        {link?.label && (
+          <LinkWrapper
+            isDefault={false}
+            isEnabled={false}
+            isMoreLink
+            fontSize="xs"
+            ml="auto"
+            {...link}
+          />
+        )}
       </Content>
     </LinkWrapper>
   )
 }
+
+const BGIcon = ({ bg = "yellow", icon, children, config, ...rest }) => (
+  <Box
+    py={"0.25rem"}
+    px={"0.5rem"}
+    mr="auto"
+    mb="2"
+    alignSelf="flex-start"
+    rounded="5px"
+    {...{ bg }}
+    {...rest}
+  >
+    <Box
+      as="i"
+      color="inherit"
+      className={`fas fa-${icon} fa-${config.icon.size || "4x"}`}
+      mx="auto"
+      style={{ margin: "0 auto", ...config?.icon }}
+    />
+  </Box>
+)
