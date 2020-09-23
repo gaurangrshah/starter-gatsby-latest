@@ -41,6 +41,19 @@ export const PreFooter = ({ preFooter }) => {
         <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
           {"CONTACT US"}
         </Heading>
+        <Stack isInline pt={2}>
+          <Box
+            as="i"
+            className="fa fa-map-marker fa-2x"
+            style={{ color: "blue" }}
+          />
+          <Box fontSize="sm">
+            <Text>{`${streetAddress} ${
+              suite ? `, suite: ${suite}` : ""
+            }`}</Text>
+            <Text>{`${city}, ${state} ${zip}`}</Text>
+          </Box>
+        </Stack>
         <LinkWrapper
           w="100%"
           isEnabled
@@ -62,19 +75,6 @@ export const PreFooter = ({ preFooter }) => {
           size="xs"
           p={2}
         />
-        <Stack isInline pt={2}>
-          <Box
-            as="i"
-            className="fa fa-map-marker fa-2x"
-            style={{ color: "blue" }}
-          />
-          <Box fontSize="sm">
-            <Text>{`${streetAddress} ${
-              suite ? `, suite: ${suite}` : ""
-            }`}</Text>
-            <Text>{`${city}, ${state} ${zip}`}</Text>
-          </Box>
-        </Stack>
       </Box>
       <Box w="20%" h="200px" mx="1em" px={2} pt={5}>
         <Heading as="h3" fontSize="sm" {...borderBottom(true)}>

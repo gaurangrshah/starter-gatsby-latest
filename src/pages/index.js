@@ -20,8 +20,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer fluid minH="600px" maxH="80vh" overflowY="hidden">
-        <BackgroundImage gradientOverlay={linearGradient(14)} />
+      <BaseContainer fluid overflow="hidden">
+        <BackgroundImage
+          minH={["400px", null, null, "600px"]}
+          maxH="80vh"
+          gradientOverlay={linearGradient(14)}
+        />
         <Content
           color
           position="absolute"
