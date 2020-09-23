@@ -73,7 +73,7 @@ const DefaultLayout = ({
             </Box>
           </Box>
           <BaseContainer fluid bg="bg" py={6}>
-            <Content w="90%" mx="auto" color="bg">
+            <Content w="90%" mx="auto" position="relative" color="bg">
               <PreFooter />
             </Content>
           </BaseContainer>

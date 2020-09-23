@@ -59,7 +59,7 @@ export const PreFooter = ({ ...rest }) => {
     zip,
   } = block?.addons[0]
   return (
-    <Row responsive color="text" mb={"6em"}>
+    <Row responsive color="text" justifyContent="center" mb={"6em"}>
       <Box w={["100%", null, null, "45%"]}>
         <Heading
           as="h1"
@@ -83,6 +83,7 @@ export const PreFooter = ({ ...rest }) => {
         py={[6, null, null, 0]}
         responsive
         flexDirection={["column", "row", null, null]}
+        justifyContent={{ lg: "flex-end" }}
       >
         <Box w={["100%", "45%", null, "40%"]} h="200px" mx="1em" px={2} pt={5}>
           <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
