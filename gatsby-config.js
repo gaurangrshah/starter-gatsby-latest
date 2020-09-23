@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `gsd`,
-    tagline: `Developers of rich applications`,
-    description: `this is the site descritpion`,
+    title: `Penn Star`,
+    tagline: `Land Transfer`,
+    description: `Lehigh Valley's Land Transfer & Title Insurance Pros`,
     language: `en`,
     siteUrl: `https://www.livewebsiteURL.com`,
     author: `@jammersio`,

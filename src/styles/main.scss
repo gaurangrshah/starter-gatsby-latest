@@ -27,3 +27,9 @@
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
+
+.wrapped-link.more > svg {
+  padding: 1px;
+  background: teal;
+  border-radius: 50%;
+}

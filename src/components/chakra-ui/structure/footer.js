@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/core"
 
 import { Content } from "../layout"
 import { SocialLinks } from "./social-links"
-import { component } from "../chakra"
+import { component } from "../components"
 
 export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
   return (

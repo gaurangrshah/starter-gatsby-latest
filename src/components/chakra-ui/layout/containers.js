@@ -40,15 +40,15 @@ export const Content = ({
   ...rest
 }) => {
   const { colorMode } = useColorMode()
-  const currentColor = color
-    ? isBoolean(color)
-      ? "background"
-      : color
-    : "background"
+
   return (
     <>
       <Box
-        color={`mode.${colorMode}.${currentColor}`}
+        color={
+          color
+            ? `mode.${colorMode}.${isBoolean(color) ? "background" : color}`
+            : "inherit"
+        }
         bg={bg ? `mode.${colorMode}.${isBoolean(bg) ? "bg" : bg}` : bg2 && bg2}
         shadow={isBoolean(shadow) ? `sm${colorMode}box` : shadow}
         rounded={isBoolean(rounded) ? "5px" : "rounded"}

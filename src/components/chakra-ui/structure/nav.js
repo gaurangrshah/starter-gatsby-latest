@@ -12,7 +12,7 @@ import { DrawerMenu } from "./drawer-menu"
 
 import useSiteMetadata from "../../../hooks/use-site-metadata"
 
-import { button, buttonVariants, component } from "../chakra"
+import { buttons, buttonVariants, component } from "../components"
 
 const NavLink = ({ to = "#", title = "", idx = 0, children }) => {
   const { colorMode } = useColorMode()
@@ -21,7 +21,7 @@ const NavLink = ({ to = "#", title = "", idx = 0, children }) => {
       className="nav-link"
       as={GatsbyLink}
       {...{ to }}
-      {...button?.navLink}
+      {...buttons?.navLink}
       _hover={{
         bg: `mode.${colorMode}.textAlt`,
         color: `inherit`,
@@ -47,7 +47,7 @@ export const Nav = ({ siteTitle, siteTagline }) => {
           return <NavLink key={i} idx={i} to={link?.path} title={link?.label} />
         })}
         <Button
-          {...buttonVariants?.buttons?.contact?.desktop}
+          {...buttonVariants?.contact?.desktop}
           as={GatsbyLink}
           to={contact?.path}
           size="sm"
@@ -71,7 +71,7 @@ export const Nav = ({ siteTitle, siteTagline }) => {
             )
           })}
           <Button
-            {...buttonVariants?.buttons?.contact?.mobile}
+            {...buttonVariants?.contact?.mobile}
             variantColor="blue"
             size={["md", null, null, "lg"]}
             px={[3, null, null, 0]}
