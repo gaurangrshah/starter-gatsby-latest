@@ -48,8 +48,9 @@ export const BackgroundImage = ({
       position="relative"
       backgroundColor={overlay}
       backgroundImage={gradientOverlay}
-      maxW="100vw"
-      overflowX="hidden"
+      maxW="100%"
+      overflowY="hidden"
+      {...rest}
     >
       <BgImage
         Tag={"div"}

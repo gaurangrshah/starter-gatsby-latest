@@ -12,7 +12,16 @@ import theme from "../theme"
 import { Global } from "./global"
 
 import SEO from "../../components/seo"
-import { test, Header, Footer, ModeToggle, Sidebar } from "../../components"
+import {
+  test,
+  BaseContainer,
+  Content,
+  Header,
+  Footer,
+  ModeToggle,
+  Sidebar,
+  PreFooter,
+} from "../../components"
 
 import useSiteMetadata from "../../hooks/use-site-metadata"
 
@@ -63,6 +72,11 @@ const DefaultLayout = ({
               {children}
             </Box>
           </Box>
+          <BaseContainer fluid bg="bg" py={6}>
+            <Content w="90%" mx="auto" color="bg">
+              <PreFooter />
+            </Content>
+          </BaseContainer>
           <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
         </ColorModeProvider>
       </ThemeProvider>

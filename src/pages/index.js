@@ -5,6 +5,7 @@ import { SimpleGrid } from "@chakra-ui/core"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
+  test,
   linearGradient,
   BackgroundImage,
   BaseContainer,
@@ -15,8 +16,7 @@ import {
 } from "../components"
 
 const IndexPage = ({ data }) => {
-  const [homeHero, homeAuthority, preFooter] = data.allStrapiSection.edges
-  console.log(preFooter?.node)
+  const [homeHero, homeAuthority] = data.allStrapiSection.edges
 
   return (
     <DefaultLayout pageTagline={""}>
@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
           top={0}
           textAlign="left"
           ml={[12, null, null, 12 * 4]}
-          mt={12 * 4}
+          mt={[12, null, null, 12 * 4]}
         >
           <Block
             shadow
@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => {
         </Content>
       </BaseContainer>
       <BaseContainer fluid pattern py={12}>
-        <Content w="80%" mx="auto" color="bg4" rounded>
+        <Content w="80%" mx="auto" color="bg4" bg="background" shadow rounded>
           <Block
             p={4}
             config={{
@@ -86,11 +86,6 @@ const IndexPage = ({ data }) => {
               ))}
             </SimpleGrid>
           </Block>
-        </Content>
-      </BaseContainer>
-      <BaseContainer fluid bg="bg" py={6}>
-        <Content w="90%" mx="auto" color="bg">
-          <PreFooter preFooter={preFooter} />
         </Content>
       </BaseContainer>
     </DefaultLayout>
