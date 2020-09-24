@@ -6,7 +6,8 @@ import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
   test,
-  linearGradient,
+  MAX_WIDTH,
+  component,
   BackgroundImage,
   BaseContainer,
   Block,
@@ -22,22 +23,10 @@ const AboutPage = ({ data }) => {
   return (
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
-        <BackgroundImage
-          minH={["400px", null, null, "600px"]}
-          maxH="80vh"
-          gradientOverlay={linearGradient(14)}
-        />
-        <Content
-          color
-          position="absolute"
-          top={0}
-          textAlign="left"
-          ml={[12, null, null, 12 * 4]}
-          mt={[12, "20%", null, 12 * 4]}
-        >
+        <BackgroundImage {...component.hero} />
+        <Content {...component.heroContent}>
           <Block
-            shadow
-            position="relative"
+            {...component.heroBlock}
             config={{
               heading: { border: true },
               tagline: { border: true, fontSize: "xl" },
@@ -51,37 +40,54 @@ const AboutPage = ({ data }) => {
           />
         </Content>
       </BaseContainer>
-      <BaseContainer>
-        <Content py={6} textAlign="center">
-          <Block {...aboutUs.node.block.block} />
+      <BaseContainer fluid pattern py={12}>
+        <Content
+          bg="background"
+          shadow
+          rounded
+          maxW={MAX_WIDTH}
+          mx="auto"
+          py={6}
+          px={4}
+          textAlign="center"
+        >
+          <Block w="80%" {...aboutUs.node.block.block} />
         </Content>
-      </BaseContainer>
-      <BaseContainer>
-        <Content>
-          <Box w="40%" mx="auto" color="mode.light.background">
+        <Content
+          bg="background"
+          shadow
+          rounded
+          maxW={MAX_WIDTH}
+          mx="auto"
+          py={6}
+          px={4}
+          color="white"
+        >
+          <Box mx="auto" w="100%">
             <SimpleCard
-              maxW="280px"
               config={{ link: { isDefault: false, isEnabled: false } }}
             >
               <Profile {...founder} />
             </SimpleCard>
           </Box>
-          <Block {...aboutTeam.node.block.block}>
+          <Block py={12} px={4} w="80%" {...aboutTeam.node.block.block}>
             <SimpleGrid
-              w="80%"
-              mx="auto"
-              my={12}
+              isInline
               order={8}
               spacing={6}
               columns={3}
+              justifyItems="center"
               minChildWidth={"200px"}
+              w="100%"
+              mx="auto"
+              my={12}
               color="white"
-              isInline
             >
               {rest?.map((card, i) => (
                 <SimpleCard
                   key={i}
-                  maxW="280px"
+                  maxW="200px"
+                  mx="auto"
                   config={{ link: { isDefault: false, isEnabled: false } }}
                 >
                   <Profile {...card} />

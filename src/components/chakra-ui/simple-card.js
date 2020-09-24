@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Button } from "@chakra-ui/core"
 
-import { box } from "./components"
+import { box, CARD_WIDTH } from "./components"
 import { LinkWrapper } from "./link-wrapper"
 import { Content, Row } from "./layout"
 
@@ -30,11 +30,13 @@ export const SimpleCard = ({
         rounded
         bg="bg4"
         shadow="maxbttm"
+        maxW={CARD_WIDTH}
         px={4}
         pt={3}
         pb={8}
         display="flex"
         flexDirection="column"
+        mx="auto"
         {...rest}
       >
         {icon ? (

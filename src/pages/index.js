@@ -6,7 +6,8 @@ import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
   test,
-  linearGradient,
+  component,
+  content,
   BackgroundImage,
   BaseContainer,
   Block,
@@ -16,27 +17,15 @@ import {
 } from "../components"
 
 const IndexPage = ({ data }) => {
-  const [preFooter, homeHero, homeAuthority] = data.allStrapiSection.edges
-
+  const [homeHero, homeAuthority, preFooter] = data.allStrapiSection.edges
+  // console.log(data.allStrapiSection.edges)
   return (
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
-        <BackgroundImage
-          minH={["400px", null, null, "600px"]}
-          maxH="80vh"
-          gradientOverlay={linearGradient(14)}
-        />
-        <Content
-          color
-          position="absolute"
-          top={0}
-          textAlign="left"
-          ml={[12, null, null, 12 * 4]}
-          mt={[12, "20%", null, 12 * 4]}
-        >
+        <BackgroundImage {...component.hero} />
+        <Content {...component.heroContent}>
           <Block
-            shadow
-            position="relative"
+            {...component.heroBlock}
             config={{
               heading: { border: true },
               tagline: { border: true, fontSize: "xl" },
@@ -51,7 +40,7 @@ const IndexPage = ({ data }) => {
         </Content>
       </BaseContainer>
       <BaseContainer fluid pattern py={12}>
-        <Content w="80%" mx="auto" color="bg4" bg="background" shadow rounded>
+        <Content shadow rounded color="bg4" bg="background" {...content.base}>
           <Block
             p={4}
             config={{
@@ -70,21 +59,21 @@ const IndexPage = ({ data }) => {
             {...homeAuthority?.node?.block?.block}
           >
             <SimpleGrid
-              w="80%"
-              mx="auto"
-              my={12}
+              isInline
               order={5}
               spacing={6}
               columns={3}
               justifyItems="center"
               minChildWidth={"200px"}
+              w="80%"
+              mx="auto"
+              my={12}
               color="white"
-              isInline
+              textAlign="left"
             >
               {homeAuthority?.node?.block?.cards?.map((card, i) => (
                 <SimpleCard
                   key={i}
-                  maxW="280px"
                   minH="250px"
                   config={{ text: { borderBottom: true } }}
                   {...card}

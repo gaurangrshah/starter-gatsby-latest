@@ -60,7 +60,13 @@ export const PreFooter = ({ ...rest }) => {
     zip,
   } = block?.addons[0]
   return (
-    <Row responsive color="text" justifyContent="center" mb={"6em"}>
+    <Row
+      responsive
+      color="text"
+      justifyContent="center"
+      maxW={["100%", "960px"]}
+      mb={"6em"}
+    >
       <Box w={["100%", null, null, "45%"]}>
         <Heading
           as="h1"
@@ -84,7 +90,7 @@ export const PreFooter = ({ ...rest }) => {
         py={[8, null, null, 0]}
         responsive
         flexDirection={["column", "row", null, null]}
-        justifyContent={{ lg: "flex-end" }}
+        justifyContent={"flex-end"}
       >
         <Box w={["100%", "45%", null, "40%"]} h="200px" mx="1em" px={2} pt={5}>
           <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
@@ -103,7 +109,7 @@ export const PreFooter = ({ ...rest }) => {
               <Text>{`${city}, ${state} ${zip}`}</Text>
             </Box>
           </Stack>
-          <Stack float="right">
+          <Stack align={["flex-start", null, null, "flex-end"]}>
             <LinkWrapper
               isEnabled
               isDefault

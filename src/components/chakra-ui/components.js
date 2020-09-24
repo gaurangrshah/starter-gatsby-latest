@@ -1,4 +1,8 @@
-import { padding } from "./chakra"
+import { linearGradient, padding } from "./chakra"
+
+export const MAX_WIDTH = "960px"
+
+export const CARD_WIDTH = "240px"
 
 export const buttons = {
   default: {
@@ -58,7 +62,7 @@ export const component = {
     py: [6, null, null, 4],
     px: 1,
     mx: "auto",
-    maxW: "90%",
+    maxW: MAX_WIDTH,
     justify: ["space-between"],
     align: ["stretch", null, null, "center"],
     wrap: ["wrap", null, null, "nowrap"],
@@ -89,6 +93,7 @@ export const component = {
   },
   footer: {
     color: "inherit",
+    maxW: MAX_WIDTH,
     w: "90%",
     h: "2.5rem",
     mx: "auto",
@@ -98,6 +103,32 @@ export const component = {
     justifyContent: ["center", null, null, "space-between"],
     alignItems: "center",
     textAlign: ["center", null, null, "left"],
+  },
+  hero: {
+    minH: ["400px", null, null, "600px"],
+    maxH: "80vh",
+    gradientOverlay: linearGradient(14),
+  },
+  heroContent: {
+    color: true,
+    position: "absolute",
+    top: 0,
+    textAlign: "left",
+    ml: [12, null, null, 12 * 4],
+    mt: [12, "20%", null, 12 * 4],
+    maxW: MAX_WIDTH,
+  },
+  heroBlock: {
+    shadow: true,
+    position: "relative",
+  },
+}
+
+export const content = {
+  base: {
+    w: "80%",
+    maxW: MAX_WIDTH,
+    mx: "auto",
   },
 }
 

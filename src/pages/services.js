@@ -6,7 +6,9 @@ import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
   test,
+  component,
   linearGradient,
+  MAX_WIDTH,
   BackgroundImage,
   BaseContainer,
   Block,
@@ -24,15 +26,10 @@ const ServicesPage = ({ data }) => {
   return (
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
-        <BackgroundImage
-          minH={["400px", null, null, "600px"]}
-          maxH="80vh"
-          gradientOverlay={linearGradient(14)}
-        />
+        <BackgroundImage {...component.hero} />
         <Row
           position="absolute"
           top="0"
-          // right="0"
           flexDirection="column"
           alignItems="flex-end"
           w="100%"
@@ -78,10 +75,27 @@ const ServicesPage = ({ data }) => {
           </Content>
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern h="100%" py={12} mx="auto">
+      <BaseContainer fluid pattern py={12} mx="auto">
         <Content
           position="relative"
           w="80%"
+          maxW={MAX_WIDTH}
+          mx="auto"
+          textAlign="center"
+        >
+          <Block
+            {...services.node.block.block}
+            config={{
+              heading: {
+                fontSize: "2xl",
+              },
+            }}
+          />
+        </Content>
+        <Content
+          position="relative"
+          w="80%"
+          maxW={MAX_WIDTH}
           h="800px"
           mx="auto"
           display="flex"

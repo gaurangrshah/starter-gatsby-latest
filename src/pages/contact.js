@@ -43,8 +43,14 @@ const ContactPage = ({ data }) => {
   } = preFooter?.node?.block?.addons[0]
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer fluid minH="40vh" overflow="hidden">
-        <FrameLoader title="contactmap" src={MAP} minH={"40vh"} />
+      <BaseContainer fluid height={["60vh", "40vh"]} overflow="hidden">
+        <FrameLoader
+          title="contactmap"
+          src={MAP}
+          maxH={"60vh"}
+          minH="40vh"
+          mt={12 * 4}
+        />
         <Content
           color="bg3"
           position="absolute"
@@ -52,7 +58,7 @@ const ContactPage = ({ data }) => {
           textAlign="left"
           w={"100%"}
           pb={6}
-          mt={["50%", "30%", null, 12 * 4]}
+          mt={["100%", 12 * 4]}
         >
           <Row
             responsive
@@ -60,11 +66,12 @@ const ContactPage = ({ data }) => {
             shadow={"maxbttm"}
             bg="background"
             justifyContent="space-between"
-            w={["100%", "30%", null, "40%"]}
+            w={["100%", "40%"]}
+            maxW="500px"
             minW="400px"
             h={"100%"}
             mr={"10%"}
-            mt={["20%", 0]}
+            // mt={["10%", 0]}
             pb={6}
           >
             <Content
@@ -82,11 +89,16 @@ const ContactPage = ({ data }) => {
             >
               Contact The Penn Star Pros Today!
             </Content>
-            <Row responsive fontSize={["xs", null, "sm"]} pt={3}>
+            <Row
+              responsive
+              fontSize={["sm", null, null, "xs"]}
+              pt={3}
+              textAlign={["left"]}
+            >
               <Stack
                 isInline
                 mx="auto"
-                align="center"
+                align={["center"]}
                 display={["none", null, null, "flex"]}
               >
                 <BGIcon
