@@ -16,7 +16,7 @@ export const FormLayout = () => {
       className="form-cont"
       w={["100%", null, null, "80%"]}
       mx="auto"
-      p={[6, null, null, 12 * 2]}
+      p={["15%", null, null, 12 * 2]}
       border="1px solid silver"
       textAlign="center"
     >
