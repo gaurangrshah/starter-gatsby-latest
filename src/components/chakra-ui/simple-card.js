@@ -12,9 +12,18 @@ import {
   TextContent,
 } from "../blocks"
 import { isTruthy } from "../../utils"
+import { BGIcon } from "../bg-icon"
 
-export const SimpleCard = ({ icon, text, content, link, config, ...rest }) => {
-  const isHeading = text[0].type === "heading"
+export const SimpleCard = ({
+  icon,
+  text,
+  content,
+  link,
+  config,
+  children,
+  ...rest
+}) => {
+  const isHeading = text && text[0]?.type === "heading"
   return (
     <LinkWrapper as={Box} variant="unstyled" {...link} {...config?.link}>
       <Content
@@ -28,35 +37,39 @@ export const SimpleCard = ({ icon, text, content, link, config, ...rest }) => {
         flexDirection="column"
         {...rest}
       >
-        {icon && (
+        {icon ? (
           <BGIcon
             bg="lightblue"
             icon="stop"
             size="2x"
             config={{ icon: { color: "inerit" } }}
           />
-        )}
-        <BlockText
-          as={isHeading ? "h3" : "p"}
-          text={text[0].text}
-          color="lightblue"
-          {...isTruthy(isHeading, headingDefaults)}
-          fontSize="md"
-          {...borderBottom(config?.text?.borderBottom)}
-          {...config?.text}
-        />
-        <TextContent
-          fontWeight={500}
-          fontSize={"xs"}
-          w="85%"
-          mx="auto"
-          color="inherit"
-          truncate
-          content={content}
-          {...config?.content}
-          whiteSpace="normal"
-        />
-        {link?.label && (
+        ) : null}
+        {text?.length ? (
+          <BlockText
+            as={isHeading ? "h3" : "p"}
+            text={text[0].text}
+            color="lightblue"
+            {...isTruthy(isHeading, headingDefaults)}
+            fontSize="md"
+            {...borderBottom(config?.text?.borderBottom)}
+            {...config?.text}
+          />
+        ) : null}
+        {content?.length ? (
+          <TextContent
+            fontWeight={500}
+            fontSize={"xs"}
+            w="85%"
+            mx="auto"
+            color="inherit"
+            truncate
+            content={content}
+            {...config?.content}
+            whiteSpace="normal"
+          />
+        ) : null}
+        {link?.label ? (
           <LinkWrapper
             isDefault={false}
             isEnabled={false}
@@ -65,29 +78,9 @@ export const SimpleCard = ({ icon, text, content, link, config, ...rest }) => {
             ml="auto"
             {...link}
           />
-        )}
+        ) : null}
+        {children}
       </Content>
     </LinkWrapper>
   )
 }
-
-const BGIcon = ({ bg = "yellow", icon, children, config, ...rest }) => (
-  <Box
-    py={"0.25rem"}
-    px={"0.5rem"}
-    mr="auto"
-    mb="2"
-    alignSelf="flex-start"
-    rounded="5px"
-    {...{ bg }}
-    {...rest}
-  >
-    <Box
-      as="i"
-      color="inherit"
-      className={`fas fa-${icon} fa-${config.icon.size || "4x"}`}
-      mx="auto"
-      style={{ margin: "0 auto", ...config?.icon }}
-    />
-  </Box>
-)

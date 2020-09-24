@@ -1,10 +1,10 @@
 import React from "react"
 import { AspectRatioBox, Box } from "@chakra-ui/core"
 
-const FrameLoader = ({ src, rest }) => {
+const FrameLoader = ({ minH, src, rest }) => {
   return (
     <>
-      <AspectRatioBox ratio={16 / 9} mx={"auto"} maxH="500px">
+      <AspectRatioBox ratio={16 / 9} mx={"auto"} minH={minH}>
         <Box
           as="iframe"
           src={src}

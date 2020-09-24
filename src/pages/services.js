@@ -69,6 +69,7 @@ const ServicesPage = ({ data }) => {
                   mx="auto"
                   maxW="250px"
                   minH="250px"
+                  truncate={20}
                   {...card}
                   config={{ link: { as: Box }, icon: { color: "lightblue" } }}
                 />

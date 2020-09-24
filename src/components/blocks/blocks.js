@@ -42,7 +42,7 @@ export const BlockText = ({
   />
 )
 
-export const TextContent = ({ content, ...rest }) =>
+export const TextContent = ({ content, truncate = false, ...rest }) =>
   content?.length
     ? content.map((textContent, i) => (
         <Text
@@ -53,7 +53,12 @@ export const TextContent = ({ content, ...rest }) =>
           lineHeight="1.75em"
           {...rest}
         >
-          {truncateOnWord(textContent.content.toString(), 70)}
+          {truncate
+            ? truncateOnWord(
+                textContent.content.toString(),
+                isBoolean(truncate) ? 70 : truncate
+              )
+            : textContent.content}
         </Text>
       ))
     : null
@@ -65,6 +70,7 @@ export const Block = ({
   link = {},
   text = [{}, {}],
   config = {},
+  truncate = false,
   shadow,
   children,
   ...rest
@@ -101,6 +107,7 @@ export const Block = ({
         <TextContent
           order={order[4]}
           content={content}
+          truncate={truncate}
           {...isTruthy(config.content)}
         />
       )}

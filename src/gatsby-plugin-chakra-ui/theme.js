@@ -42,10 +42,10 @@ const theme = {
         brand: "#0C3FAC", // blue denim
         alt: "#093186", // cosmic cobalt
         alt2: "#0F4CD2", // cerulean blue
-        alt3: "#1A5EEF", // bluetiful
+        alt3: "#788B9B", // slate blue gray
         cardBG: "#4078F2", // blue crayola
         cardBG2: "#6592F4", // cornflower blue
-        icon: "#000", // cadet blue crayola
+        icon: "#F2F2F2", // light gray
 
         text: "#2b4054", // charcoal
         textAlt: "#C9D7E3", // beau blue
@@ -103,6 +103,7 @@ const theme = {
     minbttm: "0 0 10px 2px rgba(0,0,0,.25)",
     smdarkbox: "0 4px 4px 0 rgba(0,0,0,.1)",
     smlightbox: "0 4px 4px 0 rgba(0,0,0,.05)",
+    icon: "0px 1px 2px 0px rgba(0,0,0,0.05)",
   },
 }
 

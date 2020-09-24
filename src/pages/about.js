@@ -11,7 +11,7 @@ import {
   BaseContainer,
   Block,
   Content,
-  PreFooter,
+  Profile,
   SimpleCard,
 } from "../components"
 
@@ -52,14 +52,19 @@ const AboutPage = ({ data }) => {
         </Content>
       </BaseContainer>
       <BaseContainer>
-        <Content>
+        <Content py={6} textAlign="center">
           <Block {...aboutUs.node.block.block} />
         </Content>
       </BaseContainer>
       <BaseContainer>
         <Content>
           <Box w="40%" mx="auto" color="mode.light.background">
-            <SimpleCard {...founder} />
+            <SimpleCard
+              maxW="280px"
+              config={{ link: { isDefault: false, isEnabled: false } }}
+            >
+              <Profile {...founder} />
+            </SimpleCard>
           </Box>
           <Block {...aboutTeam.node.block.block}>
             <SimpleGrid
@@ -69,13 +74,18 @@ const AboutPage = ({ data }) => {
               order={8}
               spacing={6}
               columns={3}
-              justifyItems="center"
               minChildWidth={"200px"}
               color="white"
               isInline
             >
               {rest?.map((card, i) => (
-                <SimpleCard key={i} maxW="280px" minH="250px" {...card} />
+                <SimpleCard
+                  key={i}
+                  maxW="280px"
+                  config={{ link: { isDefault: false, isEnabled: false } }}
+                >
+                  <Profile {...card} />
+                </SimpleCard>
               ))}
             </SimpleGrid>
           </Block>
