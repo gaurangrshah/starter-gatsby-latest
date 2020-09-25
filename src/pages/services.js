@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Grid, SimpleGrid } from "@chakra-ui/core"
+import { Box, Flex, Grid, SimpleGrid } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
@@ -32,12 +32,12 @@ const ServicesPage = ({ data }) => {
           top="0"
           flexDirection="column"
           alignItems="flex-end"
+          mr={[12, null, null, 12 * 4]}
+          mt={[12, "20%", null, 12 * 4]}
           w="100%"
         >
-          <Content position="relative" color textAlign="left">
+          <Content color textAlign="left" position="relative">
             <Block
-              mr={[12, null, null, 12 * 4]}
-              mt={[12, "20%", null, 12 * 4]}
               shadow
               position="relative"
               config={{
@@ -52,26 +52,28 @@ const ServicesPage = ({ data }) => {
               {...servicesHero.node.block.block}
             />
           </Content>
-          <Content w="70%" mr={5}>
-            <SimpleGrid
-              colums={3}
-              minChildWidth="150px"
-              spacing={3}
-              justify="center"
-            >
+          <Content
+            w={["100%", null, null, "70%"]}
+            mr={5}
+            mb={[12, null, null, 0]}
+          >
+            <Flex justifyContent="center" flexWrap="wrap" textAlign="left">
               {servicesHero.node.block.cards.map((card, i) => (
                 <SimpleCard
                   key={i}
-                  h="100%"
+                  w={["150px", null, null, "250px"]}
+                  minH="150px"
                   mx="auto"
-                  maxW="250px"
-                  minH="250px"
-                  truncate={20}
+                  truncate={120}
                   {...card}
-                  config={{ link: { as: Box }, icon: { color: "lightblue" } }}
+                  config={{
+                    link: { as: Box, p: 3 },
+                    icon: { color: "lightblue" },
+                    content: { display: ["none", null, null, "block"] },
+                  }}
                 />
               ))}
-            </SimpleGrid>
+            </Flex>
           </Content>
         </Row>
       </BaseContainer>
@@ -92,27 +94,32 @@ const ServicesPage = ({ data }) => {
             }}
           />
         </Content>
-        <Content
-          position="relative"
-          w="80%"
-          maxW={MAX_WIDTH}
-          h="800px"
-          mx="auto"
-          display="flex"
-          justifyContent="center"
-          flexWrap="wrap"
+        <Row
+          fluid
+          max
+          responsive
+          // maxW={MAX_WIDTH}
+          // h={["1400px", "1200px", null, "800px"]}
+          // mx="auto"
+          // display="flex"
+          // justifyContent={"center"}
+          // alignItems={["center", null, null, "initial"]}
+          // alignContent={["space-between", null, null, "initial"]}
+          // flexWrap="wrap"
         >
           {services.node.block.cards.map((card, i) => (
             <SimpleCard
               key={i}
               mx="auto"
-              w="250px"
-              h="180px"
+              w={["250px", "150px", null, "250px"]}
+              flexBasis={"250px"}
+              // h={["250px", null, null, "180px"]}
+              borderBottom="10px solid transparent"
               {...card}
-              config={{ link: { padding: "1em" } }}
+              config={{ link: { p: "1em" } }}
             />
           ))}
-        </Content>
+        </Row>
       </BaseContainer>
     </DefaultLayout>
   )

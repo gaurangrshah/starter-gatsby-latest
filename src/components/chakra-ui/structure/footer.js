@@ -2,13 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { Box } from "@chakra-ui/core"
 
-import { Content } from "../layout"
+import { ContentLogic } from "../layout"
 import { SocialLinks } from "./social-links"
 import { component } from "../components"
 
 export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
   return (
-    <Content
+    <ContentLogic
       as="footer"
       bg={`brand`}
       color={`background`}
@@ -35,6 +35,6 @@ export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
           <SocialLinks />
         </Box>
       </Box>
-    </Content>
+    </ContentLogic>
   )
 }

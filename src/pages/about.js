@@ -1,19 +1,25 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, SimpleGrid } from "@chakra-ui/core"
+import { Box, Flex, SimpleGrid } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
   test,
   MAX_WIDTH,
+  MAX_CONTENT_WIDTH,
+  CARD_WIDTH_LG,
+  CARD_WIDTH,
   component,
   BackgroundImage,
   BaseContainer,
   Block,
+  BlockText,
   Content,
   Profile,
+  Row,
   SimpleCard,
+  TextContent,
 } from "../components"
 
 const AboutPage = ({ data }) => {
@@ -24,25 +30,28 @@ const AboutPage = ({ data }) => {
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
-        <Content {...component.heroContent}>
+        <Row fluid {...component.heroContent}>
           <Block
+            fluid
+            alignItems="flex-start"
+            shadow
             {...component.heroBlock}
             config={{
-              heading: { border: true },
-              tagline: { border: true, fontSize: "xl" },
+              // heading: { border: true },
+              tagline: { border: true, fontSize: ["md", "xl"] },
               link: {
                 isDefault: false,
                 isMoreLink: true,
-                alignSelf: "flex-end",
               },
             }}
             {...aboutHero.node.block.block}
           />
-        </Content>
+        </Row>
       </BaseContainer>
       <BaseContainer fluid pattern py={12}>
         <Content
           bg="background"
+          color="bg4"
           shadow
           rounded
           maxW={MAX_WIDTH}
@@ -51,49 +60,84 @@ const AboutPage = ({ data }) => {
           px={4}
           textAlign="center"
         >
-          <Block w="80%" {...aboutUs.node.block.block} />
+          <Block
+            fluid
+            {...aboutUs.node.block.block}
+            config={{
+              heading: { my: 12 },
+              lead: {
+                mx: "auto",
+                // maxW: MAX_CONTENT_WIDTH,
+                border: true,
+                borderColor: "red",
+              },
+              content: {
+                color: `mode.${"light"}.text`,
+                textAlign: ["left", null, "center"],
+              },
+            }}
+          />
         </Content>
         <Content
           bg="background"
+          color={`mode.${"light"}.text`}
           shadow
           rounded
           maxW={MAX_WIDTH}
           mx="auto"
+          my={12}
           py={6}
           px={4}
-          color="white"
         >
-          <Box mx="auto" w="100%">
-            <SimpleCard
-              config={{ link: { isDefault: false, isEnabled: false } }}
-            >
-              <Profile {...founder} />
-            </SimpleCard>
-          </Box>
-          <Block py={12} px={4} w="80%" {...aboutTeam.node.block.block}>
-            <SimpleGrid
-              isInline
+          <SimpleCard
+            maxW={CARD_WIDTH}
+            color="background"
+            config={{
+              link: { isDefault: false, isEnabled: false },
+            }}
+          >
+            <Profile {...founder} />
+          </SimpleCard>
+          <Block fluid py={12} {...aboutTeam.node.block.block} />
+        </Content>
+      </BaseContainer>
+      <BaseContainer bg fluid py={12}>
+        <Content
+          shadow
+          rounded
+          bg="background"
+          maxW={MAX_WIDTH}
+          py={6}
+          textAlign="center"
+          color="bg4"
+        >
+          <Block
+            fluid
+            text={[{ text: "This is the text", type: "heading" }]}
+            mx="auto"
+          >
+            <Row
+              fluid
+              responsive
+              color="background"
+              justifyContent={["inherit", null, "space-around"]}
+              alignItems="center"
               order={8}
-              spacing={6}
-              columns={3}
-              justifyItems="center"
-              minChildWidth={"200px"}
-              w="100%"
-              mx="auto"
               my={12}
-              color="white"
             >
               {rest?.map((card, i) => (
                 <SimpleCard
                   key={i}
-                  maxW="200px"
-                  mx="auto"
-                  config={{ link: { isDefault: false, isEnabled: false } }}
+                  minH={"180px"}
+                  maxW={["320px", CARD_WIDTH_LG]}
+                  config={{
+                    link: { isEnabled: false },
+                  }}
                 >
                   <Profile {...card} />
                 </SimpleCard>
               ))}
-            </SimpleGrid>
+            </Row>
           </Block>
         </Content>
       </BaseContainer>

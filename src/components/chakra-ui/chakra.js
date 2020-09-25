@@ -1,5 +1,7 @@
+import { isBoolean } from "../../utils/tools/tools"
+
 export const test = (color = "red", width = 2) => ({
-  border: `${width}px solid ${color}`,
+  border: `${width}px solid ${isBoolean(color) ? "red" : color}`,
 })
 
 export const padding = {

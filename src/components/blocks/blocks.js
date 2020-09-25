@@ -5,7 +5,7 @@ import { textShadow, LinkWrapper, Row } from "../chakra-ui"
 import { isBoolean, isTruthy, truncateOnWord, doesInclude } from "../../utils"
 
 export const headingDefaults = {
-  fontSize: ["2xl", null, null, "4xl"],
+  fontSize: ["xl", "2xl", null, "4xl"],
   fontWeight: "700",
   lineHeight: 2,
   color: "blue",
@@ -15,12 +15,13 @@ const DEFAULT_ORDER = [0, 1, 2, 3, 6, 10] // [lead, heading, tagline, misc, cont
 
 export const borderBottom = (
   bool,
-  color = "white",
-  settings = `1px solid ${color}`
+  color = "red",
+  borderWidth = "1px",
+  settings = `${borderWidth} solid ${color}`
 ) =>
   bool && {
     borderBottom: settings,
-    pb: 6,
+    pb: 3,
   }
 
 export const BlockText = ({
@@ -29,15 +30,20 @@ export const BlockText = ({
   type = undefined,
   children,
   border,
+  borderColor,
+  borderWidth,
   ...rest
 }) => (
   <Text
+    lineHeight="1.75rem"
     className={type}
     order={order}
-    color="inherit"
     children={text}
-    {...borderBottom(border)}
-    lineHeight="1.75em"
+    {...borderBottom(
+      border,
+      borderColor ? borderColor : "white",
+      borderWidth ? borderWidth : "1px"
+    )}
     {...rest}
   />
 )
@@ -45,14 +51,7 @@ export const BlockText = ({
 export const TextContent = ({ content, truncate = false, ...rest }) =>
   content?.length
     ? content.map((textContent, i) => (
-        <Text
-          as={Box}
-          key={i}
-          py={2}
-          color="inherit"
-          lineHeight="1.75em"
-          {...rest}
-        >
+        <Text as={Box} key={i} py={2} lineHeight="1.75rem" {...rest}>
           {truncate
             ? truncateOnWord(
                 textContent.content.toString(),
@@ -76,7 +75,7 @@ export const Block = ({
   ...rest
 }) => {
   return (
-    <Row flexDirection="column" color={`inherit`} py={6} {...rest}>
+    <Row className="block-row-column" flexDirection="column" py={6} {...rest}>
       {text.map((txt, i) => {
         if (txt.type !== "heading") {
           return (

@@ -12,7 +12,7 @@ export const LinkWrapper = ({
   isContact,
   isEnabled,
   path,
-  label = "default label",
+  label,
   icon,
   children,
   ...rest
@@ -38,7 +38,14 @@ export const LinkWrapper = ({
           {...rest}
         />
       ) : (
-        <Box as="div" className="link-removed" pointerEvents="none" {...rest}>
+        <Box
+          as="div"
+          className="link-removed"
+          pointerEvents="none"
+          pl={[null, null, null, 2]}
+          pb={[2]}
+          {...rest}
+        >
           {children || label}
         </Box>
       )}

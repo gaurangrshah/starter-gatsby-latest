@@ -6,6 +6,8 @@ import { Content, Row } from "../layout"
 import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
+import { test } from "../chakra"
+import { flex } from "../components"
 
 export const PreFooter = ({ ...rest }) => {
   const data = useStaticQuery(graphql`
@@ -61,13 +63,13 @@ export const PreFooter = ({ ...rest }) => {
   } = block?.addons[0]
   return (
     <Row
+      fluid
       responsive
       color="text"
-      justifyContent="center"
-      maxW={["100%", "960px"]}
+      justifyContent="space-between"
       mb={"6em"}
     >
-      <Box w={["100%", null, null, "45%"]}>
+      <Box w={["100%", null, null, "50%"]} mb={[6, null, null, 0]}>
         <Heading
           as="h1"
           m={0}
@@ -87,12 +89,23 @@ export const PreFooter = ({ ...rest }) => {
       </Box>
       <Row
         w={["100%", null, null, "50%"]}
-        py={[8, null, null, 0]}
         responsive
+        fluid
+        reverse
+        // reset
+        center
         flexDirection={["column", "row", null, null]}
-        justifyContent={"flex-end"}
+        // justifyContent={["flex-end"]}
+        alignItems={["flex-start", "center"]}
+        py={[8, 0, null]}
       >
-        <Box w={["100%", "45%", null, "40%"]} h="200px" mx="1em" px={2} pt={5}>
+        <Box
+          w={["100%", "45%", null, "40%"]}
+          h="200px"
+          mx={3}
+          px={[0, 2]}
+          pt={5}
+        >
           <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
             {"CONTACT US"}
           </Heading>
@@ -100,16 +113,16 @@ export const PreFooter = ({ ...rest }) => {
             <Box
               as="i"
               w="10%"
-              className="fa fa-map-marker fa-2x"
-              style={{ color: "blue" }}
+              className="fa fa-map-marker"
+              style={{ color: "blue", fontSize: "1.3rem" }}
             />
-            <Box fontSize="sm" pl={3} w="80%">
+            <Box fontSize={["xs", "sm"]} pl={3} w="80%" flex={1}>
               <Text>{`${streetAddress}`}</Text>
               {suite && <Text>{`Suite#: ${suite}`}</Text>}
               <Text>{`${city}, ${state} ${zip}`}</Text>
             </Box>
           </Stack>
-          <Stack align={["flex-start", null, null, "flex-end"]}>
+          <Stack align={["flex-start", "flex-end"]}>
             <LinkWrapper
               isEnabled
               isDefault
@@ -137,7 +150,7 @@ export const PreFooter = ({ ...rest }) => {
           mx="1em"
           px={2}
           pt={5}
-          justifyContent={{ lg: "flex-end" }}
+          // justifyContent={{ lg: "flex-end" }}
         >
           <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
             {"LINKS"}

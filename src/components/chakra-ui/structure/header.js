@@ -4,13 +4,13 @@ import { Flex, Heading, useColorMode } from "@chakra-ui/core"
 
 import { Nav } from "./nav"
 import { Logo } from "./logo"
-import { Content } from "../layout"
+import { ContentLogic } from "../layout"
 import { component } from "../components"
 
 export const Header = ({ siteTitle, siteTagline, ...rest }) => {
   const { colorMode } = useColorMode()
   return (
-    <Content as="header" bg={`brand`} shadow="minbttm">
+    <ContentLogic as="header" bg={`brand`} shadow="minbttm">
       <Flex color={`mode.${colorMode}.background`} {...component?.header}>
         <Heading
           as="h1"
@@ -24,7 +24,7 @@ export const Header = ({ siteTitle, siteTagline, ...rest }) => {
         </Heading>
         <Nav siteTitle={siteTitle} siteTagline={siteTagline} />
       </Flex>
-    </Content>
+    </ContentLogic>
   )
 }
 

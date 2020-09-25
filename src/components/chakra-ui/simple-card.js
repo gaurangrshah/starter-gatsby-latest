@@ -19,6 +19,7 @@ export const SimpleCard = ({
   text,
   content,
   link,
+  truncate,
   config,
   children,
   ...rest
@@ -30,7 +31,6 @@ export const SimpleCard = ({
         rounded
         bg="bg4"
         shadow="maxbttm"
-        maxW={CARD_WIDTH}
         px={4}
         pt={3}
         pb={8}
@@ -64,11 +64,10 @@ export const SimpleCard = ({
             fontSize={"xs"}
             w="85%"
             mx="auto"
-            color="inherit"
-            truncate
+            whiteSpace="normal"
+            truncate={truncate}
             content={content}
             {...config?.content}
-            whiteSpace="normal"
           />
         ) : null}
         {link?.label ? (

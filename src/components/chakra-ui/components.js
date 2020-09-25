@@ -1,8 +1,11 @@
 import { linearGradient, padding } from "./chakra"
 
-export const MAX_WIDTH = "960px"
+export const MAX_CONTENT_WIDTH = "70%"
+export const MAX_WIDTH = [MAX_CONTENT_WIDTH, null, null, null, "50%"]
+export const WRAPPER_MAX_WIDTH = "1230px"
 
-export const CARD_WIDTH = "240px"
+export const CARD_WIDTH = "220px"
+export const CARD_WIDTH_LG = "280px"
 
 export const buttons = {
   default: {
@@ -18,8 +21,13 @@ export const buttons = {
     },
   },
   moreLink: {
-    variant: "unstyled",
+    mt: 4,
+    ml: "20%",
+    p: 2,
+    variant: "solid",
+    variantColor: "teal",
     rightIcon: "arrow-forward",
+    size: ["xs", null, "md"],
   },
   contact: {
     color: "inherit",
@@ -60,7 +68,7 @@ export const buttonVariants = {
 export const component = {
   header: {
     py: [6, null, null, 4],
-    px: 1,
+    px: [6, null, null, 1],
     mx: "auto",
     maxW: MAX_WIDTH,
     justify: ["space-between"],
@@ -105,17 +113,18 @@ export const component = {
     textAlign: ["center", null, null, "left"],
   },
   hero: {
-    minH: ["400px", null, null, "600px"],
-    maxH: "80vh",
+    minH: ["200px", null, null, "600px"],
+    maxH: "60vh",
     gradientOverlay: linearGradient(14),
   },
   heroContent: {
     color: true,
     position: "absolute",
     top: 0,
-    textAlign: "left",
-    ml: [12, null, null, 12 * 4],
-    mt: [12, "20%", null, 12 * 4],
+    right: 0,
+    left: 0,
+    mx: "auto",
+    mt: [6, "20%", null, 12 * 4],
     maxW: MAX_WIDTH,
   },
   heroBlock: {
@@ -124,13 +133,14 @@ export const component = {
   },
 }
 
-export const content = {
-  base: {
-    w: "80%",
-    maxW: MAX_WIDTH,
-    mx: "auto",
-  },
-}
+// export const content = {
+//   base: {
+//     position: "relative",
+//     w: "100%",
+//     mx: "auto",
+//     zIndex: 0,
+//   },
+// }
 
 export const flex = {
   rowBetween: {
@@ -147,6 +157,36 @@ export const flex = {
     textAlign: "center",
     mx: "auto",
   },
+  col3Flex: {
+    maxW: ["100%", null, "33%"],
+  },
+  col2Flex: {
+    maxW: ["100%", null, "50%"],
+  },
+  flex23: [
+    {
+      maxW: ["100%", null, "66%"],
+    },
+    {
+      maxW: ["100%", null, "33%"],
+    },
+  ],
+  flex6040: [
+    {
+      maxW: ["100%", null, null, "60%"],
+    },
+    {
+      maxW: ["100%", null, null, "40%"],
+    },
+  ],
+  flex8020: [
+    {
+      maxW: ["100%", null, null, "80%"],
+    },
+    {
+      maxW: ["100%", null, null, "20%"],
+    },
+  ],
 }
 
 export const box = {

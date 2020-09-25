@@ -1,18 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { SimpleGrid } from "@chakra-ui/core"
+import { Flex, SimpleGrid } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
   test,
+  CARD_WIDTH,
+  CARD_WIDTH_LG,
   component,
-  content,
   BackgroundImage,
   BaseContainer,
   Block,
   Content,
-  PreFooter,
+  Row,
   SimpleCard,
 } from "../components"
 
@@ -23,8 +24,11 @@ const IndexPage = ({ data }) => {
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
-        <Content {...component.heroContent}>
+        <Row fluid {...component.heroContent}>
           <Block
+            fluid
+            alignItems="flex-start"
+            shadow
             {...component.heroBlock}
             config={{
               heading: { border: true },
@@ -32,17 +36,16 @@ const IndexPage = ({ data }) => {
               link: {
                 isDefault: false,
                 isMoreLink: true,
-                alignSelf: "flex-end",
               },
             }}
             {...homeHero.node.block.block}
           />
-        </Content>
+        </Row>
       </BaseContainer>
       <BaseContainer fluid pattern py={12}>
-        <Content shadow rounded color="bg4" bg="background" {...content.base}>
+        <Content shadow rounded color="bg4" bg="background">
           <Block
-            p={4}
+            fluid
             config={{
               heading: { textAlign: "center" },
               misc: {
@@ -55,31 +58,33 @@ const IndexPage = ({ data }) => {
                 mx: "auto",
               },
             }}
-            textAlign="center"
+            textAlign="left"
             {...homeAuthority?.node?.block?.block}
           >
-            <SimpleGrid
-              isInline
+            <Row
+              fluid
+              responsive
+              center
+              flexWrap="wrap"
               order={5}
-              spacing={6}
-              columns={3}
-              justifyItems="center"
-              minChildWidth={"200px"}
-              w="80%"
-              mx="auto"
               my={12}
-              color="white"
-              textAlign="left"
+              color="background"
+              {...test()}
             >
               {homeAuthority?.node?.block?.cards?.map((card, i) => (
                 <SimpleCard
                   key={i}
+                  flexbasis={CARD_WIDTH}
+                  maxW={CARD_WIDTH_LG}
                   minH="250px"
-                  config={{ text: { borderBottom: true } }}
+                  config={{
+                    text: { border: true },
+                    link: { p: 3 },
+                  }}
                   {...card}
                 />
               ))}
-            </SimpleGrid>
+            </Row>
           </Block>
         </Content>
       </BaseContainer>
