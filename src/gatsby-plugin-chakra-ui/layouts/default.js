@@ -13,9 +13,7 @@ import { Global } from "./global"
 
 import SEO from "../../components/seo"
 import {
-  test,
   BaseContainer,
-  Content,
   Header,
   Footer,
   ModeToggle,

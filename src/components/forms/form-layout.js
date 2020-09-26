@@ -1,7 +1,7 @@
 import React from "react"
 
 import { BlockText } from "../blocks/blocks"
-import { Content } from "../chakra-ui/layout/containers"
+import { Content } from "../chakra-ui"
 
 import { useInputAutofill } from "../../hooks/use-input-autofill"
 import { FormBuild } from "./form-build"

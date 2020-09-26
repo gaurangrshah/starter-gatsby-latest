@@ -1,9 +1,8 @@
 import React from "react"
-import { css } from "@emotion/core"
-import { Box, Button, Link as CHLink, PseudoBox } from "@chakra-ui/core"
+import { Box, Button, Link as CHLink } from "@chakra-ui/core"
 
 import { Link as ReachLink } from "gatsby"
-import { isBoolean, isExternal, isTruthy } from "../../utils"
+import { isExternal, isTruthy } from "../../utils"
 import { component } from "./components"
 
 export const LinkWrapper = ({

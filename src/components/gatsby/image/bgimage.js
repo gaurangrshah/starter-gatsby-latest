@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 // https://markoskon.com/gatsby-background-image-example/
 import { Box } from "@chakra-ui/core"
 
-import { test, Content } from "../../chakra-ui"
 import { BgImage } from "./styledBgImg"
 
 export const BackgroundImage = ({

@@ -1,22 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, SimpleGri, Stack, Text } from "@chakra-ui/core"
+import { Box, Stack, Text } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  box,
   test,
-  linearGradient,
-  BackgroundImage,
+  component,
   BaseContainer,
   BGIcon,
-  Block,
   Content,
   FormLayout,
-  PreFooter,
   Row,
-  SimpleCard,
 } from "../components"
 
 import FrameLoader from "../components/chakra-ui/iframe-loader"
@@ -26,12 +21,12 @@ const MAP =
 
 const ContactPage = ({ data }) => {
   const [preFooter, contactHero, contactForm] = data.allStrapiSection.edges
-  console.log(
-    "⭕️preFooter, contactHero, contactForm",
-    preFooter
-    // contactHero,
-    // contactForm
-  )
+  // console.log(
+  //   "⭕️preFooter, contactHero, contactForm",
+  //   preFooter
+  //   // contactHero,
+  //   // contactForm
+  // )
   const {
     email,
     phone,
@@ -53,39 +48,35 @@ const ContactPage = ({ data }) => {
         />
         <Content
           color="bg3"
-          position="absolute"
-          top={0}
-          textAlign="left"
-          w={"100%"}
+          {...component.hero.content}
+          mr={[12, null, null, 12 * 4]}
           pb={6}
           mt={["100%", 12 * 4]}
         >
           <Row
-            responsive
-            rounded
+            fluid
+            // rounded
             shadow={"maxbttm"}
             bg="background"
             justifyContent="space-between"
-            w={["100%", "40%"]}
-            maxW="500px"
-            minW="400px"
-            h={"100%"}
-            mr={"10%"}
-            // mt={["10%", 0]}
+            maxW={"550px"}
             pb={6}
+            {...test()}
           >
             <Content
               bg
               rounded
               w="100%"
               h="45%"
-              px={2}
+              // px={2}
               py={2}
-              color="mode.light.alt3"
+              color="brand"
+              textAlign="center"
               borderBottomLeftRadius="0"
               borderBottomRightRadius="0"
               fontSize="md"
               fontWeight="600"
+              {...test()}
             >
               Contact The Penn Star Pros Today!
             </Content>

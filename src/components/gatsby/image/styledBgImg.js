@@ -1,7 +1,4 @@
-import React from "react"
-import { Image } from "@chakra-ui/core"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
 import Img from "gatsby-image"
 
 export const BgImage = styled(Img)`

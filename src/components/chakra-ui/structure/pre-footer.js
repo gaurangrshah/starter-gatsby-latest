@@ -1,12 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Box, Divider, Heading, Stack, Text } from "@chakra-ui/core"
+import { Box, Heading, Stack, Text } from "@chakra-ui/core"
 import { Content, Row } from "../layout"
 import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
-import { test } from "../chakra"
 import { component, constants } from "../components"
 
 export const PreFooter = ({ ...rest }) => {

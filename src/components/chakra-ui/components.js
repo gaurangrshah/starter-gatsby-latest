@@ -69,17 +69,18 @@ const buttons = {
     borderBottom: ["1px solid rgba(255,255,255,0.1)", null, null, "0px"],
     whiteSpace: "nowrap",
   },
-  variants: {
-    contact: {
-      mobile: {
-        ...buttons?.contact,
-        ml: "auto",
-        mt: 12,
-      },
-      desktop: {
-        ...buttons?.contact,
-        mt: -1,
-      },
+}
+
+buttons.variants = {
+  contact: {
+    mobile: {
+      ...buttons?.contact,
+      ml: "auto",
+      mt: 12,
+    },
+    desktop: {
+      ...buttons?.contact,
+      mt: -1,
     },
   },
 }
@@ -187,7 +188,6 @@ const footer = {
   ...padding?.default,
   display: "flex",
   flexDirection: ["column", null, null, "initial"],
-  // justifyContent: ["center", null, null, "space-between"],
   justifyContent: ["space-between", null, null, "space-between"],
   alignItems: "center",
   textAlign: ["center", null, null, "left"],

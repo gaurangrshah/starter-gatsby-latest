@@ -1,6 +1,4 @@
 import React from "react"
-
-import { LinkWrapper } from "./link-wrapper"
 import { Content } from "./layout"
 
 import { BGIcon } from "../bg-icon"

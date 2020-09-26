@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 
 // import {  PseudoContent } from "./content"
 // import { isBoolean, ptrn } from "../../utils"
