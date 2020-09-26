@@ -27,6 +27,7 @@ export const FlexCard = ({
     >
       <Block
         fluid
+        display={text || content || link || icon ? "flex" : "none"}
         justifyContent={"space-between"}
         {...{ text, content, link, truncate, config }}
       >
@@ -57,6 +58,7 @@ export const FlexCard = ({
           />
         ) : null}
       </Block>
+      {children}
     </Content>
   )
 }

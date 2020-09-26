@@ -13,6 +13,7 @@ import {
   Profile,
   Row,
   SimpleCard,
+  FlexCard,
 } from "../components"
 
 const AboutPage = ({ data }) => {
@@ -81,7 +82,7 @@ const AboutPage = ({ data }) => {
           px={4}
         >
           <SimpleCard
-            maxW={constants?.CARD_WIDTH}
+            w={["100%", "25%"]}
             color="background"
             config={{
               link: { isDefault: false, isEnabled: false },
@@ -117,16 +118,18 @@ const AboutPage = ({ data }) => {
               my={12}
             >
               {rest?.map((card, i) => (
-                <SimpleCard
+                <FlexCard
                   key={i}
                   minH={"180px"}
-                  maxW={["320px", constants?.CARD_WIDTH_LG]}
+                  flexBasis={[constants?.CARD_WIDTH_LG]}
+                  mx={["auto", null, 3]}
+                  my={[3]}
                   config={{
                     link: { isEnabled: false },
                   }}
                 >
                   <Profile {...card} />
-                </SimpleCard>
+                </FlexCard>
               ))}
             </Row>
           </Block>

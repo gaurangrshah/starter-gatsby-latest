@@ -16,8 +16,9 @@ import {
 } from "../components"
 
 const ServicesPage = ({ data }) => {
-  const [preFoooter, servicesHero, services] = data.allStrapiSection.edges
-  console.log(constants)
+  // const [preFoooter, servicesHero, services] = data.allStrapiSection.edges
+  const servicesHero = data.allStrapiSection.edges[1]
+  const services = data.allStrapiSection.edges[2]
 
   return (
     <DefaultLayout pageTagline={""}>
@@ -61,17 +62,17 @@ const ServicesPage = ({ data }) => {
           </Row>
           <Row
             display={["none", "none", "none", "flex"]}
-            fluid
+            // fluid
             responsive
-            w="100%"
+            // w="100%"
             mx="auto"
             justifyContent="flex-end"
+            flexWrap="nowrap"
           >
             {servicesHero.node.block.cards.map((card, i) => (
               <FlexCard
                 key={i}
-                flexbasis={constants?.CARD_WIDTH}
-                maxW={"28%"}
+                w={["20%", null, null, constants?.CARD_WIDTH]}
                 truncate={80}
                 {...card}
                 config={{

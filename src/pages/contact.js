@@ -7,6 +7,7 @@ import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 import {
   test,
   component,
+  constants,
   BaseContainer,
   BGIcon,
   Content,
@@ -19,14 +20,12 @@ import FrameLoader from "../components/chakra-ui/iframe-loader"
 const MAP =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.1127886739337!2d-75.37650524873258!3d40.67148374792818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c44070c952e4a7%3A0x28d3813f2b1ac854!2s3894%20Courtney%20St%20%23105%2C%20Bethlehem%2C%20PA%2018017!5e0!3m2!1sen!2sus!4v1581316131243!5m2!1sen!2sus"
 
+const MAP2 =
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3381.0538416123154!2d-75.36986309610396!3d40.67114803132063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c44070c952e4a7%3A0x28d3813f2b1ac854!2s3894%20Courtney%20St%20%23105%2C%20Bethlehem%2C%20PA%2018017!5e0!3m2!1sen!2sus!4v1601152497811!5m2!1sen!2sus"
+
 const ContactPage = ({ data }) => {
   const [preFooter, contactHero, contactForm] = data.allStrapiSection.edges
-  // console.log(
-  //   "⭕️preFooter, contactHero, contactForm",
-  //   preFooter
-  //   // contactHero,
-  //   // contactForm
-  // )
+
   const {
     email,
     phone,
@@ -41,7 +40,7 @@ const ContactPage = ({ data }) => {
       <BaseContainer fluid height={["60vh", "40vh"]} overflow="hidden">
         <FrameLoader
           title="contactmap"
-          src={MAP}
+          src={MAP2}
           maxH={"60vh"}
           minH="40vh"
           mt={12 * 4}
@@ -49,26 +48,26 @@ const ContactPage = ({ data }) => {
         <Content
           color="bg3"
           {...component.hero.content}
-          mr={[12, null, null, 12 * 4]}
+          mr={[12, null, null, 12 * 3]}
           pb={6}
-          mt={["100%", 12 * 4]}
+          mt={["100%", 12 * 3]}
         >
           <Row
             fluid
-            // rounded
+            rounded
             shadow={"maxbttm"}
             bg="background"
             justifyContent="space-between"
             maxW={"550px"}
             pb={6}
-            {...test()}
           >
             <Content
+              maxW={false}
               bg
               rounded
-              w="100%"
+              maxW="100%"
+              minW="100%"
               h="45%"
-              // px={2}
               py={2}
               color="brand"
               textAlign="center"
@@ -76,20 +75,24 @@ const ContactPage = ({ data }) => {
               borderBottomRightRadius="0"
               fontSize="md"
               fontWeight="600"
-              {...test()}
             >
               Contact The Penn Star Pros Today!
             </Content>
             <Row
+              fluid
               responsive
-              fontSize={["sm", null, null, "xs"]}
-              pt={3}
+              fontSize={["sm", null, null, "sm"]}
+              p={3}
               textAlign={["left"]}
+              color="brand"
             >
               <Stack
                 isInline
+                flex={1}
+                w="50%"
                 mx="auto"
-                align={["center"]}
+                justify="center"
+                align="center"
                 display={["none", null, null, "flex"]}
               >
                 <BGIcon
@@ -108,7 +111,6 @@ const ContactPage = ({ data }) => {
               <Box
                 pl={[0, 3]}
                 mx="auto"
-                // ml={["-9em", 0]}
                 borderLeft={["none", null, null, "2px solid lightgrey"]}
               >
                 <Stack isInline align="center">
@@ -124,10 +126,25 @@ const ContactPage = ({ data }) => {
           </Row>
         </Content>
       </BaseContainer>
-      <BaseContainer pb={12 * 2} pt={[0, null, null, 12 * 2]} bg fluid>
-        <Content w={["100%", null, null, "80%"]} mx="auto">
-          <FormLayout />
-        </Content>
+      {/* Form Layout Content */}
+
+      <BaseContainer bg fluid pb={12 * 2} pt={[0, null, null, 12 * 2]}>
+        <Row fluid>
+          <Content
+            rounded
+            shadow
+            color="brand"
+            bg="background"
+            w={constants.MAX_CONTENT_WIDTH}
+            mx="auto"
+            p={["15%", null, null, 12 * 2]}
+            border="1px solid rgba(0,0,0,0.2)"
+            textAlign="center"
+            className="form-cont"
+          >
+            <FormLayout />
+          </Content>
+        </Row>
       </BaseContainer>
     </DefaultLayout>
   )

@@ -12,6 +12,7 @@ import {
   Content,
   Row,
   SimpleCard,
+  FlexCard,
 } from "../components"
 
 const IndexPage = ({ data }) => {
@@ -59,21 +60,26 @@ const IndexPage = ({ data }) => {
               {...homeAuthority?.node?.block?.block}
             >
               <Row
-                fluid
+                w={["100%", null, "80%"]}
                 responsive
                 center
-                flexWrap="wrap"
+                flexWrap={["wrap", null, null, "nowrap"]}
+                alignItems="stretch"
                 order={5}
                 my={12}
+                mx="auto"
                 color="background"
               >
                 {homeAuthority?.node?.block?.cards?.map((card, i) => (
-                  <SimpleCard
+                  <FlexCard
                     key={i}
-                    flexbasis={constants?.CARD_WIDTH}
-                    maxW={constants?.CARD_WIDTH_LG}
-                    minH="250px"
+                    truncate
+                    flexbasis={constants?.CARD_WIDTH_LG}
+                    maxH="400px"
+                    mx={["auto", null, 3]}
+                    my={[3]}
                     config={{
+                      heading: { fontSize: ["lg", null, "xl"] },
                       text: { border: true },
                       link: { p: 3 },
                     }}

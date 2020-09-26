@@ -7,7 +7,6 @@ import { isBoolean } from "../../../../utils"
 
 export const base = ({ fluid, max, pattern, ...rest }) => ({
   position: "relative",
-  // w: "100%",
   mx: "auto",
   zIndex: 0,
   backgroundImage: pattern && extras.ptrn,
@@ -29,7 +28,6 @@ export const row = ({
   fluid,
   max,
   pattern,
-  ...rest
 }) => ({
   display: "flex",
   flexWrap: ["nowrap", null, null, "wrap"],

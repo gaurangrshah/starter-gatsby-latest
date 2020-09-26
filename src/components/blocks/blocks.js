@@ -44,6 +44,7 @@ export const BlockText = ({
       borderColor ? borderColor : "white",
       borderWidth ? borderWidth : "1px"
     )}
+    {...isTruthy(type === "heading", headingDefaults)}
     {...rest}
   />
 )
