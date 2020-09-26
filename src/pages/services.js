@@ -1,125 +1,126 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Flex, Grid, SimpleGrid } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  test,
+  constants,
   component,
-  linearGradient,
-  MAX_WIDTH,
   BackgroundImage,
   BaseContainer,
   Block,
   Content,
-  PreFooter,
   Row,
-  SimpleCard,
+  FlexCard,
 } from "../components"
 
 const ServicesPage = ({ data }) => {
   const [preFoooter, servicesHero, services] = data.allStrapiSection.edges
-
-  console.log(services)
+  console.log(constants)
 
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer fluid overflow="hidden">
+      <BaseContainer fluid overflow="hidden" h="auto">
         <BackgroundImage {...component.hero} />
         <Row
+          fluid
+          {...component.hero.content}
           position="absolute"
           top="0"
           flexDirection="column"
-          alignItems="flex-end"
+          alignItems="flex-start"
           mr={[12, null, null, 12 * 4]}
-          mt={[12, "20%", null, 12 * 4]}
+          mt={[12, "20%", null, 12 * 2]}
           w="100%"
         >
-          <Content color textAlign="left" position="relative">
+          <Row
+            fluid
+            color
+            textAlign="right"
+            position="relative"
+            justifyContent="flex-end"
+            p={0}
+            mr={0}
+          >
             <Block
+              fluid
               shadow
               position="relative"
+              mx={0}
               config={{
                 heading: { border: true },
                 tagline: { border: true, fontSize: "xl" },
                 link: {
                   isDefault: false,
                   isMoreLink: true,
-                  alignSelf: "flex-end",
                 },
               }}
               {...servicesHero.node.block.block}
             />
-          </Content>
-          <Content
-            w={["100%", null, null, "70%"]}
-            mr={5}
-            mb={[12, null, null, 0]}
+          </Row>
+          <Row
+            display={["none", "none", "none", "flex"]}
+            fluid
+            responsive
+            w="100%"
+            mx="auto"
+            justifyContent="flex-end"
           >
-            <Flex justifyContent="center" flexWrap="wrap" textAlign="left">
-              {servicesHero.node.block.cards.map((card, i) => (
-                <SimpleCard
-                  key={i}
-                  w={["150px", null, null, "250px"]}
-                  minH="150px"
-                  mx="auto"
-                  truncate={120}
-                  {...card}
-                  config={{
-                    link: { as: Box, p: 3 },
-                    icon: { color: "lightblue" },
-                    content: { display: ["none", null, null, "block"] },
-                  }}
-                />
-              ))}
-            </Flex>
-          </Content>
+            {servicesHero.node.block.cards.map((card, i) => (
+              <FlexCard
+                key={i}
+                flexbasis={constants?.CARD_WIDTH}
+                maxW={"28%"}
+                truncate={80}
+                {...card}
+                config={{
+                  link: { as: Box, p: 3 },
+                  icon: { color: "lightblue" },
+                  heading: { fontSize: ["lg", null, null, "2xl"] },
+                  content: { display: ["none", null, null, "block"] },
+                }}
+              />
+            ))}
+          </Row>
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern py={12} mx="auto">
-        <Content
-          position="relative"
-          w="80%"
-          maxW={MAX_WIDTH}
-          mx="auto"
-          textAlign="center"
-        >
+      <BaseContainer fluid pattern>
+        <Content position="relative" mx="auto" textAlign="center">
           <Block
+            position="relative"
             {...services.node.block.block}
             config={{
-              heading: {
-                fontSize: "2xl",
-              },
+              heading: { fontSize: "2xl", order: 0 },
+              misc: { order: 1 },
             }}
-          />
+          >
+            <Row fluid responsive center order={5} my={12}>
+              {services.node.block.cards.map((card, i) => (
+                <FlexCard
+                  key={i}
+                  m={3} // sets the margin around each card
+                  flexbasis={constants?.CARD_WIDTH}
+                  maxW={[constants?.CARD_WIDTH_LG]}
+                  minW={constants?.CARD_WIDTH}
+                  icon
+                  config={{
+                    heading: { as: "h3", fontSize: ["lg", null, null, "2xl"] },
+                    link: {
+                      p: "1em",
+                      isDefault: false,
+                      isMoreLink: true,
+                      size: "xs",
+                      mt: 6,
+                      alignSelf: "flex-end",
+                    },
+                  }}
+                  {...card}
+                />
+              ))}
+            </Row>
+          </Block>
         </Content>
-        <Row
-          fluid
-          max
-          responsive
-          // maxW={MAX_WIDTH}
-          // h={["1400px", "1200px", null, "800px"]}
-          // mx="auto"
-          // display="flex"
-          // justifyContent={"center"}
-          // alignItems={["center", null, null, "initial"]}
-          // alignContent={["space-between", null, null, "initial"]}
-          // flexWrap="wrap"
-        >
-          {services.node.block.cards.map((card, i) => (
-            <SimpleCard
-              key={i}
-              mx="auto"
-              w={["250px", "150px", null, "250px"]}
-              flexBasis={"250px"}
-              // h={["250px", null, null, "180px"]}
-              borderBottom="10px solid transparent"
-              {...card}
-              config={{ link: { p: "1em" } }}
-            />
-          ))}
-        </Row>
       </BaseContainer>
     </DefaultLayout>
   )

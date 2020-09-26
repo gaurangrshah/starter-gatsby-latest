@@ -1,15 +1,24 @@
 import React from "react"
 import { Box } from "@chakra-ui/core"
 
-export const BGIcon = ({ icon, size, shadow, children, config, ...rest }) => (
+export const BGIcon = ({
+  icon,
+  size,
+  padding = [".25rem", ".5rem", ".75rem", "1rem"],
+  padIndex = 1,
+  shadow,
+  children,
+  config,
+  ...rest
+}) => (
   <Box
-    py={"0.25rem"}
-    px={"0.5rem"}
+    py={padding[padIndex]}
+    px={padding[padIndex]}
+    shadow={shadow && "icon"}
+    alignSelf="flex-start"
     mr="auto"
     mb="2"
-    alignSelf="flex-start"
     rounded="5px"
-    shadow={shadow && "icon"}
     {...rest}
   >
     <Box

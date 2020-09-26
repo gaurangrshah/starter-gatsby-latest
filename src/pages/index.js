@@ -1,13 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Flex, SimpleGrid } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
   test,
-  CARD_WIDTH,
-  CARD_WIDTH_LG,
+  constants,
   component,
   BackgroundImage,
   BaseContainer,
@@ -18,18 +16,17 @@ import {
 } from "../components"
 
 const IndexPage = ({ data }) => {
-  const [homeHero, homeAuthority, preFooter] = data.allStrapiSection.edges
-  // console.log(data.allStrapiSection.edges)
+  const [homeHero, homeAuthority] = data.allStrapiSection.edges
   return (
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
-        <Row fluid {...component.heroContent}>
+        <Row fluid {...component.hero.content}>
           <Block
             fluid
             alignItems="flex-start"
             shadow
-            {...component.heroBlock}
+            {...component.hero.block}
             config={{
               heading: { border: true },
               tagline: { border: true, fontSize: "xl" },
@@ -42,51 +39,52 @@ const IndexPage = ({ data }) => {
           />
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern py={12}>
-        <Content shadow rounded color="bg4" bg="background">
-          <Block
-            fluid
-            config={{
-              heading: { textAlign: "center" },
-              misc: {
-                mx: "auto",
-                w: ["90%", null, null, "60%"],
-                textAlign: "center",
-              },
-              content: {
-                w: ["90%", null, null, "70%"],
-                mx: "auto",
-              },
-            }}
-            textAlign="left"
-            {...homeAuthority?.node?.block?.block}
-          >
-            <Row
+      <BaseContainer fluid pattern py={12 * 4}>
+        <Row fluid>
+          <Content shadow rounded color="bg4" bg="background">
+            <Block
               fluid
-              responsive
-              center
-              flexWrap="wrap"
-              order={5}
-              my={12}
-              color="background"
-              {...test()}
+              config={{
+                heading: { textAlign: "center" },
+                misc: {
+                  mx: "auto",
+                  w: ["90%", null, null, "60%"],
+                  textAlign: "center",
+                },
+                content: {
+                  w: ["90%", null, null, "70%"],
+                  mx: "auto",
+                },
+              }}
+              textAlign="left"
+              {...homeAuthority?.node?.block?.block}
             >
-              {homeAuthority?.node?.block?.cards?.map((card, i) => (
-                <SimpleCard
-                  key={i}
-                  flexbasis={CARD_WIDTH}
-                  maxW={CARD_WIDTH_LG}
-                  minH="250px"
-                  config={{
-                    text: { border: true },
-                    link: { p: 3 },
-                  }}
-                  {...card}
-                />
-              ))}
-            </Row>
-          </Block>
-        </Content>
+              <Row
+                fluid
+                responsive
+                center
+                flexWrap="wrap"
+                order={5}
+                my={12}
+                color="background"
+              >
+                {homeAuthority?.node?.block?.cards?.map((card, i) => (
+                  <SimpleCard
+                    key={i}
+                    flexbasis={constants?.CARD_WIDTH}
+                    maxW={constants?.CARD_WIDTH_LG}
+                    minH="250px"
+                    config={{
+                      text: { border: true },
+                      link: { p: 3 },
+                    }}
+                    {...card}
+                  />
+                ))}
+              </Row>
+            </Block>
+          </Content>
+        </Row>
       </BaseContainer>
     </DefaultLayout>
   )

@@ -1,3 +1,4 @@
+// import {variables, component} from "./components"
 import { isBoolean } from "../../utils/tools/tools"
 
 export const test = (color = "red", width = 2) => ({

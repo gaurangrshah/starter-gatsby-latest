@@ -1,25 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Flex, SimpleGrid } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  test,
-  MAX_WIDTH,
-  MAX_CONTENT_WIDTH,
-  CARD_WIDTH_LG,
-  CARD_WIDTH,
   component,
+  constants,
   BackgroundImage,
   BaseContainer,
   Block,
-  BlockText,
   Content,
   Profile,
   Row,
   SimpleCard,
-  TextContent,
 } from "../components"
 
 const AboutPage = ({ data }) => {
@@ -30,14 +23,13 @@ const AboutPage = ({ data }) => {
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
-        <Row fluid {...component.heroContent}>
+        <Row fluid {...component.hero.content}>
           <Block
             fluid
             alignItems="flex-start"
             shadow
-            {...component.heroBlock}
+            {...component.hero.block}
             config={{
-              // heading: { border: true },
               tagline: { border: true, fontSize: ["md", "xl"] },
               link: {
                 isDefault: false,
@@ -54,7 +46,7 @@ const AboutPage = ({ data }) => {
           color="bg4"
           shadow
           rounded
-          maxW={MAX_WIDTH}
+          maxW={constants?.MAX_WIDTH}
           mx="auto"
           py={6}
           px={4}
@@ -67,7 +59,6 @@ const AboutPage = ({ data }) => {
               heading: { my: 12 },
               lead: {
                 mx: "auto",
-                // maxW: MAX_CONTENT_WIDTH,
                 border: true,
                 borderColor: "red",
               },
@@ -83,14 +74,14 @@ const AboutPage = ({ data }) => {
           color={`mode.${"light"}.text`}
           shadow
           rounded
-          maxW={MAX_WIDTH}
+          maxW={constants?.MAX_WIDTH}
           mx="auto"
           my={12}
           py={6}
           px={4}
         >
           <SimpleCard
-            maxW={CARD_WIDTH}
+            maxW={constants?.CARD_WIDTH}
             color="background"
             config={{
               link: { isDefault: false, isEnabled: false },
@@ -106,7 +97,7 @@ const AboutPage = ({ data }) => {
           shadow
           rounded
           bg="background"
-          maxW={MAX_WIDTH}
+          maxW={constants?.MAX_WIDTH}
           py={6}
           textAlign="center"
           color="bg4"
@@ -129,7 +120,7 @@ const AboutPage = ({ data }) => {
                 <SimpleCard
                   key={i}
                   minH={"180px"}
-                  maxW={["320px", CARD_WIDTH_LG]}
+                  maxW={["320px", constants?.CARD_WIDTH_LG]}
                   config={{
                     link: { isEnabled: false },
                   }}

@@ -1,8 +1,8 @@
 import React from "react"
-import { Box, Divider, Heading, Text } from "@chakra-ui/core"
+import { Box, Heading, Text } from "@chakra-ui/core"
 
 import { textShadow, LinkWrapper, Row } from "../chakra-ui"
-import { isBoolean, isTruthy, truncateOnWord, doesInclude } from "../../utils"
+import { isBoolean, isTruthy, truncateOnWord } from "../../utils"
 
 export const headingDefaults = {
   fontSize: ["xl", "2xl", null, "4xl"],
@@ -75,7 +75,13 @@ export const Block = ({
   ...rest
 }) => {
   return (
-    <Row className="block-row-column" flexDirection="column" py={6} {...rest}>
+    <Row
+      className="block-row-column"
+      flexDirection="column"
+      justifyContent="space-around"
+      py={6}
+      {...rest}
+    >
       {text.map((txt, i) => {
         if (txt.type !== "heading") {
           return (

@@ -72,10 +72,8 @@ const DefaultLayout = ({
               {children}
             </Box>
           </Box>
-          <BaseContainer fluid bg="bg" py={6}>
-            <Content mx="auto" position="relative" color="bg">
-              <PreFooter />
-            </Content>
+          <BaseContainer fluid bg="bg" py={12} mb={[12, null, 0]}>
+            <PreFooter />
           </BaseContainer>
           <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
         </ColorModeProvider>

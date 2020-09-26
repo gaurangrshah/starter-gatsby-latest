@@ -1,9 +1,8 @@
 import React from "react"
-import { Box, Button } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/core"
 
-import { box, CARD_WIDTH } from "./components"
 import { LinkWrapper } from "./link-wrapper"
-import { Content, Row } from "./layout"
+import { Content } from "./layout"
 
 import {
   headingDefaults,
@@ -44,7 +43,7 @@ export const SimpleCard = ({
             bg="lightblue"
             icon="stop"
             size="2x"
-            config={{ icon: { color: "inerit" } }}
+            config={{ icon: { color: "inherit" } }}
           />
         ) : null}
         {text?.length ? (

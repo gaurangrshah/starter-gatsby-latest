@@ -4,7 +4,7 @@ import { Box, Button, Link as CHLink, PseudoBox } from "@chakra-ui/core"
 
 import { Link as ReachLink } from "gatsby"
 import { isBoolean, isExternal, isTruthy } from "../../utils"
-import { buttons } from "./components"
+import { component } from "./components"
 
 export const LinkWrapper = ({
   isDefault = true,
@@ -26,8 +26,8 @@ export const LinkWrapper = ({
           isDisabled={!isEnabled}
           color="inherit"
           my={2}
-          {...isTruthy(isDefault, buttons.default)}
-          {...isTruthy(isMoreLink && !isContact, buttons.moreLink)}
+          {...isTruthy(isDefault, component?.buttons?.default)}
+          {...isTruthy(isMoreLink && !isContact, component?.buttons.moreLink)}
           href={isExternal(path) || isContact ? path : undefined}
           to={!isExternal(path) || !isContact ? path : undefined}
           target={isExternal(path) ? "blank" : "self"}
