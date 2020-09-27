@@ -24,7 +24,7 @@ const NavLink = ({ to = "#", title = "", idx = 0, children }) => {
       {...component.buttons?.navLink}
       _hover={{
         bg: `mode.${colorMode}.textAlt`,
-        color: `inherit`,
+        color: `mode.${colorMode}.brand`,
       }}
       children={children || title}
     />

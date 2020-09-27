@@ -20,6 +20,10 @@ export const BgImage = styled(Img)`
 
   @media screen and (max-width: 600px) {
     height: ${({ mobileHeight }) => mobileHeight};
+    padding-bottom: 3rem; /* adds padding to help maintain aspect ratio and height */
+    & > img {
+      object-fit: contain !important;
+    }
   }
 `
 

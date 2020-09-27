@@ -7,8 +7,11 @@ export const test = (color = "red", width = 2) => ({
 
 export const padding = {
   default: {
-    py: 10,
+    py: [5, null, null, 10],
     px: 5,
+  },
+  main: {
+    py: [12, null, null, 12 * 3],
   },
 }
 

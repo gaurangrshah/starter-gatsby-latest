@@ -49,6 +49,7 @@ export const BackgroundImage = ({
       backgroundImage={gradientOverlay}
       maxW="100%"
       overflowY="hidden"
+      height="100%"
       {...rest}
     >
       <BgImage

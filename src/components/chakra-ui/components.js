@@ -12,7 +12,7 @@ component = {
 }
 */
 
-const MAX_CONTENT_WIDTH = "70%"
+const MAX_CONTENT_WIDTH = "960px"
 const MAX_WIDTH = [MAX_CONTENT_WIDTH, null, null, null, "60%"]
 const WRAPPER_MAX_WIDTH = "1230px"
 
@@ -102,32 +102,40 @@ const flex = {
   },
   col3Flex: {
     maxW: ["100%", null, null, "33%"],
+    flex: 1,
   },
   col2Flex: {
-    maxW: ["100%", null, null, "50%"],
+    maxW: ["100%", null, null, "45%"],
+    flex: 1,
   },
   flex23: [
     {
       maxW: ["100%", null, null, "66%"],
+      flex: 1,
     },
     {
       maxW: ["100%", null, null, "33%"],
+      flex: 0,
     },
   ],
   flex6040: [
     {
       maxW: ["100%", null, null, "60%"],
+      flex: 1,
     },
     {
       maxW: ["100%", null, null, "40%"],
+      flex: 0,
     },
   ],
   flex8020: [
     {
       maxW: ["100%", null, null, "80%"],
+      flex: 1,
     },
     {
       maxW: ["100%", null, null, "20%"],
+      flex: 0,
     },
   ],
 }
@@ -183,7 +191,7 @@ const header = {
 const footer = {
   color: "inherit",
   maxW: WRAPPER_MAX_WIDTH,
-  h: "2.5rem",
+  h: ["auto", null, null, "2.5rem"],
   mx: "auto",
   ...padding?.default,
   display: "flex",
@@ -194,7 +202,6 @@ const footer = {
 }
 
 const hero = {
-  minH: ["200px", null, null, "600px"],
   maxH: "60vh",
   gradientOverlay: linearGradient(14),
   content: {
@@ -204,7 +211,7 @@ const hero = {
     right: 0,
     left: 0,
     mx: "auto",
-    mt: [6, "20%", null, 12 * 4],
+    mt: [12 * 4, "20%", null, 12 * 4],
     maxW: MAX_WIDTH,
   },
   block: {

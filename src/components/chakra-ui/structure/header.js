@@ -17,8 +17,9 @@ export const Header = ({ siteTitle, siteTagline, ...rest }) => {
           m={0}
           color="inherit"
           fontSize={["2xl", null, null, "3xl"]}
+          pl={[4, null, null, null, 0]}
           flex={0}
-          minW="20%"
+          minW="25%"
         >
           <Logo siteTitle={siteTitle} siteTagline={siteTagline} />
         </Heading>

@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
+  padding,
   constants,
   component,
   BackgroundImage,
@@ -21,11 +22,11 @@ const IndexPage = ({ data }) => {
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
-        <Row fluid {...component.hero.content}>
+        <Row {...component.hero.content}>
           <Block
             fluid
-            alignItems="flex-start"
             shadow
+            alignItems="flex-start"
             {...component.hero.block}
             config={{
               heading: { border: true },
@@ -33,13 +34,14 @@ const IndexPage = ({ data }) => {
               link: {
                 isDefault: false,
                 isMoreLink: true,
+                variantColor: "blue",
               },
             }}
             {...homeHero.node.block.block}
           />
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern py={12 * 4}>
+      <BaseContainer fluid pattern {...padding.main}>
         <Row fluid>
           <Content shadow rounded color="bg4" bg="background">
             <Block

@@ -1,13 +1,14 @@
 import React from "react"
 
 import {
+  test,
+  component,
   BaseContainer,
   Block,
-  component,
   Content,
-  SmartRow,
   Row,
-  test,
+  StarsStripes,
+  SmartRow,
 } from "../components"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
@@ -33,7 +34,7 @@ const TestPage = () => (
       <Content {...test("blue")}>
         <Row fluid reponsive>
           <Block
-            background="blue"
+            // background="blue"
             {...test(true, 6)}
             {...component.flex?.col2Flex}
           >
@@ -41,6 +42,7 @@ const TestPage = () => (
               <Block background="blue" {...test(true, 6)} {...component.flex?.col2Flex} />
               <Block background="blue" {...test(true, 6)} {...component.flex?.col2Flex} />
             </Row> */}
+            <StarsStripes />
           </Block>
           <Block
             background="blue"
@@ -68,10 +70,10 @@ const TestPage = () => (
     <BaseContainer fluid {...test("green", 4)}>
       <Content {...test("blue")}>
         <Row fluid responsive>
-          <Block {...component.flex?.col2Flex} {...test(true, 6)} />
-          <Row fluid w={"50%"}>
-            <Block fluid w="100%" {...test(true, 6)} />
-            <Block fluid w="100%" {...test(true, 6)} />
+          <Block fluid {...component.flex?.col2Flex} {...test(true, 6)} />
+          <Row fluid {...component.flex?.col2Flex}>
+            <Block fluid {...test(true, 6)} />
+            <Block fluid {...test(true, 6)} />
           </Row>
         </Row>
       </Content>

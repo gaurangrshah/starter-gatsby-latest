@@ -4,16 +4,19 @@ import { graphql } from "gatsby"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
+  padding,
   component,
   constants,
   BackgroundImage,
   BaseContainer,
   Block,
   Content,
+  FlexCard,
   Profile,
   Row,
   SimpleCard,
-  FlexCard,
+  StarsStripesLeft,
+  StarsStripesRight,
 } from "../components"
 
 const AboutPage = ({ data }) => {
@@ -24,7 +27,7 @@ const AboutPage = ({ data }) => {
     <DefaultLayout pageTagline={""}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
-        <Row fluid {...component.hero.content}>
+        <Row {...component.hero.content}>
           <Block
             fluid
             alignItems="flex-start"
@@ -41,7 +44,7 @@ const AboutPage = ({ data }) => {
           />
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern py={12}>
+      <BaseContainer fluid pattern {...padding.main}>
         <Content
           bg="background"
           color="bg4"
@@ -93,46 +96,62 @@ const AboutPage = ({ data }) => {
           <Block fluid py={12} {...aboutTeam.node.block.block} />
         </Content>
       </BaseContainer>
-      <BaseContainer bg fluid py={12}>
+      <BaseContainer bg fluid color="brand" py={12}>
+        <Row
+          maxW={constants.MAX_CONTENT_WIDTH}
+          responsive
+          center
+          justifyContent={["center", null, null, "space-around"]}
+        >
+          <StarsStripesLeft w="25%" hideMobile />
+          <Block
+            flex={1}
+            textAlign="center"
+            text={[{ text: "Penn Star All-Stars", type: "heading" }]}
+            mx="auto"
+            config={{
+              heading: {
+                fontSize: ["xl", null, "3xl"],
+                textTransform: "uppercase",
+                pt: 10,
+              },
+            }}
+          />
+          <StarsStripesRight w="25%" hideMobile />
+        </Row>
         <Content
           shadow
           rounded
           bg="background"
           maxW={constants?.MAX_WIDTH}
           py={6}
+          mb={12}
           textAlign="center"
           color="bg4"
         >
-          <Block
-            fluid
-            text={[{ text: "This is the text", type: "heading" }]}
-            mx="auto"
+          <Row
+            flexWrap={["wrap", "nowrap"]}
+            color="background"
+            justifyContent={["space-between", null, "space-around"]}
+            alignItems="center"
+            order={8}
+            my={12}
           >
-            <Row
-              fluid
-              responsive
-              color="background"
-              justifyContent={["inherit", null, "space-around"]}
-              alignItems="center"
-              order={8}
-              my={12}
-            >
-              {rest?.map((card, i) => (
-                <FlexCard
-                  key={i}
-                  minH={"180px"}
-                  flexBasis={[constants?.CARD_WIDTH_LG]}
-                  mx={["auto", null, 3]}
-                  my={[3]}
-                  config={{
-                    link: { isEnabled: false },
-                  }}
-                >
-                  <Profile {...card} />
-                </FlexCard>
-              ))}
-            </Row>
-          </Block>
+            {rest?.map((card, i) => (
+              <FlexCard
+                key={i}
+                minH={"180px"}
+                w={["100%", "45%", "30%"]}
+                flexGrow={0}
+                m={[3]}
+                config={{
+                  link: { isEnabled: false },
+                }}
+              >
+                <Profile {...card} />
+              </FlexCard>
+            ))}
+          </Row>
         </Content>
       </BaseContainer>
     </DefaultLayout>

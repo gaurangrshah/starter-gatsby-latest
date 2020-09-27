@@ -66,7 +66,7 @@ const DefaultLayout = ({
             fontFamily="body"
           >
             {header && <Header siteTitle={title} siteTagline={pageTagline} />}
-            <Box as="main" {...rest} my="5rem">
+            <Box as="main" {...rest} mt="5rem">
               {children}
             </Box>
           </Box>

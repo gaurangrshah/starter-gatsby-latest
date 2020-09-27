@@ -5,6 +5,8 @@ import { Box } from "@chakra-ui/core"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
+  test,
+  padding,
   constants,
   component,
   BackgroundImage,
@@ -16,7 +18,6 @@ import {
 } from "../components"
 
 const ServicesPage = ({ data }) => {
-  // const [preFoooter, servicesHero, services] = data.allStrapiSection.edges
   const servicesHero = data.allStrapiSection.edges[1]
   const services = data.allStrapiSection.edges[2]
 
@@ -27,12 +28,10 @@ const ServicesPage = ({ data }) => {
         <Row
           fluid
           {...component.hero.content}
-          position="absolute"
-          top="0"
           flexDirection="column"
           alignItems="flex-start"
           mr={[12, null, null, 12 * 4]}
-          mt={[12, "20%", null, 12 * 2]}
+          mt={[6, "20%", null, 12 * 2]}
           w="100%"
         >
           <Row
@@ -61,24 +60,28 @@ const ServicesPage = ({ data }) => {
             />
           </Row>
           <Row
-            display={["none", "none", "none", "flex"]}
+            display={["none", null, null, "flex"]}
             // fluid
-            responsive
-            // w="100%"
-            mx="auto"
+            // responsive
+            w={[null, "70%", null, "80%", "100%"]}
+            // mx={3}
+            mr={0}
+            ml={0}
+            ml="auto"
             justifyContent="flex-end"
             flexWrap="nowrap"
+            {...test()}
           >
             {servicesHero.node.block.cards.map((card, i) => (
               <FlexCard
                 key={i}
-                w={["20%", null, null, constants?.CARD_WIDTH]}
+                w={["50%", "30%", null, null]}
                 truncate={80}
                 {...card}
                 config={{
                   link: { as: Box, p: 3 },
                   icon: { color: "lightblue" },
-                  heading: { fontSize: ["lg", null, null, "2xl"] },
+                  heading: { fontSize: ["sm", "lg", null, null, "2xl"] },
                   content: { display: ["none", null, null, "block"] },
                 }}
               />
@@ -86,7 +89,7 @@ const ServicesPage = ({ data }) => {
           </Row>
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern>
+      <BaseContainer fluid pattern {...padding.main}>
         <Content position="relative" mx="auto" textAlign="center">
           <Block
             position="relative"
@@ -96,14 +99,15 @@ const ServicesPage = ({ data }) => {
               misc: { order: 1 },
             }}
           >
-            <Row fluid responsive center order={5} my={12}>
+            <Row fluid center flexWrap="wrap" order={5} my={12}>
               {services.node.block.cards.map((card, i) => (
                 <FlexCard
                   key={i}
-                  m={3} // sets the margin around each card
-                  flexbasis={constants?.CARD_WIDTH}
-                  maxW={[constants?.CARD_WIDTH_LG]}
-                  minW={constants?.CARD_WIDTH}
+                  mx={3} // sets the margin around each card
+                  flexGrow={0}
+                  w={["100%", "45%", "30%"]}
+                  minH={constants?.CARD_WIDTH}
+                  m={3}
                   icon
                   config={{
                     heading: { as: "h3", fontSize: ["lg", null, null, "2xl"] },

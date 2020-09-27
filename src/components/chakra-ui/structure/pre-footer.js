@@ -7,6 +7,7 @@ import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
 import { component, constants } from "../components"
+import { test } from "../chakra"
 
 export const PreFooter = ({ ...rest }) => {
   const data = useStaticQuery(graphql`
@@ -62,8 +63,20 @@ export const PreFooter = ({ ...rest }) => {
   } = block?.addons[0]
 
   return (
-    <Row responsive color="text" justifyContent="space-between" mb={"6em"}>
-      <Box {...component?.flex?.flex6040[1]} mb={[6, null, null, 12]} mx="auto">
+    <Row
+      maxW={constants.MAX_WIDTH}
+      responsive
+      color="text"
+      justifyContent="space-between"
+      mb={"6em"}
+    >
+      <Content
+        {...component?.flex?.flex6040[1]}
+        mb={[6, null, null, 12]}
+        mx="auto"
+        minWidth={"40%"}
+        color="brand"
+      >
         <Heading
           as="h1"
           m={0}
@@ -77,19 +90,26 @@ export const PreFooter = ({ ...rest }) => {
         </Heading>
         <TextContent
           fontSize={"sm"}
-          maxW={["100%", null, null, constants.MAX_CONTENT_WIDTH]}
+          maxW={["100%", null, null, "100%"]}
           content={block?.block?.content}
+          color="mode.light.text"
         />
-      </Box>
+      </Content>
       <Row
         flex={1}
         w="100%"
         flexDirection={["column", "row", null, null]}
-        alignItems={["flex-end", "center"]}
-        justifyContent={["flex-end", null, null, "space-around"]}
-        py={[8, 0, null]}
+        alignItems={["flex-end", "stretch"]}
+        justifyContent={["flex-end", "space-around", null, "space-evenly"]}
+        py={[8, 5]}
       >
-        <Box w={"40%"} h="200px" mr={[6]} pt={[5, null, null, 0]}>
+        <Content
+          w={["100%", "50%", "40%"]}
+          h="200px"
+          mr={[0, 6]}
+          pt={[5, null, null, 0]}
+          color="brand"
+        >
           <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
             {"CONTACT US"}
           </Heading>
@@ -122,6 +142,7 @@ export const PreFooter = ({ ...rest }) => {
               pt={[2, null, null, 0]}
               my={3}
               textAlign="right"
+              color="mode.light.text"
             >
               <Box
                 as="i"
@@ -136,8 +157,14 @@ export const PreFooter = ({ ...rest }) => {
               </Box>
             </Stack>
           </Box>
-        </Box>
-        <Box w={"40%"} h="200px" pt={[12 * 2, 5, null, 0]} mt={[12, 0]}>
+        </Content>
+        <Content
+          w={["100%", "40%"]}
+          h="200px"
+          pt={[12 * 2, 5, null, 0]}
+          mt={[12, 0]}
+          color="brand"
+        >
           <Heading as="h3" fontSize="sm" {...borderBottom(true)}>
             {"LINKS"}
           </Heading>
@@ -160,7 +187,7 @@ export const PreFooter = ({ ...rest }) => {
               />
             ))}
           </Content>
-        </Box>
+        </Content>
       </Row>
     </Row>
   )
