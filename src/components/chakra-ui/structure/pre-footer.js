@@ -1,14 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Box, Heading, Stack, Text } from "@chakra-ui/core"
+import { Box, Button, Heading, Stack, Text } from "@chakra-ui/core"
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons"
 import { Content, Row } from "../layout"
 import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
 import { component, constants } from "../components"
-import { test } from "../chakra"
 
 export const PreFooter = ({ ...rest }) => {
   const data = useStaticQuery(graphql`
@@ -133,6 +132,7 @@ export const PreFooter = ({ ...rest }) => {
                 label={phone}
                 leftIcon={<PhoneIcon />}
                 size="xs"
+                target="self"
                 p={2}
               />
             </Stack>
@@ -183,8 +183,8 @@ export const PreFooter = ({ ...rest }) => {
                 color="mode.light.text"
                 variant="ghost"
                 textTransform="upperCase"
-                path={`/${page.name}`}
-                label={`${page.name}`}
+                path={`/${page?.name === "home" ? "" : page?.name}`}
+                label={`${page?.name}`}
               />
             ))}
           </Content>

@@ -14,7 +14,7 @@ import { Global } from "./global"
 
 import SEO from "../../components/seo"
 import {
-  BaseContainer,
+  BaseContainer2,
   Header,
   Footer,
   ModeToggle,
@@ -71,9 +71,9 @@ const DefaultLayout = ({
             {children}
           </Box>
         </Box>
-        <BaseContainer fluid bg="bg" py={12} mb={[12, null, 0]}>
+        <BaseContainer2 fluid bg="bg" py={12} mb={[12, null, 0]}>
           <PreFooter />
-        </BaseContainer>
+        </BaseContainer2>
         <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
         {/* </ColorModeProvider> */}
       </ChakraProvider>

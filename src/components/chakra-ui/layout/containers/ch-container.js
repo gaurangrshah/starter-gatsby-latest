@@ -5,20 +5,13 @@ import { constants } from "../../components"
 import { extras } from "../../chakra"
 import { isBoolean } from "../../../../utils"
 
-const Base = chakra(Box, {
-  baseStyle: {
-    as: "section",
-    className: "base-container",
-    position: "relative",
-    mx: "auto",
-    zIndex: 0,
-  },
-})
-
-const base2 = ({ fluid, max, pattern, ...rest }) => ({
+const baseDefaults = {
   position: "relative",
   mx: "auto",
   zIndex: 0,
+}
+
+const base = ({ fluid, max, pattern, ...rest }) => ({
   backgroundImage: pattern && extras.ptrn,
   w: [
     fluid ? "100%" : max ? constants?.MAX_CONTENT_WIDTH : "80%",
@@ -30,30 +23,65 @@ const base2 = ({ fluid, max, pattern, ...rest }) => ({
   ...rest,
 })
 
-export const BaseContent = ({
-  bg,
-  bg2,
-  color,
-  shadow,
-  rounded,
-  contentProps,
+export const row = ({ responsive, reverse, reset, center }) => ({
+  display: "flex",
+  flexWrap: ["nowrap", null, null, "wrap"],
+  flexDirection: responsive
+    ? ["column", null, null, "row"]
+    : reverse && responsive
+    ? ["column-reverse", null, null, reset ? "row" : "row-reverse"]
+    : "row",
+  alignItems: center && "center",
+  justifyContent: center && "center",
+})
+
+export const ContentLogic = forwardRef(
+  (
+    { bg, bg2, color, shadow, rounded, contentProps, children, ...rest },
+    ref
+  ) => {
+    const { colorMode } = useColorMode()
+    const contentLogic = {
+      color: color
+        ? `mode.${colorMode}.${isBoolean(color) ? "background" : color}`
+        : "inherit",
+      bg: bg ? `mode.${colorMode}.${isBoolean(bg) ? "bg" : bg}` : bg2 && bg2,
+      shadow: isBoolean(shadow) ? `sm${colorMode}box` : shadow,
+      rounded: isBoolean(rounded) ? "5px" : rounded,
+    }
+    return <Box ref={ref} {...contentLogic} children={children} {...rest} />
+  }
+)
+
+export const BaseContainer2 = ({ fluid, max, pattern, children, ...rest }) => (
+  <ContentLogic
+    as="section"
+    className="base-container"
+    children={children}
+    {...baseDefaults}
+    {...base({ fluid, max, pattern })}
+    {...rest}
+  />
+)
+
+export const Row = ({
+  responsive,
+  reverse,
+  reset,
+  center,
+  fluid,
+  max,
+  pattern,
   children,
   ...rest
-}) => {
-  const { colorMode } = useColorMode()
-  const contentLogic = {
-    color: color
-      ? `mode.${colorMode}.${isBoolean(color) ? "background" : color}`
-      : "inherit",
-    bg: bg ? `mode.${colorMode}.${isBoolean(bg) ? "bg" : bg}` : bg2 && bg2,
-    shadow: isBoolean(shadow) ? `sm${colorMode}box` : shadow,
-    rounded: isBoolean(rounded) ? "5px" : rounded,
-  }
-  return <Base {...contentLogic} children={children} {...rest} />
-}
-
-export const BaseContainer2 = forwardRef(
-  ({ fluid, max, pattern, ...rest }, ref) => (
-    <BaseContent ref={ref} {...base2({ fluid, max, pattern, ...rest })} />
-  )
+}) => (
+  <ContentLogic
+    as={Flex}
+    className="row"
+    children={children}
+    {...baseDefaults}
+    {...base({ fluid, max, pattern })}
+    {...row({ responsive, reverse, reset, center })}
+    {...rest}
+  />
 )

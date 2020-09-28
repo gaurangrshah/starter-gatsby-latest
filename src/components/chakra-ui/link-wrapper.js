@@ -17,7 +17,8 @@ export const LinkWrapper = ({
   children,
   ...rest
 }) => {
-  const Link = isExternal(path) ? CHLink : ReachLink
+  const isPathExternal = isExternal(path)
+  const Link = isPathExternal || isContact ? CHLink : ReachLink
   return (
     <>
       {isEnabled ? (
@@ -28,12 +29,14 @@ export const LinkWrapper = ({
           my={2}
           {...isTruthy(isDefault, component?.buttons?.default)}
           {...isTruthy(isMoreLink && !isContact, component?.buttons.moreLink)}
-          rightIcon={<ArrowForwardIcon />}
-          href={isExternal(path) || isContact ? path : undefined}
-          to={!isExternal(path) || !isContact ? path : undefined}
-          target={isExternal(path) ? "blank" : "self"}
+          rightIcon={isMoreLink && <ArrowForwardIcon />}
+          href={isPathExternal ? path : isContact ? path : undefined}
+          to={!isPathExternal || !isContact ? path : undefined}
+          target={isPathExternal ? "blank" : "self"}
           className={`wrapped-link ${isMoreLink && "more"} ${
             isDefault && "default"
+          } ${isPathExternal ? "external" : "internal"} ${
+            isContact && "contact"
           }`}
           children={children || label}
           {...rest}

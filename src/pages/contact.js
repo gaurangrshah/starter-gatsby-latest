@@ -10,7 +10,7 @@ import {
   component,
   constants,
   fields,
-  BaseContainer,
+  BaseContainer2,
   BGIcon,
   BlockText,
   CHookInput,
@@ -39,7 +39,7 @@ const ContactPage = ({ data }) => {
   } = preFooter?.node?.block?.addons[0]
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer fluid height={["60vh", "40vh"]} overflow="hidden">
+      <BaseContainer2 fluid height={["60vh", "40vh"]} overflow="hidden">
         <FrameLoader
           title="contactmap"
           src={MAP}
@@ -129,10 +129,10 @@ const ContactPage = ({ data }) => {
             </Row>
           </Row>
         </Content>
-      </BaseContainer>
+      </BaseContainer2>
       {/* Form Layout Content */}
 
-      <BaseContainer bg fluid color="brand" {...padding.main}>
+      <BaseContainer2 bg fluid color="brand" {...padding.main}>
         <BlockText
           text="Send us a quick message!"
           type="heading"
@@ -168,7 +168,7 @@ const ContactPage = ({ data }) => {
             </HookForm>
           </Content>
         </Row>
-      </BaseContainer>
+      </BaseContainer2>
     </DefaultLayout>
   )
 }

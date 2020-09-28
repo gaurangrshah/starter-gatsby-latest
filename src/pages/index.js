@@ -4,15 +4,15 @@ import { graphql } from "gatsby"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
+  test,
   padding,
   constants,
   component,
   BackgroundImage,
-  BaseContainer,
+  BaseContainer2,
   Block,
   Content,
   Row,
-  SimpleCard,
   FlexCard,
 } from "../components"
 
@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
   const [homeHero, homeAuthority] = data.allStrapiSection.edges
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer fluid overflow="hidden">
+      <BaseContainer2 fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
         <Row {...component.hero.content}>
           <Block
@@ -40,8 +40,8 @@ const IndexPage = ({ data }) => {
             {...homeHero.node.block.block}
           />
         </Row>
-      </BaseContainer>
-      <BaseContainer fluid pattern {...padding.main}>
+      </BaseContainer2>
+      <BaseContainer2 fluid pattern {...padding.main}>
         <Row fluid>
           <Content shadow rounded color="bg4" bg="background">
             <Block
@@ -92,7 +92,7 @@ const IndexPage = ({ data }) => {
             </Block>
           </Content>
         </Row>
-      </BaseContainer>
+      </BaseContainer2>
     </DefaultLayout>
   )
 }
