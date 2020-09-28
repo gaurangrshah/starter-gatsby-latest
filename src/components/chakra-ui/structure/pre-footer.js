@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { Box, Heading, Stack, Text } from "@chakra-ui/core"
+import { EmailIcon, PhoneIcon } from "@chakra-ui/icons"
 import { Content, Row } from "../layout"
 import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
@@ -120,7 +121,7 @@ export const PreFooter = ({ ...rest }) => {
                 isDefault
                 path={`/contact`}
                 label={email}
-                leftIcon="email"
+                leftIcon={<EmailIcon />}
                 size="xs"
                 p={2}
               />
@@ -130,7 +131,7 @@ export const PreFooter = ({ ...rest }) => {
                 isDefault
                 path={`tel:${phone.replace(/-/g, "")}`}
                 label={phone}
-                leftIcon="phone"
+                leftIcon={<PhoneIcon />}
                 size="xs"
                 p={2}
               />

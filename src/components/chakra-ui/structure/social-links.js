@@ -1,5 +1,5 @@
 import React from "react"
-import { PseudoBox, Link } from "@chakra-ui/core"
+import { Box, Link } from "@chakra-ui/core"
 import { interactions } from "../chakra"
 
 const defaultChannels = [
@@ -12,7 +12,7 @@ const defaultChannels = [
 export const SocialLinks = ({ channels = defaultChannels, ...rest }) => {
   return channels.map((channel, i) => (
     <Link key={i} href={channel?.path} color="inherit">
-      <PseudoBox
+      <Box
         as="i"
         mb={3}
         pr={[6, null, null, 4]}

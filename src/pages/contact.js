@@ -9,12 +9,15 @@ import {
   padding,
   component,
   constants,
+  fields,
   BaseContainer,
   BGIcon,
   BlockText,
+  CHookInput,
   Content,
-  FormLayout,
+  HookForm,
   Row,
+  Block,
 } from "../components"
 
 import FrameLoader from "../components/chakra-ui/iframe-loader"
@@ -137,20 +140,32 @@ const ContactPage = ({ data }) => {
           mb={12 * 2}
           textAlign="center"
         />
-        <Row>
+        <Row maxW="60%">
           <Content
             rounded
             shadow
             color="brand"
             bg="background"
-            w={constants.MAX_WIDTH}
             mx="auto"
-            p={["15%", null, null, 12 * 2]}
+            w={constants.MAX_WIDTH}
+            p={["15%", null, null, 12]}
+            px={["15%", null, null, 4 * 4]}
             border="1px solid rgba(0,0,0,0.2)"
             textAlign="center"
             className="form-cont"
           >
-            <FormLayout />
+            <Block
+              text={[
+                { type: "lead", text: "Feel free to drop us a line..." },
+                { type: "heading", text: "Thank you for reaching out!" },
+                { type: "misc", text: "Fill out the form below." },
+              ]}
+            />
+            <HookForm>
+              {fields.map((field, i) => (
+                <CHookInput key={i} {...field} />
+              ))}
+            </HookForm>
           </Content>
         </Row>
       </BaseContainer>

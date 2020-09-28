@@ -1,9 +1,9 @@
 import React from "react"
-import { Box, PseudoBox } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/core"
 export const Burger = ({ ...rest }) => {
   return (
     <Box display={["inline-block", null, null, "none"]} {...rest}>
-      <PseudoBox
+      <Box
         as="svg"
         fill={`currentColor`}
         width="20px"
@@ -16,7 +16,7 @@ export const Burger = ({ ...rest }) => {
       >
         <title>Menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-      </PseudoBox>
+      </Box>
     </Box>
   )
 }

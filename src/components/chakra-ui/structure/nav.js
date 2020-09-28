@@ -1,13 +1,7 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import {
-  Box,
-  Button,
-  PseudoBox,
-  useColorMode,
-  useDisclosure,
-} from "@chakra-ui/core"
-
+import { Box, Button, useColorMode, useDisclosure } from "@chakra-ui/core"
+import { EmailIcon } from "@chakra-ui/icons"
 import { DrawerMenu } from "./drawer-menu"
 
 import useSiteMetadata from "../../../hooks/use-site-metadata"
@@ -17,7 +11,7 @@ import { component } from "../components"
 const NavLink = ({ to = "#", title = "", idx = 0, children }) => {
   const { colorMode } = useColorMode()
   return (
-    <PseudoBox
+    <Box
       className="nav-link"
       as={GatsbyLink}
       {...{ to }}
@@ -51,8 +45,8 @@ export const Nav = ({ siteTitle, siteTagline }) => {
           as={GatsbyLink}
           to={contact?.path}
           size="sm"
-          variantColor="blue"
-          leftIcon="email"
+          colorScheme="blue"
+          leftIcon={<EmailIcon />}
         >
           {contact?.label}
         </Button>
@@ -72,11 +66,11 @@ export const Nav = ({ siteTitle, siteTagline }) => {
           })}
           <Button
             {...component?.buttons.variants?.contact?.mobile}
-            variantColor="blue"
+            colorScheme="blue"
             size={["md", null, null, "lg"]}
             px={[3, null, null, 0]}
             py={[2, null, null, 0]}
-            leftIcon="email"
+            leftIcon={<EmailIcon />}
           >
             {contact?.label}
           </Button>

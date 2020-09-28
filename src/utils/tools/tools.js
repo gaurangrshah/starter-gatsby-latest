@@ -1,5 +1,9 @@
 export const hidden = [`none`, `none`, `block`]
 
+export const capitalize = string =>
+  string.replace(/\b\w/g, c => c.toUpperCase())
+//https://attacomsian.com/blog/string-capitalize-javascript
+
 export function shortid() {
   //http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
   return (

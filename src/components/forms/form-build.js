@@ -4,13 +4,14 @@ import {
   Button,
   FormControl,
   FormHelperText,
-  Icon,
   Input,
   InputGroup,
   InputLeftAddon,
   Stack,
   Textarea,
 } from "@chakra-ui/core"
+
+import { EmailIcon, PhoneIcon } from "@chakra-ui/icons"
 
 //https://cobwwweb.com/how-to-use-netlify-forms-with-gatsby
 
@@ -48,15 +49,15 @@ export const FormBuild = () => {
           <Input type="hidden" name="form-name" value="contact" />
           <FormControl
             isRequired
-            isInvalid={() => formRef.current.reportValidity()}
+            id="email"
+            // isInvalid={() => formRef.current.reportValidity()}
           >
             <InputGroup>
-              <InputLeftAddon
-                children={<Icon name="email" color="gray.400" />}
-              />
+              <InputLeftAddon children={<EmailIcon color="gray.400" />} />
               <Input
                 type="email"
                 id="email"
+                variant="outline"
                 name="email"
                 placeholder="you@youremail.com"
                 size="lg"
@@ -68,14 +69,13 @@ export const FormBuild = () => {
               please enter a valid email address.
             </FormHelperText>
           </FormControl>
-          <FormControl isRequired>
+          <FormControl isRequired id="phone">
             <InputGroup>
-              <InputLeftAddon
-                children={<Icon name="phone" color="gray.400" />}
-              />
+              <InputLeftAddon children={<PhoneIcon color="gray.400" />} />
               <Input
                 type="phone"
                 id="phone"
+                variant="outline"
                 name="phone"
                 aria-describedby="phone-helper-text"
                 placeholder="XXX-XXX-XXXX"
@@ -91,17 +91,17 @@ export const FormBuild = () => {
             </FormHelperText>
           </FormControl>
         </Stack>
-        <Stack isRequired spacing={12} mb={12}>
-          <FormControl isRequired w="100%">
+        <Stack spacing={12} mb={12}>
+          <FormControl id="firstName" isRequired w="100%">
             <Input
-              isFullWidth
+              // isFullWidth
               type="firstName"
               id="firstName"
+              variant="filled"
               name="firstName"
               aria-describedby="firstName-helper-text"
               placeholder="First Name"
               size="lg"
-              variant="flushed"
               rounded={"10px"}
               title="please provide a first name"
               px={4}
@@ -110,16 +110,16 @@ export const FormBuild = () => {
               please enter a valid first name.
             </FormHelperText>
           </FormControl>
-          <FormControl isRequired w="100%" mb="12">
+          <FormControl id="lastName" isRequired w="100%" mb="12">
             <Input
-              isFullWidth
+              // isFullWidth
               type="lastName"
               id="lastName"
+              variant="filled"
               name="lastName"
               aria-describedby="lastName-helper-text"
               placeholder="Last Name"
               size="lg"
-              variant="flushed"
               rounded={"10px"}
               title="please provide a last name"
               px={4}
@@ -129,7 +129,7 @@ export const FormBuild = () => {
             </FormHelperText>
           </FormControl>
         </Stack>
-        <FormControl w="100%" mb="12" pb="12">
+        <FormControl id="msg" w="100%" mb="12" pb="12">
           <Textarea
             id="msg"
             name="msg"
@@ -143,8 +143,8 @@ export const FormBuild = () => {
         </FormControl>
         <Button
           type="submit"
-          leftIcon="email"
-          variantColor="blue"
+          leftIcon={<EmailIcon />}
+          colorScheme="blue"
           variant="outline"
           float="right"
         >

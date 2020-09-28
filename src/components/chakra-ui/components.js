@@ -31,7 +31,7 @@ const buttons = {
   default: {
     border: "none",
     variant: "solid",
-    variantColor: "blue",
+    colorScheme: "blue",
     color: "white",
     textAlign: "left",
     pl: 2,
@@ -45,7 +45,7 @@ const buttons = {
     ml: "20%",
     p: 2,
     variant: "solid",
-    variantColor: "teal",
+    colorScheme: "teal",
     rightIcon: "arrow-forward",
     size: ["xs", null, "md"],
   },

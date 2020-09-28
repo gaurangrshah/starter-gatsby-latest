@@ -3,6 +3,7 @@ import { useEffect } from "react"
 export const useInputAutofill = cb => {
   useEffect(() => {
     document.getElementById("phone").addEventListener("keydown", e => {
+      console.log("adding telephone event listener")
       let value = e.target.value
       let key = e.charCode || e.keyCode || 0
 

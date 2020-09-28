@@ -28,7 +28,7 @@ export const DrawerMenu = ({
     <>
       <Button
         ref={ref}
-        variantColor="blue"
+        colorScheme="blue"
         onClick={isOpen ? onClose : onOpen}
         display={["inline-block", null, null, "none"]}
       >

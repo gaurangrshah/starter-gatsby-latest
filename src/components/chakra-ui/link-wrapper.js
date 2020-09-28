@@ -1,5 +1,6 @@
 import React from "react"
 import { Box, Button, Link as CHLink } from "@chakra-ui/core"
+import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 import { Link as ReachLink } from "gatsby"
 import { isExternal, isTruthy } from "../../utils"
@@ -27,6 +28,7 @@ export const LinkWrapper = ({
           my={2}
           {...isTruthy(isDefault, component?.buttons?.default)}
           {...isTruthy(isMoreLink && !isContact, component?.buttons.moreLink)}
+          rightIcon={<ArrowForwardIcon />}
           href={isExternal(path) || isContact ? path : undefined}
           to={!isExternal(path) || !isContact ? path : undefined}
           target={isExternal(path) ? "blank" : "self"}

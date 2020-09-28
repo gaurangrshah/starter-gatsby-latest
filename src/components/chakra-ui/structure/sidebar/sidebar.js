@@ -1,5 +1,8 @@
 import React, { useRef } from "react"
+import { motion } from "framer-motion"
+
 import {
+  Button,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -9,15 +12,17 @@ import {
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/core"
-import { MotionButton } from "../../../motion"
+
+export const MotionButton = motion.custom(Button)
 
 export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const ref = useRef()
+
   return (
     <>
-      <MotionButton
+      <motion.button
         ref={ref}
         key={"sidebar-open"}
         initial={{ color: "transparent" }}
@@ -25,13 +30,15 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
         whileTap={{ color: "green" }}
         transition={{ duration: 0.2 }}
         onClick={isOpen ? onClose : onOpen}
-        display={["block"]}
-        position="fixed"
-        bottom={0}
-        right={0}
-        cursor="pointer"
-        w={100}
-        h={100}
+        style={{
+          display: "block",
+          position: "fixed",
+          bottom: 0,
+          right: 0,
+          cursor: "pointer",
+          w: 100,
+          h: 100,
+        }}
       />
       <Drawer
         isOpen={isOpen}

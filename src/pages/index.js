@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
               link: {
                 isDefault: false,
                 isMoreLink: true,
-                variantColor: "blue",
+                colorScheme: "blue",
               },
             }}
             {...homeHero.node.block.block}

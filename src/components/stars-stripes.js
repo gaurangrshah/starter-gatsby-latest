@@ -6,7 +6,7 @@ export const StarsStripesLeft = ({ fill, stroke, hideMobile, ...rest }) => {
   return (
     <Box
       as={"svg"}
-      mlns="http://www.w3.org/2000/svg"
+      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 348 44"
       fill="none"
       display={[hideMobile ? "none" : "inline=block", null, null, "block"]}
@@ -36,11 +36,11 @@ export const StarsStripesRight = ({ fill, stroke, hideMobile, ...rest }) => {
       {...rest}
     >
       <defs />
-      <path stroke="#134EE2" stroke-width="8" d="M0 6h348M0 23h348M0 40h348" />
+      <path stroke="#134EE2" strokeWidth="8" d="M0 6h348M0 23h348M0 40h348" />
       <path
         fill="#fff"
         stroke="#5465FF"
-        stroke-width=".5"
+        strokeWidth=".5"
         d="M211 .809l4.926 15.16.056.174h16.123l-12.897 9.37-.147.106.056.173 4.927 15.16-12.897-9.369-.147-.107-.147.107-12.897 9.37 4.927-15.161.056-.173-.147-.107-12.897-9.37h16.123l.056-.172L211 .809zM264 .809l4.926 15.16.056.174h16.123l-12.897 9.37-.147.106.056.173 4.927 15.16-12.897-9.369-.147-.107-.147.107-12.897 9.37 4.927-15.161.056-.173-.147-.107-12.897-9.37h16.123l.056-.172L264 .809zM317 .809l4.926 15.16.056.174h16.123l-12.897 9.37-.147.106.056.173 4.927 15.16-12.897-9.369-.147-.107-.147.107-12.897 9.37 4.927-15.161.056-.173-.147-.107-12.897-9.37h16.123l.056-.172L317 .809z"
       />
     </Box>

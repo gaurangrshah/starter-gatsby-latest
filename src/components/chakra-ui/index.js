@@ -1,6 +1,7 @@
 export * from "./chakra"
 export * from "./components"
 export * from "./flex-card"
+export * from "./icons"
 export * from "./iframe-loader"
 export * from "./layout"
 export * from "./link-wrapper"
