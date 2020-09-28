@@ -85,3 +85,14 @@ export const Row = ({
     {...rest}
   />
 )
+
+export const Content = ({ maxW = true, children, ...rest }) => (
+  <ContentLogic
+    maxW={maxW && constants?.MAX_CONTENT_WIDTH}
+    mx="auto"
+    zIndex={10}
+    className={`content`}
+    children={children}
+    {...rest}
+  />
+)
