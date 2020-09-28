@@ -63,7 +63,6 @@ const ContactPage = ({ data }) => {
             justifyContent="space-between"
             maxW={"550px"}
             pb={6}
-            {...test()}
           >
             <Content
               maxW={false}
@@ -140,7 +139,7 @@ const ContactPage = ({ data }) => {
           mb={12 * 2}
           textAlign="center"
         />
-        <Row maxW="60%">
+        <Row maxW={["80%", null, null, "75%"]}>
           <Content
             rounded
             shadow
