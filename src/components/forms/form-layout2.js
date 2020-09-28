@@ -1,6 +1,8 @@
 import React from "react"
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons"
-import { UserIcon } from "../chakra-ui/icons/user-icon"
+import { UserIcon } from "../chakra-ui/icons"
+
+const variant = { variant: "filled" }
 
 const icons = [<UserIcon />, <UserIcon />, <EmailIcon />, <PhoneIcon />]
 
@@ -34,8 +36,6 @@ const validations = [
     },
   },
 ]
-
-const variant = { variant: "filled" }
 
 export const fields = [
   {
