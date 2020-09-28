@@ -66,6 +66,8 @@ export const Nav = ({ siteTitle, siteTagline }) => {
           })}
           <Button
             {...component?.buttons.variants?.contact?.mobile}
+            as={GatsbyLink}
+            to={contact?.path}
             colorScheme="blue"
             size={["md", null, null, "lg"]}
             px={[3, null, null, 0]}
