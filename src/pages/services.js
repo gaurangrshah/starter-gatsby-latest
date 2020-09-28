@@ -10,7 +10,7 @@ import {
   constants,
   component,
   BackgroundImage,
-  BaseContainer2,
+  BaseContainer,
   Block,
   Content,
   Row,
@@ -23,7 +23,7 @@ const ServicesPage = ({ data }) => {
 
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer2 fluid overflow="hidden" h="auto">
+      <BaseContainer fluid overflow="hidden" h="auto">
         <BackgroundImage {...component.hero} />
         <Row
           fluid
@@ -88,8 +88,8 @@ const ServicesPage = ({ data }) => {
             ))}
           </Row>
         </Row>
-      </BaseContainer2>
-      <BaseContainer2 fluid pattern {...padding.main}>
+      </BaseContainer>
+      <BaseContainer fluid pattern {...padding.main}>
         <Content position="relative" mx="auto" textAlign="center">
           <Block
             position="relative"
@@ -126,7 +126,7 @@ const ServicesPage = ({ data }) => {
             </Row>
           </Block>
         </Content>
-      </BaseContainer2>
+      </BaseContainer>
     </DefaultLayout>
   )
 }

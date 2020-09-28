@@ -8,7 +8,7 @@ import {
   component,
   constants,
   BackgroundImage,
-  BaseContainer2,
+  BaseContainer,
   Block,
   Content,
   FlexCard,
@@ -25,7 +25,7 @@ const AboutPage = ({ data }) => {
   const [founder, ...rest] = aboutTeam.node.block.cards
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer2 fluid overflow="hidden">
+      <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
         <Row {...component.hero.content}>
           <Block
@@ -36,6 +36,7 @@ const AboutPage = ({ data }) => {
             config={{
               tagline: { border: true, fontSize: ["md", "xl"] },
               link: {
+                colorScheme: "blue",
                 isDefault: false,
                 isMoreLink: true,
               },
@@ -43,8 +44,8 @@ const AboutPage = ({ data }) => {
             {...aboutHero.node.block.block}
           />
         </Row>
-      </BaseContainer2>
-      <BaseContainer2 fluid pattern {...padding.main}>
+      </BaseContainer>
+      <BaseContainer fluid pattern {...padding.main}>
         <Content
           bg="background"
           color="bg4"
@@ -95,8 +96,8 @@ const AboutPage = ({ data }) => {
           </SimpleCard>
           <Block fluid py={12} {...aboutTeam.node.block.block} />
         </Content>
-      </BaseContainer2>
-      <BaseContainer2 bg fluid color="brand" py={12}>
+      </BaseContainer>
+      <BaseContainer bg fluid color="brand" py={12}>
         <Row
           maxW={constants.MAX_CONTENT_WIDTH}
           responsive
@@ -153,7 +154,7 @@ const AboutPage = ({ data }) => {
             ))}
           </Row>
         </Content>
-      </BaseContainer2>
+      </BaseContainer>
     </DefaultLayout>
   )
 }

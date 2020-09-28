@@ -53,7 +53,7 @@ export const ContentLogic = forwardRef(
   }
 )
 
-export const BaseContainer2 = ({ fluid, max, pattern, children, ...rest }) => (
+export const BaseContainer = ({ fluid, max, pattern, children, ...rest }) => (
   <ContentLogic
     as="section"
     className="base-container"

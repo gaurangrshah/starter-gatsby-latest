@@ -9,7 +9,7 @@ import {
   constants,
   component,
   BackgroundImage,
-  BaseContainer2,
+  BaseContainer,
   Block,
   Content,
   Row,
@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
   const [homeHero, homeAuthority] = data.allStrapiSection.edges
   return (
     <DefaultLayout pageTagline={""}>
-      <BaseContainer2 fluid overflow="hidden">
+      <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
         <Row {...component.hero.content}>
           <Block
@@ -40,8 +40,8 @@ const IndexPage = ({ data }) => {
             {...homeHero.node.block.block}
           />
         </Row>
-      </BaseContainer2>
-      <BaseContainer2 fluid pattern {...padding.main}>
+      </BaseContainer>
+      <BaseContainer fluid pattern {...padding.main}>
         <Row fluid>
           <Content shadow rounded color="bg4" bg="background">
             <Block
@@ -92,7 +92,7 @@ const IndexPage = ({ data }) => {
             </Block>
           </Content>
         </Row>
-      </BaseContainer2>
+      </BaseContainer>
     </DefaultLayout>
   )
 }
