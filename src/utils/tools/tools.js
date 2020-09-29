@@ -1,6 +1,7 @@
 export const hidden = [`none`, `none`, `block`]
 
 export const getFontSize = () =>
+  !isSSR &&
   parseFloat(
     getComputedStyle(document.body, null).fontSize.replace(/[^\d]/g, "")
   )

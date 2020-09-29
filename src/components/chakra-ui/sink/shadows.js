@@ -11,7 +11,7 @@ export const Shadows = ({ shadows }) => {
       <Box children="test" />
       <SimpleGrid columns={6} gap={3} mx="auto">
         {mapObject(shadows).map((shadow, i) => (
-          <Box {...galleryBoxWrapper}>
+          <Box key={i} {...galleryBoxWrapper}>
             <Box {...galleryBox} shadow={shadow[0]}></Box>
             <Stack {...stack}>
               <Tag colorScheme="blue" children={shadow[0]} {...tag} />
