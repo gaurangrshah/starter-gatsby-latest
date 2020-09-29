@@ -161,8 +161,8 @@ const box = {
     left: 0,
     right: 0,
     w: "full",
-    // mx: "auto",
-    my: "auto",
+    mx: "auto",
+    // my: "auto",
   },
 }
 

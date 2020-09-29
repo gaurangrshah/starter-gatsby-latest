@@ -1,11 +1,11 @@
 import React from "react"
-import { Box, Heading, SimpleGrid, Stack, Tag } from "@chakra-ui/core"
+import { Box, Divider, Heading, SimpleGrid, Stack, Tag } from "@chakra-ui/core"
 
-import { BaseContainer } from "../layout/containers/containers"
-import { isObject, isArray, mapObject } from "../../../utils/tools/tools"
+import { BaseContainer } from "../layout"
+import { AccordionItem } from "../accordion-item"
+import { isObject, isArray, mapObject } from "../../../utils"
 
 export const galleryBox = {
-  w: "3xs",
   h: "3xs",
   color: "facebook.10",
   border: "2px",
@@ -14,6 +14,7 @@ export const galleryBox = {
 }
 
 export const galleryBoxWrapper = {
+  w: "full",
   p: 3,
   pb: 6,
   rounded: "5px",
@@ -32,17 +33,13 @@ export const tag = {
   borderColor: "blackAlpha.100",
 }
 
-const ColorBox = ({ color, heading }) =>
+export const ColorBox = ({ color }) =>
   isArray(color) ? (
     <Box {...galleryBoxWrapper}>
       <Box background={color[1]} {...galleryBox} />
-      <Stack isInline justify="space-between">
-        {/* <Tag colorScheme="yellow" children={heading} /> */}
-        {/* {console.log(color)} */}
-        <Stack isInline {...stack}>
-          <Tag colorScheme="blue" children={color[0]} {...tag} />{" "}
-          <Tag children={color[1].toString()} {...tag} />
-        </Stack>
+      <Stack isInline {...stack}>
+        <Tag colorScheme="blue" children={color[0]} {...tag} />{" "}
+        <Tag children={color[1].toString()} {...tag} />
       </Stack>
     </Box>
   ) : null
@@ -50,8 +47,9 @@ const ColorBox = ({ color, heading }) =>
 export const ColorBoxes = ({ colors, heading }) => {
   return isObject(colors) ? (
     <>
-      {heading && <Heading children={heading} mb={8} />}
-      <SimpleGrid columns={6} gap={3} mx="auto">
+      {heading && <Heading children={heading} mt={12 * 2} />}
+      {heading && <Divider mb={8} mt={8} />}
+      <SimpleGrid columns={[2, 3, null, 4]} gap={3} mx="auto">
         {[...mapObject(colors)].map((color, i) => (
           <ColorBox key={i} color={color} heading={heading} />
         ))}
@@ -60,8 +58,10 @@ export const ColorBoxes = ({ colors, heading }) => {
   ) : (
     isArray(colors) && (
       <>
-        {heading && <Heading children={heading} mb={8} />}
-        <SimpleGrid columns={6} gap={3} mx="auto">
+        {heading && <Heading children={heading} mt={12 * 2} />}
+        {heading && <Divider mb={8} mt={8} />}
+
+        <SimpleGrid columns={[2, null, null, 4]} gap={3} mx="auto">
           {colors?.length &&
             colors?.map((color, i) => (
               <ColorBox key={i} color={color} heading={heading} />
@@ -76,11 +76,13 @@ export const Colors = ({ colors }) => {
   const [transparent, current, black, white, ...restColors] = mapObject(colors)
   const defaults = [transparent, current, black, white]
   return (
-    <BaseContainer minH={"40vh"} py={8} mx="auto">
-      <ColorBoxes colors={defaults} heading={"default"} />
-      {restColors?.map((color, i) => (
-        <ColorBoxes key={i} colors={color[1]} heading={color[0]} />
-      ))}
-    </BaseContainer>
+    <AccordionItem title="Colors">
+      <BaseContainer fluid minH={"40vh"} py={8} mx="auto">
+        <ColorBoxes colors={defaults} heading={"default"} />
+        {restColors?.map((color, i) => (
+          <ColorBoxes key={i} colors={color[1]} heading={color[0]} />
+        ))}
+      </BaseContainer>
+    </AccordionItem>
   )
 }

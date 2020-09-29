@@ -38,14 +38,13 @@ const DefaultLayout = ({ header = true, pageTagline, children, ...rest }) => {
     },
   }
 
-  console.log(themeUpdate)
+  console.log("⭕️themeUpdate", themeUpdate)
 
   return (
     <>
       <Global />
       <SEO siteTitle={title} siteTagline={pageTagline} />
       <ChakraProvider resetCSS theme={themeUpdate}>
-        {isDev && <Sidebar />}
         <ModeToggle />
         <Box
           id="content-wrapper"
@@ -55,6 +54,7 @@ const DefaultLayout = ({ header = true, pageTagline, children, ...rest }) => {
           {header && <Header siteTitle={title} siteTagline={pageTagline} />}
           <Box as="main" {...rest} mt="5rem">
             {children}
+            <Sidebar />
           </Box>
         </Box>
         <BaseContainer fluid bg="bg" py={12} mb={[12, null, 0]}>

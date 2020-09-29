@@ -25,17 +25,20 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
       <motion.button
         ref={ref}
         key={"sidebar-open"}
-        initial={{ color: "transparent" }}
-        whileHover={{ color: "green" }}
-        whileTap={{ color: "green" }}
+        className={"sidebar-open-btn"}
+        initial={{ background: "yellow" }}
+        whileHover={{ background: "green" }}
+        whileTap={{ background: "green" }}
         transition={{ duration: 0.2 }}
         onClick={isOpen ? onClose : onOpen}
         style={{
+          border: "1px solid red",
           display: "block",
           position: "fixed",
-          bottom: 0,
+          top: "40em",
           right: 0,
           cursor: "pointer",
+          zIndex: 1800,
           w: 100,
           h: 100,
         }}
