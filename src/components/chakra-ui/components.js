@@ -18,6 +18,7 @@ const WRAPPER_MAX_WIDTH = "7xl"
 
 const CARD_WIDTH = "3xs"
 const CARD_WIDTH_LG = 32 * 2
+const MINIMUM = 48
 
 export const constants = {
   MAX_WIDTH: MAX_WIDTH,
@@ -25,6 +26,7 @@ export const constants = {
   WRAPPER_MAX_WIDTH: WRAPPER_MAX_WIDTH,
   CARD_WIDTH: CARD_WIDTH,
   CARD_WIDTH_LG: CARD_WIDTH_LG,
+  MINIMUM: MINIMUM,
 }
 
 const buttons = {
@@ -112,34 +114,16 @@ const flex = {
     flex: 1,
   },
   flex23: [
-    {
-      maxW: ["full", null, null, "66%"],
-      flex: 1,
-    },
-    {
-      maxW: ["full", null, null, "33%"],
-      flex: 0,
-    },
+    { maxW: ["full", null, null, "66%"], flex: 1 },
+    { maxW: ["full", null, null, "33%"], flex: 0 },
   ],
   flex6040: [
-    {
-      maxW: ["full", null, null, "60%"],
-      flex: 1,
-    },
-    {
-      maxW: ["full", null, null, "40%"],
-      flex: 0,
-    },
+    { maxW: ["full", null, null, "60%"], flex: 1 },
+    { maxW: ["full", null, null, "40%"], flex: 0 },
   ],
   flex8020: [
-    {
-      maxW: ["full", null, null, "80%"],
-      flex: 1,
-    },
-    {
-      maxW: ["full", null, null, "20%"],
-      flex: 0,
-    },
+    { maxW: ["full", null, null, "80%"], flex: 1 },
+    { maxW: ["full", null, null, "20%"], flex: 0 },
   ],
 }
 
@@ -162,7 +146,6 @@ const box = {
     right: 0,
     w: "full",
     mx: "auto",
-    // my: "auto",
   },
 }
 
@@ -231,6 +214,16 @@ const hero = {
     position: "relative",
   },
 }
+
+export const sinkDefault = min => ({
+  bg: "mode.light.bg4",
+  color: "white",
+  shadow: "maxbttm",
+  border: "1px",
+  boxSizing: "border-box",
+  minH: min && constants.MINIMUM,
+  minW: min && constants.MINIMUM,
+})
 
 export const component = {
   header,

@@ -25,7 +25,7 @@ const IndexBox = ({ title, zIndex, children }) => (
 export const ZIndices = ({ zIndices }) => {
   return (
     <AccordionItem title="ZIndicies">
-      <BaseContainer my={12} minH="55vh" mx="auto">
+      <BaseContainer fluid my={12} minH="55vh" mx="auto">
         <Flex justify="space-evenly">
           {Object.entries(zIndices).map((index, i) => (
             <Tag key={i}>{index}</Tag>
@@ -63,15 +63,3 @@ export const ZIndices = ({ zIndices }) => {
     </AccordionItem>
   )
 }
-
-const minimum = 48
-
-const defaults = min => ({
-  bg: "mode.light.bg4",
-  color: "white",
-  shadow: "maxbttm",
-  border: "1px",
-  boxSizing: "border-box",
-  minH: min && minimum,
-  minW: min && minimum,
-})

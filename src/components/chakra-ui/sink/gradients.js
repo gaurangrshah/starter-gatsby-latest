@@ -42,7 +42,6 @@ export const GradientBoxes = ({ gradients, heading }) => {
   ) : (
     isArray(gradients) && (
       <>
-        {console.log("📣 running gradients from array")}
         {heading && <Heading children={heading} mt={12 * 2} />}
         {heading && <Divider mb={8} mt={8} />}
         <SimpleGrid columns={[2, null, null, 4]} gap={3} mx="auto">

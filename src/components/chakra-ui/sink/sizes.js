@@ -3,6 +3,7 @@ import { Box } from "@chakra-ui/core"
 
 import { BaseContainer } from "../layout"
 import { AccordionItem } from "../accordion-item"
+import { sinkDefault } from "../components"
 
 export const Sizes = ({ sizes }) => {
   return (
@@ -14,7 +15,7 @@ export const Sizes = ({ sizes }) => {
             key={i}
             children={JSON.stringify(size, null, 2)}
             w={size[1]}
-            {...defaults(true)}
+            {...sinkDefault(true)}
             bg={"mode.light.bg3"}
             minH={28}
           />
@@ -23,15 +24,3 @@ export const Sizes = ({ sizes }) => {
     </AccordionItem>
   )
 }
-
-const minimum = 48
-
-const defaults = min => ({
-  bg: "mode.light.bg4",
-  color: "white",
-  shadow: "maxbttm",
-  border: "1px",
-  boxSizing: "border-box",
-  minH: min && minimum,
-  minW: min && minimum,
-})

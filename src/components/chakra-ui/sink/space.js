@@ -2,20 +2,14 @@ import React from "react"
 import { Box, Flex } from "@chakra-ui/core"
 
 import { BaseContainer } from "../layout"
-import { component } from "../components"
 import { AccordionItem } from "../accordion-item"
+import { component, sinkDefault } from "../components"
 
 export const Space = ({ space }) => {
   return (
     <AccordionItem title="Space">
-      <BaseContainer
-        fluid
-        minH={"40vh"}
-        justify="center"
-        {...component?.flex?.columnCenter}
-      >
+      <BaseContainer fluid minH={"40vh"}>
         <Flex
-          w={"7xl"}
           {...component?.flex?.columnContentFull}
           flexDirection={"column"}
           alignItems="flex-start"
@@ -27,7 +21,12 @@ export const Space = ({ space }) => {
                 borderColor="white"
                 justifyContent="space-between"
               >
-                <Box w={spc[1]} {...defaults} bg={"mode.light.bg3"} minH={28} />
+                <Box
+                  w={spc[1]}
+                  {...sinkDefault}
+                  bg={"mode.light.bg3"}
+                  minH={28}
+                />
                 {JSON.stringify(spc, null, 2)}
               </Flex>
             </React.Fragment>
@@ -37,15 +36,3 @@ export const Space = ({ space }) => {
     </AccordionItem>
   )
 }
-
-const minimum = 48
-
-const defaults = min => ({
-  bg: "mode.light.bg4",
-  color: "white",
-  shadow: "maxbttm",
-  border: "1px",
-  boxSizing: "border-box",
-  minH: min && minimum,
-  minW: min && minimum,
-})

@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
 import {
@@ -19,6 +19,18 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const ref = useRef()
+
+  const [state, setState] = useState({})
+
+  useEffect(() => {
+    setState(React.Children.map(children, (child, i) => child))
+    return () => null
+  }, [])
+
+  useEffect(() => {
+    console.log(state)
+    return () => null
+  }, [state])
 
   return (
     <>
@@ -62,8 +74,7 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
           </DrawerHeader>
 
           <DrawerBody color="inherit" mt={8} pt={4}>
-            {children}
-
+            {state}
             <iframe
               is="x-frame-bypass"
               title="sidebarframe"

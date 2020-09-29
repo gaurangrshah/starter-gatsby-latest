@@ -13,6 +13,7 @@ import {
   Footer,
   ModeToggle,
   Sidebar,
+  Sink,
   PreFooter,
 } from "../../components"
 
@@ -46,6 +47,9 @@ const DefaultLayout = ({ header = true, pageTagline, children, ...rest }) => {
       <SEO siteTitle={title} siteTagline={pageTagline} />
       <ChakraProvider resetCSS theme={themeUpdate}>
         <ModeToggle />
+        <Sidebar>
+          <Sink />
+        </Sidebar>
         <Box
           id="content-wrapper"
           color={`mode.${colorMode}.text`}
@@ -54,7 +58,6 @@ const DefaultLayout = ({ header = true, pageTagline, children, ...rest }) => {
           {header && <Header siteTitle={title} siteTagline={pageTagline} />}
           <Box as="main" {...rest} mt="5rem">
             {children}
-            <Sidebar />
           </Box>
         </Box>
         <BaseContainer fluid bg="bg" py={12} mb={[12, null, 0]}>

@@ -61,16 +61,12 @@ const ServicesPage = ({ data }) => {
           </Row>
           <Row
             display={["none", null, null, "flex"]}
-            // fluid
-            // responsive
             w={[null, "70%", null, "80%", "100%"]}
-            // mx={3}
             mr={0}
             ml={0}
             ml="auto"
             justifyContent="flex-end"
             flexWrap="nowrap"
-            {...test()}
           >
             {servicesHero.node.block.cards.map((card, i) => (
               <FlexCard
