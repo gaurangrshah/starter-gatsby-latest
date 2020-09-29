@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/core"
+import { Box, Button, chakra, Flex, Heading, Text } from "@chakra-ui/core"
 import { motion } from "framer-motion"
 
 import { Content } from "../chakra-ui"

@@ -12,12 +12,12 @@ component = {
 }
 */
 
-const MAX_CONTENT_WIDTH = "960px"
+const MAX_CONTENT_WIDTH = "5xl"
 const MAX_WIDTH = [MAX_CONTENT_WIDTH, null, null, null, "60%"]
-const WRAPPER_MAX_WIDTH = "1230px"
+const WRAPPER_MAX_WIDTH = "7xl"
 
-const CARD_WIDTH = "220px"
-const CARD_WIDTH_LG = "280px"
+const CARD_WIDTH = "3xs"
+const CARD_WIDTH_LG = 32 * 2
 
 export const constants = {
   MAX_WIDTH: MAX_WIDTH,
@@ -34,16 +34,16 @@ const buttons = {
     colorScheme: "blue",
     color: "white",
     textAlign: "left",
-    pl: 2,
+    pl: 2, // 0.5rem
     _hover: {
       textDecoration: "none",
       border: "1px solid currentColor",
     },
   },
   moreLink: {
-    mt: 4,
+    mt: 4, // 1rem
     ml: "20%",
-    p: 2,
+    p: 2, // 0.5rem
     variant: "solid",
     colorScheme: "teal",
     rightIcon: "arrow-forward",
@@ -57,10 +57,10 @@ const buttons = {
     textTransform: "capitalize",
   },
   navLink: {
-    w: ["100%", null, null, "auto"],
+    w: ["full", null, null, "auto"],
     p: 3,
-    mt: [10, null, null, 0],
-    mr: [null, null, null, 6],
+    mt: [10, null, null, 0], //  [2.5rem, null, null, 0]
+    mr: [null, null, null, 6], // [null, null, null, 1.5rem]
     mb: 2,
     color: "inherit",
     rounded: "5px",
@@ -76,11 +76,11 @@ buttons.variants = {
     mobile: {
       ...buttons?.contact,
       ml: "auto",
-      mt: 12,
+      mt: 12, // 3rem
     },
     desktop: {
       ...buttons?.contact,
-      mt: -1,
+      mt: -1, // -0.25rem
     },
   },
 }
@@ -97,44 +97,47 @@ const flex = {
     flexDirection: "column",
     justifyContent: ["center", null, null, "space-between"],
     alignItems: "center",
-    textAlign: "center",
-    mx: "auto",
+  },
+  columnContentFull: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   col3Flex: {
-    maxW: ["100%", null, null, "33%"],
+    maxW: ["full", null, null, "33%"],
     flex: 1,
   },
   col2Flex: {
-    maxW: ["100%", null, null, "45%"],
+    maxW: ["full", null, null, "45%"],
     flex: 1,
   },
   flex23: [
     {
-      maxW: ["100%", null, null, "66%"],
+      maxW: ["full", null, null, "66%"],
       flex: 1,
     },
     {
-      maxW: ["100%", null, null, "33%"],
+      maxW: ["full", null, null, "33%"],
       flex: 0,
     },
   ],
   flex6040: [
     {
-      maxW: ["100%", null, null, "60%"],
+      maxW: ["full", null, null, "60%"],
       flex: 1,
     },
     {
-      maxW: ["100%", null, null, "40%"],
+      maxW: ["full", null, null, "40%"],
       flex: 0,
     },
   ],
   flex8020: [
     {
-      maxW: ["100%", null, null, "80%"],
+      maxW: ["full", null, null, "80%"],
       flex: 1,
     },
     {
-      maxW: ["100%", null, null, "20%"],
+      maxW: ["full", null, null, "20%"],
       flex: 0,
     },
   ],
@@ -143,14 +146,23 @@ const flex = {
 const box = {
   fixedWidth: {
     color: "inherit",
-    w: "100%",
-    maxW: ["80%", null, null, "1050px"],
+    w: "full",
+    maxW: ["80%", null, null, "5xl"], // ["80%", null, null, "64rem"]
     mx: "auto",
   },
   base: {
     color: "inherit",
     w: "200px",
     h: "200px",
+  },
+  absoluteCenter: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    w: "full",
+    // mx: "auto",
+    my: "auto",
   },
 }
 

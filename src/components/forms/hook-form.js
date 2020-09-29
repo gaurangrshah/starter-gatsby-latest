@@ -30,11 +30,9 @@ export const HookForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false)
   function onSubmit(values) {
     setIsSubmitting(true)
-    console.log("submitting...")
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2))
       setIsSubmitting(false)
-      console.log("submitted.")
     }, 1000)
   }
   const formRef = useRef(null)
@@ -57,7 +55,6 @@ export const HookForm = ({
         <Input type="hidden" name="bot-field" />
         <Input type="hidden" name="form-name" value="contact" />
         {React.Children.map(children, child => {
-          console.log(child)
           return child.props.name
             ? React.createElement(child.type, {
                 ...{

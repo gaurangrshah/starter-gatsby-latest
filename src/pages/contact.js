@@ -12,12 +12,13 @@ import {
   fields,
   BaseContainer,
   BGIcon,
+  Block,
   BlockText,
   CHookInput,
   Content,
   HookForm,
+  MotionBox,
   Row,
-  Block,
 } from "../components"
 
 import FrameLoader from "../components/chakra-ui/iframe-loader"
@@ -165,6 +166,16 @@ const ContactPage = ({ data }) => {
                 <CHookInput key={i} {...field} />
               ))}
             </HookForm>
+            <MotionBox
+              boxSize="40px"
+              bg="red.300"
+              drag="x"
+              dragConstraints={{ left: -100, right: 100 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Test
+            </MotionBox>
           </Content>
         </Row>
       </BaseContainer>

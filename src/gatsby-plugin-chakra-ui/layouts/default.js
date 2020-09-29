@@ -1,12 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {
-  Box,
-  CSSReset,
-  ChakraProvider,
-  // ColorModeProvider,
-  useColorMode,
-} from "@chakra-ui/core"
+import { Box, ChakraProvider, useColorMode } from "@chakra-ui/core"
 import { merge } from "@chakra-ui/utils"
 
 import theme from "../theme"
@@ -28,15 +22,7 @@ import "../../styles/main.scss"
 
 import { isDev } from "../../utils"
 
-const DefaultLayout = ({
-  header = true,
-  fixHeader,
-  topbar = false,
-  shapes = true,
-  pageTagline,
-  children,
-  ...rest
-}) => {
+const DefaultLayout = ({ header = true, pageTagline, children, ...rest }) => {
   const { colorMode } = useColorMode()
   const site = useSiteMetadata()
   const { title, brandColors } = site
@@ -52,13 +38,13 @@ const DefaultLayout = ({
     },
   }
 
+  console.log(themeUpdate)
+
   return (
     <>
       <Global />
       <SEO siteTitle={title} siteTagline={pageTagline} />
       <ChakraProvider resetCSS theme={themeUpdate}>
-        {/* <CSSReset /> */}
-        {/* <ColorModeProvider> */}
         {isDev && <Sidebar />}
         <ModeToggle />
         <Box
@@ -75,7 +61,6 @@ const DefaultLayout = ({
           <PreFooter />
         </BaseContainer>
         <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
-        {/* </ColorModeProvider> */}
       </ChakraProvider>
     </>
   )
@@ -83,9 +68,6 @@ const DefaultLayout = ({
 
 DefaultLayout.propTypes = {
   header: PropTypes.bool,
-  fixHeader: PropTypes.bool,
-  topBar: PropTypes.bool,
-  shapes: PropTypes.bool,
   pageTagline: PropTypes.string,
   children: PropTypes.node.isRequired,
 }

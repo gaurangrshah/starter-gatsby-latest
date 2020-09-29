@@ -1,5 +1,12 @@
 export const hidden = [`none`, `none`, `block`]
 
+export const getFontSize = () =>
+  parseFloat(
+    getComputedStyle(document.body, null).fontSize.replace(/[^\d]/g, "")
+  )
+
+export const convertEmToPx = val => val.replace("em", "") * getFontSize() + "px"
+
 export const capitalize = string =>
   string.replace(/\b\w/g, c => c.toUpperCase())
 //https://attacomsian.com/blog/string-capitalize-javascript
@@ -46,3 +53,23 @@ export const isDev = process.env.NODE_ENV === "development"
 
 export const isTruthy = (condition, setting) =>
   condition && setting ? setting : !isBoolean(condition) && condition
+
+export const isArray = obj => (Array.isArray(obj) ? true : false)
+export const isNull = obj => (obj === null ? true : false)
+export const isArrayOrNull = obj => (isNull(obj) && isArray(obj) ? true : false)
+export const isObject = obj =>
+  obj !== null &&
+  typeof obj !== "string" &&
+  typeof obj !== "number" &&
+  !Array.isArray(obj) &&
+  typeof obj === "object"
+    ? true
+    : false
+
+export const mapObject = obj => {
+  return isObject(obj)
+    ? Object.entries(obj).map((entry, i) => {
+        return isObject(entry) ? mapObject(entry) : entry
+      })
+    : obj
+}
