@@ -39,7 +39,9 @@ const ContactPage = ({ data }) => {
     zip,
   } = preFooter?.node?.block?.addons[0]
   return (
-    <DefaultLayout pageTagline={""}>
+    <DefaultLayout
+      seo={{ siteTitle: "Contact", siteTagline: "Penn Star Land Transfer" }}
+    >
       <BaseContainer fluid height={["60vh", "40vh"]} overflow="hidden">
         <FrameLoader
           title="contactmap"

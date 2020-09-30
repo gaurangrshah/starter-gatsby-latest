@@ -1,9 +1,10 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState, useEffect, useContext } from "react"
 import { motion } from "framer-motion"
 
 import {
   Box,
   Button,
+  chakra,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -17,49 +18,34 @@ import {
 import { BaseContainer } from "../../layout"
 import { Tabs } from "../../tabs"
 import { BGIcon } from "../../../bg-icon"
-import { MapChildren } from "../../../../utils"
 
-export const MotionButton = motion.custom(Button)
+import { PanelContext } from "../../../../contexts/panel-context"
 
-const MotionIcon = motion.custom(BGIcon)
+import { usePanel } from "../../../../hooks/use-panel"
+import { ZIndices } from "../../sink/z-indices"
 
-export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
+export const Sidebar = ({ sidebarTitle, ...rest }) => {
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const ref = useRef()
-
-  const [kids, setKids] = useState({})
-
-  useEffect(() => {
-    setKids(
-      React.Children.map(children, (child, i) => (
-        <child.type key={i} {...child.props} />
-      ))
-    )
-    return () => null
-  }, [])
-
-  useEffect(() => {
-    console.log(kids)
-    return () => null
-  }, [kids])
-
+  // const sidebarContext = useContext(PanelContext)
+  // console.log("⭕️sidebarContext: sidebar", sidebarContext)
+  // const { kids } = sidebarContext
+  const { kids } = usePanel()
+  console.log("⭕️kids", kids)
   return (
     <>
-      <MotionIcon
-        ref={ref}
+      <BGIcon
+        as={motion.div}
         key={"sidebar-open"}
         className={"sidebar-open-btn"}
         initial={{ background: "transparent" }}
-        whileHover={{ background: "green" }}
-        whileTap={{ background: "green" }}
+        whileHover={{ background: "blue" }}
+        whileTap={{ background: "blue" }}
         transition={{ duration: 0.2 }}
         onClick={isOpen ? onClose : onOpen}
         icon="square"
         size={"2x"}
-        // color="blue"
         style={{
-          border: "1px solid red",
           display: "block",
           position: "fixed",
           top: "6.5em",
@@ -69,49 +55,49 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
           color: "red",
         }}
       />
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        size={"xl"}
-        finalFocusRef={ref}
-        blockScrollOnMount={false}
-      >
-        <DrawerOverlay />
-        <DrawerContent pt={4} mt={12 * 2}>
-          <DrawerCloseButton />
-          <DrawerHeader
-            border="none"
-            color="inherit"
-            bg={`mode.${colorMode}.brand`}
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={"xl"}>
+        <DrawerOverlay>
+          <DrawerContent
+            pt={4}
+            mt={12 * 2}
+            pb={"5em"}
+            overflowY="hidden"
+            maxH="85vh"
           >
-            Debug Console
-          </DrawerHeader>
+            <DrawerCloseButton />
+            <DrawerHeader
+              border="none"
+              color="white"
+              bg={`mode.${colorMode}.brand`}
+            >
+              {sidebarTitle || "Style Guide"}
+            </DrawerHeader>
 
-          <DrawerBody
-            fluid
-            position="relative"
-            as={BaseContainer}
-            m={0}
-            p={0}
-            px={12}
-            top={12}
-            mx={"auto"}
-          >
-            <Tabs
-              list={["style guide", "google search"]}
-              panels={[
-                <MapChildren
-                  kids={kids && kids}
-                  newProps={{
-                    rounded: true,
-                    shadow: true,
-                  }}
-                />,
-              ]}
-            />
-          </DrawerBody>
-        </DrawerContent>
+            <DrawerBody
+              fluid
+              position="relative"
+              as={BaseContainer}
+              m={0}
+              p={0}
+              px={12}
+              top={12}
+              mx={"auto"}
+            >
+              <Tabs
+                list={[
+                  "breakpoints",
+                  "zIndices",
+                  "sizes",
+                  "space",
+                  "colors",
+                  "shadows",
+                  "gradients",
+                ]}
+                panels={kids?.length && kids[1]}
+              />
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
       </Drawer>
     </>
   )

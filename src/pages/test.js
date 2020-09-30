@@ -1,18 +1,10 @@
 import React from "react"
-import { Accordion } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
-import {
-  breakpoints,
-  zIndices,
-  sizes,
-  space,
-  colors,
-  shadows,
-} from "../../theme.json"
+
+import theme from "../gatsby-plugin-chakra-ui/theme"
 
 import {
-  BaseContainer,
   Breakpoints,
   ZIndices,
   Sizes,
@@ -23,10 +15,19 @@ import {
   gradients,
 } from "../components/chakra-ui"
 
-const TestPage = () => (
-  <DefaultLayout>
-    <BaseContainer my={12} minH="55vh">
-      <Accordion defaultIndex={0} allowToggle>
+import { SidebarContextWrapper } from "../components/"
+
+const TestPage = () => {
+  const { breakpoints, zIndices, sizes, space, colors, shadows } = theme
+  return (
+    <DefaultLayout
+      seo={{ siteTitle: "test page", siteTagline: "testing ground" }}
+    >
+      <SidebarContextWrapper
+        id="testPage"
+        allowSidebarUpdate
+        kidProps={{ border: "3px solid orange" }}
+      >
         <Breakpoints breakpoints={breakpoints} />
         <ZIndices zIndices={zIndices} />
         <Sizes sizes={sizes} />
@@ -34,9 +35,9 @@ const TestPage = () => (
         <Colors colors={colors} />
         <Shadows shadows={shadows} />
         <Gradients gradients={gradients} />
-      </Accordion>
-    </BaseContainer>
-  </DefaultLayout>
-)
+      </SidebarContextWrapper>
+    </DefaultLayout>
+  )
+}
 
 export default TestPage

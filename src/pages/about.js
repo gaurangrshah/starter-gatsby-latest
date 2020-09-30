@@ -24,7 +24,7 @@ const AboutPage = ({ data }) => {
 
   const [founder, ...rest] = aboutTeam.node.block.cards
   return (
-    <DefaultLayout pageTagline={""}>
+    <DefaultLayout seo={{ siteTitle: "About", siteTagline: "Penn Star" }}>
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
         <Row {...component.hero.content}>

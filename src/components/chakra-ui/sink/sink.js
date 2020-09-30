@@ -1,5 +1,4 @@
 import React from "react"
-import { Accordion } from "@chakra-ui/core"
 
 import { Breakpoints } from "./breakpoints"
 import { ZIndices } from "./z-indices"
@@ -31,15 +30,13 @@ export const Sink = ({ ...rest }) => {
       overflowY="auto"
       overflowX="hidden"
     >
-      <Accordion defaultIndex={0} allowToggle>
-        <Breakpoints breakpoints={breakpoints} />
-        <ZIndices zIndices={zIndices} />
-        <Sizes sizes={sizes} />
-        <Space space={space} />
-        <Colors colors={colors} />
-        <Shadows shadows={shadows} />
-        <Gradients gradients={gradients} />
-      </Accordion>
+      <Breakpoints breakpoints={breakpoints} />
+      <ZIndices zIndices={zIndices} />
+      <Sizes sizes={sizes} />
+      <Space space={space} />
+      <Colors colors={colors} />
+      <Shadows shadows={shadows} />
+      <Gradients gradients={gradients} />
     </BaseContainer>
   )
 }

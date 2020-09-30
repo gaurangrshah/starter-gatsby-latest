@@ -2,7 +2,6 @@ import React from "react"
 import { Box, Divider, Heading, SimpleGrid, Stack, Tag } from "@chakra-ui/core"
 
 import { BaseContainer } from "../layout"
-import { AccordionItem } from "../accordion-item"
 import { isObject, isArray, mapObject } from "../../../utils"
 
 export const galleryBox = {
@@ -76,13 +75,11 @@ export const Colors = ({ colors }) => {
   const [transparent, current, black, white, ...restColors] = mapObject(colors)
   const defaults = [transparent, current, black, white]
   return (
-    <AccordionItem title="Colors">
-      <BaseContainer fluid minH={"40vh"} py={8} mx="auto">
-        <ColorBoxes colors={defaults} heading={"default"} />
-        {restColors?.map((color, i) => (
-          <ColorBoxes key={i} colors={color[1]} heading={color[0]} />
-        ))}
-      </BaseContainer>
-    </AccordionItem>
+    <BaseContainer fluid minH={"40vh"} py={8} mx="auto">
+      <ColorBoxes colors={defaults} />
+      {restColors?.map((color, i) => (
+        <ColorBoxes key={i} colors={color[1]} heading={color[0]} />
+      ))}
+    </BaseContainer>
   )
 }

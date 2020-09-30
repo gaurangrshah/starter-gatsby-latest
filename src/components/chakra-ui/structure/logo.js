@@ -9,7 +9,7 @@ export const Logo = ({ siteTitle, siteTagline }) => {
       }}
     >
       {siteTitle}
-      {siteTagline}
+      {/* {siteTagline} */}
     </Link>
   )
 }

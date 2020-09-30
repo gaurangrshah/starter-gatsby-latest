@@ -22,7 +22,9 @@ const ServicesPage = ({ data }) => {
   const services = data.allStrapiSection.edges[2]
 
   return (
-    <DefaultLayout pageTagline={""}>
+    <DefaultLayout
+      seo={{ siteTitle: "Services", siteTagline: "Land Transfer Services" }}
+    >
       <BaseContainer fluid overflow="hidden" h="auto">
         <BackgroundImage {...component.hero} />
         <Row

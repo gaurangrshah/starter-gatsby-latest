@@ -19,7 +19,9 @@ import {
 const IndexPage = ({ data }) => {
   const [homeHero, homeAuthority] = data.allStrapiSection.edges
   return (
-    <DefaultLayout pageTagline={""}>
+    <DefaultLayout
+      seo={{ siteTitle: "Penn Star", siteTagline: "Land Transfer" }}
+    >
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage {...component.hero} />
         <Row {...component.hero.content}>

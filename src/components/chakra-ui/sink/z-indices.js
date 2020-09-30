@@ -2,7 +2,6 @@ import React from "react"
 import { Box, Flex, Tag } from "@chakra-ui/core"
 import { component } from "../components"
 
-import { AccordionItem } from "../accordion-item"
 import { BaseContainer } from "../layout"
 
 const IndexBox = ({ title, zIndex, children }) => (
@@ -26,33 +25,32 @@ const IndexBox = ({ title, zIndex, children }) => (
 )
 
 export const ZIndices = ({ zIndices }) => {
+  console.log("zindices", zIndices)
   return (
-    <AccordionItem title="ZIndicies">
-      <BaseContainer fluid my={12} minH="20vh" mx="auto">
-        <Flex flexWrap="wrap">
-          {Object.entries(zIndices).map((index, i) => (
-            <Tag key={i} mt={2}>
-              {index}
-            </Tag>
-          ))}
-        </Flex>
-        <IndexBox title="hide" zIndex={-1}>
-          <IndexBox title="auto" zIndex={"auto"}>
-            <IndexBox title="base" zIndex={0}>
-              <IndexBox title="docked" zIndex={10}>
-                <IndexBox title="dropdown" zIndex={1000}>
-                  <IndexBox title="sticky" zIndex={1100}>
-                    <IndexBox title="banner" zIndex={1200}>
-                      <IndexBox title="overlay" zIndex={1300}>
-                        <IndexBox title="modal" zIndex={1400}>
-                          <IndexBox title="popover" zIndex={1500}>
-                            <IndexBox title="skipLink" zIndex={1600}>
-                              <IndexBox title="toast" zIndex={1700}>
-                                <IndexBox
-                                  title="tooltip"
-                                  zIndex={1800}
-                                ></IndexBox>
-                              </IndexBox>
+    <BaseContainer fluid my={12} minH="20vh" mx="auto">
+      <Flex flexWrap="wrap">
+        {Object.entries(zIndices).map((zIndex, i) => (
+          <Tag key={i} mt={2}>
+            {zIndex}
+          </Tag>
+        ))}
+      </Flex>
+      <IndexBox title="hide" zIndex={-1}>
+        <IndexBox title="auto" zIndex={"auto"}>
+          <IndexBox title="base" zIndex={0}>
+            <IndexBox title="docked" zIndex={10}>
+              <IndexBox title="dropdown" zIndex={1000}>
+                <IndexBox title="sticky" zIndex={1100}>
+                  <IndexBox title="banner" zIndex={1200}>
+                    <IndexBox title="overlay" zIndex={1300}>
+                      <IndexBox title="modal" zIndex={1400}>
+                        <IndexBox title="popover" zIndex={1500}>
+                          <IndexBox title="skipLink" zIndex={1600}>
+                            <IndexBox title="toast" zIndex={1700}>
+                              <IndexBox
+                                title="tooltip"
+                                zIndex={1800}
+                              ></IndexBox>
                             </IndexBox>
                           </IndexBox>
                         </IndexBox>
@@ -64,7 +62,7 @@ export const ZIndices = ({ zIndices }) => {
             </IndexBox>
           </IndexBox>
         </IndexBox>
-      </BaseContainer>
-    </AccordionItem>
+      </IndexBox>
+    </BaseContainer>
   )
 }

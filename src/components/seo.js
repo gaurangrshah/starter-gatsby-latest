@@ -25,19 +25,19 @@ const SEO = ({
   siteDescription,
   meta,
   pathname,
-  image,
+  siteImage,
   children,
 }) => {
   const site = useSiteMetadata()
 
-  const { title, tagline, description, language, siteUrl, author } = site
+  const { title, tagline, description, language, siteUrl, author, image } = site
 
   const seo = {
     title: siteTitle || title,
     tagline: siteTagline || tagline,
     description: siteDescription || description,
     url: `${siteUrl}${pathname || ``}`,
-    image: `${siteUrl}${image}`,
+    image: siteImage || `${siteUrl}${image}`,
   }
   return (
     <Helmet
@@ -109,25 +109,26 @@ const SEO = ({
           content: author,
         },
       ].concat(meta)}
+      link={[
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: "/favicon-32x32.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/favicon-16x16.png",
+        },
+        {
+          rel: "shortcut icon",
+          type: "image/png",
+          href: "/apple-touch-icon.png",
+        },
+      ]}
     >
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
-
       {children}
       <script
         async

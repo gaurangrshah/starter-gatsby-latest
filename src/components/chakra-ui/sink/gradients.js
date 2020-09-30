@@ -6,7 +6,6 @@ import { isObject, isArray, mapObject } from "../../../utils"
 import { linearGradient } from "../chakra"
 
 import { galleryBox, galleryBoxWrapper, stack, tag } from "./colors"
-import { AccordionItem } from "../accordion-item"
 
 const GradientBox = ({ gradient, idx }) =>
   isObject(gradient) ? (
@@ -57,10 +56,8 @@ export const GradientBoxes = ({ gradients, heading }) => {
 
 export const Gradients = ({ gradients }) => {
   return (
-    <AccordionItem title="Gradients">
-      <BaseContainer fluid minH={"40vh"} py={8} mx="auto">
-        <GradientBoxes gradients={gradients} heading={"gradients"} />
-      </BaseContainer>
-    </AccordionItem>
+    <BaseContainer fluid minH={"40vh"} py={8} mx="auto">
+      <GradientBoxes gradients={gradients} />
+    </BaseContainer>
   )
 }

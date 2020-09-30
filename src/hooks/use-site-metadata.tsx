@@ -23,6 +23,9 @@ type Props = {
       [key: string]: unknown
     }
   }
+  file: {
+    publicURL: string
+  }
 }
 
 const useSiteMetadata = () => {
@@ -50,10 +53,12 @@ const useSiteMetadata = () => {
           }
         }
       }
+      file(name: { eq: "fingers-star" }) {
+        publicURL
+      }
     }
   `)
-  // console.log(data.site.siteMetadata)
-  return data.site.siteMetadata
+  return { ...data?.site?.siteMetadata, image: data?.file?.publicURL }
 }
 
 export default useSiteMetadata
