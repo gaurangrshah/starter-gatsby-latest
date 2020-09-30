@@ -1,23 +1,17 @@
-
-
 https://dev.to/tsflorus/build-a-website-with-gatsby-and-strapi-part-1-12-steps-to-install-and-deploy-strapi-43m9
-
-
 
 Pre-requisites:
 
 - [ ] Node.js - 12.x (tested with 12.14.0)
 
   ```shell
-  nvm i 12.14.0 
-  nvm use 12.14.0 
+  nvm i 12.14.0
+  nvm use 12.14.0
   ```
 
 - [ ] npm - 6.x
 
-  
-
-- create an nvmrc file to ensure that the version stays locked. 
+- create an nvmrc file to ensure that the version stays locked.
 
 ```
 # .nvmrc
@@ -25,13 +19,9 @@ Pre-requisites:
 12.14.0
 ```
 
-
-
-
-
 ```shell
 # clone from base repo:
-git clone https://github.com/weareplatinum/api.git . 
+git clone .
 ```
 
 ```shell
@@ -49,10 +39,6 @@ yarn add gatsby-source-strapi
 # start dev server:
 yarn develop
 ```
-
-
-
-
 
 setup gatsby-config:
 
@@ -99,12 +85,6 @@ query HomeQuery {
 }
 ```
 
-
-
-
-
-
-
 - setup heroku account -- add postgres addon and get DATABASE_URL variable:
 
 - ```shell
@@ -125,8 +105,6 @@ DATABASE_PORT=5432
 DATABASE_PASSWORD=487a5774f83b2344771cd56197c96b32ea78884b84ba0b853e5470245a22a5dd
 ```
 
-
-
 ```json
 /* # config/environments/production: */
 {
@@ -140,18 +118,13 @@ DATABASE_PASSWORD=487a5774f83b2344771cd56197c96b32ea78884b84ba0b853e5470245a22a5
         "port": "${process.env.DATABASE_PORT}",
         "database": "${process.env.DATABASE_NAME}",
         "username": "${process.env.DATABASE_USERNAME}",
-        "password": "${process.env.DATABASE_PASSWORD}",
+        "password": "${process.env.DATABASE_PASSWORD}"
       },
       "options": {}
     }
   }
 }
-
 ```
-
-
-
-
 
 add a postgres support package called `pg`:
 
@@ -159,15 +132,11 @@ add a postgres support package called `pg`:
 yarn add pg
 ```
 
-
-
 login to heroku:
 
 ```shell
 heroku login
 ```
-
-
 
 initialize new git repo and push to heroku:
 
@@ -183,6 +152,3 @@ git commit -m "initialize strapi"
 
 git push heroku master
 ```
-
-
-
