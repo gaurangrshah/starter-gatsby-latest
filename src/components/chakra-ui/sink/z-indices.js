@@ -11,11 +11,14 @@ const IndexBox = ({ title, zIndex, children }) => (
     {...component.box.fixedWidth}
     zIndex={zIndex}
     flex={1}
-    border="3px solid red"
     m={1}
     mx="auto"
     minH="100px"
     p={"2%"}
+    color="rgba(0,0,0,0.4)"
+    border="0.5px solid rgba(0,0,0,0.1)"
+    textAlign="right"
+    fontSize="sm"
   >
     {`${title}: ${zIndex}`}
     {children}
@@ -25,10 +28,12 @@ const IndexBox = ({ title, zIndex, children }) => (
 export const ZIndices = ({ zIndices }) => {
   return (
     <AccordionItem title="ZIndicies">
-      <BaseContainer fluid my={12} minH="55vh" mx="auto">
-        <Flex justify="space-evenly">
+      <BaseContainer fluid my={12} minH="20vh" mx="auto">
+        <Flex flexWrap="wrap">
           {Object.entries(zIndices).map((index, i) => (
-            <Tag key={i}>{index}</Tag>
+            <Tag key={i} mt={2}>
+              {index}
+            </Tag>
           ))}
         </Flex>
         <IndexBox title="hide" zIndex={-1}>

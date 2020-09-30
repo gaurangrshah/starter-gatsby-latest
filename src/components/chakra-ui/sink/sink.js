@@ -20,9 +20,17 @@ import {
 } from "../../../../theme.json"
 import { gradients } from "../chakra"
 
-export const Sink = () => {
+export const Sink = ({ ...rest }) => {
   return (
-    <BaseContainer my={12} minH="55vh">
+    <BaseContainer
+      fluid
+      my={12}
+      minH="55vh"
+      px={12}
+      {...rest}
+      overflowY="auto"
+      overflowX="hidden"
+    >
       <Accordion defaultIndex={0} allowToggle>
         <Breakpoints breakpoints={breakpoints} />
         <ZIndices zIndices={zIndices} />

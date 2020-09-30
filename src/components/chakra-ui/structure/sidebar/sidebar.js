@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
 import {
+  Box,
   Button,
   Drawer,
   DrawerOverlay,
@@ -13,46 +14,59 @@ import {
   useDisclosure,
 } from "@chakra-ui/core"
 
+import { BaseContainer } from "../../layout"
+import { Tabs } from "../../tabs"
+import { BGIcon } from "../../../bg-icon"
+import { MapChildren } from "../../../../utils"
+
 export const MotionButton = motion.custom(Button)
+
+const MotionIcon = motion.custom(BGIcon)
 
 export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
   const { colorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const ref = useRef()
 
-  const [state, setState] = useState({})
+  const [kids, setKids] = useState({})
 
   useEffect(() => {
-    setState(React.Children.map(children, (child, i) => child))
+    setKids(
+      React.Children.map(children, (child, i) => (
+        <child.type key={i} {...child.props} />
+      ))
+    )
     return () => null
   }, [])
 
   useEffect(() => {
-    console.log(state)
+    console.log(kids)
     return () => null
-  }, [state])
+  }, [kids])
 
   return (
     <>
-      <motion.button
+      <MotionIcon
         ref={ref}
         key={"sidebar-open"}
         className={"sidebar-open-btn"}
-        initial={{ background: "yellow" }}
+        initial={{ background: "transparent" }}
         whileHover={{ background: "green" }}
         whileTap={{ background: "green" }}
         transition={{ duration: 0.2 }}
         onClick={isOpen ? onClose : onOpen}
+        icon="square"
+        size={"2x"}
+        // color="blue"
         style={{
           border: "1px solid red",
           display: "block",
           position: "fixed",
-          top: "40em",
-          right: 0,
+          top: "6.5em",
+          right: "2em",
           cursor: "pointer",
           zIndex: 1800,
-          w: 100,
-          h: 100,
+          color: "red",
         }}
       />
       <Drawer
@@ -61,9 +75,10 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
         onClose={onClose}
         size={"xl"}
         finalFocusRef={ref}
+        blockScrollOnMount={false}
       >
         <DrawerOverlay />
-        <DrawerContent color={`mode.${colorMode}.background`}>
+        <DrawerContent pt={4} mt={12 * 2}>
           <DrawerCloseButton />
           <DrawerHeader
             border="none"
@@ -73,14 +88,27 @@ export const Sidebar = ({ children, sidebarTitle, ...rest }) => {
             Debug Console
           </DrawerHeader>
 
-          <DrawerBody color="inherit" mt={8} pt={4}>
-            {state}
-            <iframe
-              is="x-frame-bypass"
-              title="sidebarframe"
-              src={"https://google.com/search?igu=1"}
-              width="100%"
-              height="100%"
+          <DrawerBody
+            fluid
+            position="relative"
+            as={BaseContainer}
+            m={0}
+            p={0}
+            px={12}
+            top={12}
+            mx={"auto"}
+          >
+            <Tabs
+              list={["style guide", "google search"]}
+              panels={[
+                <MapChildren
+                  kids={kids && kids}
+                  newProps={{
+                    rounded: true,
+                    shadow: true,
+                  }}
+                />,
+              ]}
             />
           </DrawerBody>
         </DrawerContent>

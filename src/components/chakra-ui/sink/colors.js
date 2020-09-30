@@ -6,7 +6,7 @@ import { AccordionItem } from "../accordion-item"
 import { isObject, isArray, mapObject } from "../../../utils"
 
 export const galleryBox = {
-  h: "3xs",
+  h: 32,
   color: "facebook.10",
   border: "2px",
   borderColor: "blackAlpha.100",
