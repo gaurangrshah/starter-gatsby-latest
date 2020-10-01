@@ -9,26 +9,22 @@ const DEFAULT_PROVIDER = PanelProvider
 export const usePanel = (Context, Provider) => {
   const panelContext = useContext(Context || DEFAULT_CONTEXT)
   const { kids, addKids } = panelContext
-
   const PanelLayout = ({ children, id, kidProps, ...rest }) => {
-    console.log("usepanel", children)
     useEffect(() => {
       if (!children) return
       /* add children from panel layout to context */
       addKids(children, id, kidProps)
       return () => null
-    }, [])
-    return Context ? (
-      Provider(
-        <Provider {...rest}>
-          <BaseContainer className="custom-panel-loader" />
-          {console.log("using custom ctx loader")}
-        </Provider>
-      )
+    }, [children, id, kidProps])
+    return Context && Provider ? (
+      <Provider {...rest}>
+        <BaseContainer className="custom-panel-loader" />
+        {/* {console.log("using custom ctx loader")} */}
+      </Provider>
     ) : (
-      <DEFAULT_PROVIDER>
+      <DEFAULT_PROVIDER {...rest}>
         <BaseContainer className="default-panel-loader" />
-        {console.log("using default ctx loader")}
+        {/* {console.log("using default ctx loader")} */}
       </DEFAULT_PROVIDER>
     )
   }

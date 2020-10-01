@@ -1,5 +1,5 @@
 import React from "react"
-import { Box } from "@chakra-ui/core"
+import { Box, forwardRef } from "@chakra-ui/core"
 
 import { AnimatePresence } from "framer-motion"
 import { MotionBox } from "./motion"
@@ -10,22 +10,26 @@ const transition = {
   delay: 0.2,
 }
 
-const variants = {
+const defaultVariants = {
   "fade-up": {
-    hidden: { opacity: 0, y: 150 },
+    hidden: { opacity: 0, y: 300 },
     visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 300, transition },
   },
   "fade-down": {
-    hidden: { opacity: 0, y: -150 },
+    hidden: { opacity: 0, y: -300 },
     visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 300, transition },
   },
   "fade-left": {
-    hidden: { opacity: 0, x: -150 },
+    hidden: { opacity: 0, x: -300 },
     visible: { opacity: 1, x: 0 },
+    exit: { opacity: 0, y: 300, transition },
   },
   "fade-right": {
-    hidden: { opacity: 0, x: 150 },
+    hidden: { opacity: 0, x: 300 },
     visible: { opacity: 1, x: 0 },
+    exit: { opacity: 0, y: 300, transition },
   },
 }
 
@@ -40,6 +44,9 @@ export const PresenceBox = ({
     <AnimatePresence {...presenceProps}>
       {show && (
         <MotionBox
+          initial="hidden"
+          animate="visible"
+          exit="exit"
           variants={variants}
           transition={{ x: transition, y: transition, opacity: "linear" }}
           {...rest}
@@ -52,22 +59,39 @@ export const PresenceBox = ({
 }
 
 export const TrackingBox = ({
-  show = true,
-  once = true,
-  rootMargin = "-50px 0px",
+  show = false,
+  once = false,
+  threshold = 0.5,
+  rootMargin = "-300px 0px",
   variant = "fade-up",
   children,
   ...rest
 }) => {
   const { ref, inView } = useInView({
-    // Stop observe when the target enters the viewport, so the "inView" only triggered once
+    // // Stop observe when the target enters the viewport, so the "inView" only triggered once
     unobserveOnEnter: once,
-    // Shrink the root margin, so the animation will be triggered once the target reach a fixed amount of visible
+    threshold: threshold,
+    // trackVisibility: true,
+    // // Set a minimum delay between notifications, it must be set to 100 (ms) or greater
+    // // For performance perspective, use the largest tolerable value as much as possible
+    // delay: 100,
+    // // Shrink the root margin, so the animation will be triggered once the target reach a fixed amount of visible
     rootMargin: rootMargin,
+    // onEnter: ({ unobserve }) => {
+    //   // Stop observe when the target enters the viewport, so the callback only triggered once
+    //   unobserve()
+    //   // Fire an analytic event to your tracking service
+    //   console.log("🍋 is seen")
+    // },
   })
+  // console.log("⭕️ref, inView", ref, inView)
   return (
-    <Box ref={ref} overflow="hidden">
-      <PresenceBox {...rest} show={show && inView} variants={variants[variant]}>
+    <Box id="presence-ref" ref={ref} mt={12 * 4} overflow="hidden">
+      <PresenceBox
+        {...rest}
+        show={show && inView}
+        variants={defaultVariants[variant]}
+      >
         {children}
       </PresenceBox>
     </Box>

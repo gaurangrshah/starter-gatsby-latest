@@ -11,7 +11,7 @@ export const ViewportSpy = ({ options, debug, children }) => {
         {children}
       </Box>
       {debug && (
-        <Box position="fixed" top={"120px"} right={2} my={5}>
+        <Box position="fixed" top={"6em"} right={2} my={5}>
           isVisble: {isVisible ? "yes" : "no"}
         </Box>
       )}

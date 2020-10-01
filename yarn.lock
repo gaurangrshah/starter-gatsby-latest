@@ -1502,6 +1502,15 @@
     "@types/react-transition-group" "4.4.0"
     react-transition-group "4.4.1"
 
+"@chakra-ui/transition@^1.0.0-next.3":
+  version "1.0.0-next.3"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/transition/-/transition-1.0.0-next.3.tgz#7420fd5890fa2f4ba790b7a8ff6a8c688cff800e"
+  integrity sha512-AUe/KhZRbmHzGYONYor9yUzgykuliIybzNUdbq3ebx5eQwoIU3tx6kYj+ApoIgSestRR64Vz09fwJWVn6BzcyA==
+  dependencies:
+    "@chakra-ui/utils" "^1.0.0-next.3"
+    "@types/react-transition-group" "4.4.0"
+    react-transition-group "4.4.1"
+
 "@chakra-ui/utils@1.0.0-rc.4":
   version "1.0.0-rc.4"
   resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-1.0.0-rc.4.tgz#370a17d4a2ceaae27ca3b32afe31987fa199583c"
