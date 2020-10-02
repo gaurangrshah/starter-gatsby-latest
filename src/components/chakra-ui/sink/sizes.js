@@ -5,7 +5,8 @@ import { BaseContainer } from "../layout"
 import { sinkDefault } from "../components"
 
 export const Sizes = ({ sizes }) => {
-  console.log("sizes", sizes)
+  // console.log('⭕️sizes', sizes)
+
   return (
     <BaseContainer fluid minH={"60vh"} my={12 * 2}>
       sizes

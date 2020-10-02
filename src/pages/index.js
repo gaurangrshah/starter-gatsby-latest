@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  test,
   padding,
   constants,
   component,

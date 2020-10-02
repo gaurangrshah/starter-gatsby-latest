@@ -6,9 +6,8 @@ import {
   AccordionIcon,
   Box,
 } from "@chakra-ui/core"
-import { ContentLogic } from "../layout/containers/containers"
 
-export const AccordionItem = ({ title, children, ...rest }) => {
+export const AccordionItem = ({ title, children }) => {
   return (
     <CHAccordionItem>
       <AccordionButton>

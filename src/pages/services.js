@@ -5,7 +5,6 @@ import { Box } from "@chakra-ui/core"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  test,
   padding,
   constants,
   component,
@@ -65,7 +64,7 @@ const ServicesPage = ({ data }) => {
             display={["none", null, null, "flex"]}
             w={[null, "70%", null, "80%", "100%"]}
             mr={0}
-            ml={0}
+            marginLeft={0}
             ml="auto"
             justifyContent="flex-end"
             flexWrap="nowrap"

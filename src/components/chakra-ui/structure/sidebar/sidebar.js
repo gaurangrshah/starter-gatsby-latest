@@ -9,7 +9,6 @@ import {
   DrawerHeader,
   DrawerBody,
   useColorMode,
-  useDisclosure,
 } from "@chakra-ui/core"
 
 import { BaseContainer } from "../../layout"
@@ -17,12 +16,12 @@ import { Tabs } from "../../tabs"
 import { BGIcon } from "../../../bg-icon"
 
 import { usePanel } from "../../../../hooks/use-panel"
+import { PanelContext } from "../../../../contexts/panel-context"
 
-export const Sidebar = ({ sidebarTitle, ...rest }) => {
+export const Sidebar = ({ sidebarTitle, context = PanelContext, ...rest }) => {
   const { colorMode } = useColorMode()
-  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { kids } = usePanel()
+  const { kids, isOpen, onOpen, onClose } = usePanel(context)
   return (
     <>
       {kids?.length && (

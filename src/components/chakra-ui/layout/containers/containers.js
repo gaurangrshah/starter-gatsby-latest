@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Flex, chakra, useColorMode, forwardRef } from "@chakra-ui/core"
+import { Box, Flex, useColorMode, forwardRef } from "@chakra-ui/core"
 
 import { constants } from "../../components"
 import { extras } from "../../chakra"
@@ -53,15 +53,18 @@ export const ContentLogic = forwardRef(
   }
 )
 
-export const BaseContainer = ({ fluid, max, pattern, children, ...rest }) => (
-  <ContentLogic
-    as="section"
-    className="base-container"
-    children={children}
-    {...baseDefaults}
-    {...base({ fluid, max, pattern })}
-    {...rest}
-  />
+export const BaseContainer = forwardRef(
+  ({ fluid, max, pattern, children, ...rest }, ref) => (
+    <ContentLogic
+      ref={ref && ref}
+      as="section"
+      className="base-container"
+      children={children}
+      {...baseDefaults}
+      {...base({ fluid, max, pattern })}
+      {...rest}
+    />
+  )
 )
 
 export const Row = ({

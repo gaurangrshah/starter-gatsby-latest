@@ -2,12 +2,14 @@ import React, { useEffect, useContext } from "react"
 
 import { PanelContext, PanelProvider } from "../contexts/panel-context"
 import { BaseContainer } from "../components"
+import { useDisclosure } from "@chakra-ui/core"
 
 const DEFAULT_CONTEXT = PanelContext
 const DEFAULT_PROVIDER = PanelProvider
 
 export const usePanel = (Context, Provider) => {
   const panelContext = useContext(Context || DEFAULT_CONTEXT)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const { kids, addKids } = panelContext
   const PanelLayout = ({ children, id, kidProps, ...rest }) => {
     useEffect(() => {
@@ -19,15 +21,15 @@ export const usePanel = (Context, Provider) => {
     return Context && Provider ? (
       <Provider {...rest}>
         <BaseContainer className="custom-panel-loader" />
-        {/* {console.log("using custom ctx loader")} */}
+        {/* {console.log("⭕️using custom ctx loader")} */}
       </Provider>
     ) : (
       <DEFAULT_PROVIDER {...rest}>
         <BaseContainer className="default-panel-loader" />
-        {/* {console.log("using default ctx loader")} */}
+        {/* {console.log("⭕️ using default ctx loader")} */}
       </DEFAULT_PROVIDER>
     )
   }
 
-  return { PanelLayout, kids }
+  return { PanelLayout, kids, isOpen, onOpen, onClose }
 }

@@ -1,6 +1,5 @@
 import React from "react"
 import { Box } from "@chakra-ui/core"
-import { test } from "./chakra-ui/chakra"
 
 export const StarsStripesLeft = ({ fill, stroke, hideMobile, ...rest }) => {
   return (

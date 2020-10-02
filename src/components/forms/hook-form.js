@@ -19,24 +19,27 @@ import { EmailIcon } from "@chakra-ui/icons"
 export const HookForm = ({
   defaultValues = { fname: "", lname: "", email: "", phone: "" },
   children,
-  onSubmit,
 }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  function onSubmit(values) {
+    setIsSubmitting(true)
+    console.log(values.phone)
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2))
+      setIsSubmitting(false)
+    }, 1000)
+  }
+
   const methods = useForm({
     mode: "onChange",
     defaultValues,
   })
   const { handleSubmit } = methods
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  function onSubmit(values) {
-    setIsSubmitting(true)
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2))
-      setIsSubmitting(false)
-    }, 1000)
-  }
   const formRef = useRef(null)
+
   useInputAutofill()
+
   return (
     <>
       <Box
@@ -96,8 +99,13 @@ export function CHookInput({
       errors[name]?.ref?.id?.toString() === name.toString() &&
       errors[name].message
     return () => {}
-  }, [errors])
-  const { required, minLength, maxLength, pattern } = validation
+  }, [errors, name])
+  const {
+    required,
+    minLength,
+    maxLength,
+    // pattern
+  } = validation
   return (
     <FormControl id={name} isInvalid={isErrorRef?.current} mb={6}>
       <VisuallyHidden>

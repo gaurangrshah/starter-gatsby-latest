@@ -1,4 +1,5 @@
 export * from "./accordion-item"
+export * from "./animation"
 export * from "./chakra"
 export * from "./components"
 export * from "./flex-card"

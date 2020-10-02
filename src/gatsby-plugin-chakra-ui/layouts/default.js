@@ -1,7 +1,7 @@
-import React, { useContext } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Box, ChakraProvider, useColorMode } from "@chakra-ui/core"
-import { merge } from "@chakra-ui/utils"
+// import { merge } from "@chakra-ui/utils"
 
 import theme from "../theme"
 import { Global } from "./global"
@@ -21,7 +21,7 @@ import useSiteMetadata from "../../hooks/use-site-metadata"
 
 import "../../styles/main.scss"
 
-import { isDev } from "../../utils"
+// import { isDev } from "../../utils"
 import { PanelProvider } from "../../contexts/panel-context"
 
 const DefaultLayout = ({
@@ -33,7 +33,11 @@ const DefaultLayout = ({
 }) => {
   const { colorMode } = useColorMode()
   const site = useSiteMetadata()
-  const { title, tagline, brandColors } = site
+  const {
+    title,
+    // tagline,
+    brandColors,
+  } = site
 
   const themeUpdate = {
     ...theme,

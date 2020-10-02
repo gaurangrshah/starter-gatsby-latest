@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Box, Button, Heading, Stack, Text } from "@chakra-ui/core"
+import { Box, Heading, Stack, Text } from "@chakra-ui/core"
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons"
 import { Content, Row } from "../layout"
 import { LinkWrapper } from "../link-wrapper"
@@ -9,7 +9,7 @@ import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
 import { component, constants } from "../components"
 
-export const PreFooter = ({ ...rest }) => {
+export const PreFooter = () => {
   const data = useStaticQuery(graphql`
     query {
       strapiSection(name: { eq: "pre_footer" }) {

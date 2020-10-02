@@ -1,4 +1,4 @@
-import { test, linearGradient, padding } from "./chakra"
+import { linearGradient, padding } from "./chakra"
 
 /*
 * highlight and Press cmd+D

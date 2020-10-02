@@ -26,26 +26,3 @@ export const BgImage = styled(Img)`
     }
   }
 `
-
-// export const BGIMG = ({ height, children, ...rest }) => (
-//   <Img
-//     position="absolute"
-//     top={0}
-//     left={0}
-//     width={"100%"}
-//     height={"100%"}
-//     zIndex={-1}
-//     as={Image}
-//     children={children}
-//     // FIX: 🚧 unable to get the css to select the child image element:
-//     styles={css`
-//       img: {
-//         object-fit: cover !important;
-//         object-position: 0% 0% !important;
-//         font-family: "object-fit: cover !important; object-position: 0% 0% !important;";
-//         border: "5px solid red";
-//       }
-//     `}
-//     {...rest}
-//   />
-// )

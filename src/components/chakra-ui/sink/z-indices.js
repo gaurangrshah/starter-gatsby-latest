@@ -25,7 +25,7 @@ const IndexBox = ({ title, zIndex, children }) => (
 )
 
 export const ZIndices = ({ zIndices }) => {
-  console.log("zindices", zIndices)
+  // console.log('⭕️zIndices', zIndices)
   return (
     <BaseContainer fluid my={12} minH="20vh" mx="auto">
       <Flex flexWrap="wrap">

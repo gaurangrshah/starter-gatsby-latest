@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**********************************
  * * Enironment helpers
  * ********************************
@@ -13,6 +15,8 @@ export const isDev =
 
 /**********************************
  * * Typography Helpers
+ * see "./truncate" for more
+ * see "./slugify" for more
  * ********************************
  */
 
@@ -109,3 +113,14 @@ export const isObject = obj =>
   typeof obj === "object"
     ? true
     : false
+
+/**********************************
+ * * Form Tools
+ * ********************************
+ */
+
+export function addDashes(target) {
+  let val = target.value.replace(/\D[^\.]/g, "")
+  target.value = val.slice(0, 3) + "-" + val.slice(3, 6) + "-" + val.slice(6)
+  // usage: addDashes(e.target)
+}

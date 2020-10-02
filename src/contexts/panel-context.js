@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react"
+import React, { useState, createContext } from "react"
 export const PanelContext = createContext()
 
 export function PanelProvider({ allowPanelUpdate = false, children }) {
@@ -16,7 +16,7 @@ export function PanelProvider({ allowPanelUpdate = false, children }) {
     // 🚧 to pass in different components use the id -- currently untested
     // console.log("newkids", newKids)
     if (kids?.length && !allowPanelUpdate) {
-      return console.log("🚧 kids exist-noupdate")
+      // return console.log("🚧 kids exist-noupdate")
     } else if (kids && allowPanelUpdate && id === kids[0]) {
       // console.log("🚧 kids exist: allow update, id matched-update")
       return updateKids(newKids, id, newProps)
@@ -26,12 +26,12 @@ export function PanelProvider({ allowPanelUpdate = false, children }) {
     }
   }
 
-  useEffect(() => {
-    // if (panelList?.length) return
-    console.log(kids?.length ? "👶 side has kids" : "🚫 side has no kids", kids)
+  // useEffect(() => {
+  //   // if (panelList?.length) return
+  //   console.log(kids?.length ? "👶 side has kids" : "🚫 side has no kids", kids)
 
-    return () => null
-  }, [kids])
+  //   return () => null
+  // }, [kids])
 
   return (
     <PanelContext.Provider value={{ kids, addKids }}>

@@ -1,27 +1,32 @@
 import { useEffect } from "react"
+import { addDashes } from "../utils"
 
-export const useInputAutofill = cb => {
+export const useInputAutofill = () => {
   useEffect(() => {
-    document.getElementById("phone").addEventListener("keydown", e => {
-      console.log("adding telephone event listener")
+    document.getElementById("phone").addEventListener("change", e => {
       let value = e.target.value
-      let key = e.charCode || e.keyCode || 0
 
-      if (key !== 8 && key !== 9) {
-        if (value.length === 3 || value.length === 7) {
-          e.target.value += "-"
-        }
+      if (value.length === 3 || value.length === 7) {
+        e.target.value += "-"
       }
-      cb && cb()
-      return (
-        key === 8 ||
-        key === 9 ||
-        key === 46 ||
-        (key >= 48 && key <= 57) ||
-        (key >= 96 && key <= 105)
-      )
+      if (value.length === 10) {
+        addDashes(e.target)
+      }
+    })
+    document.getElementById("phone").addEventListener("blur", e => {
+      let value = e.target.value
+      if (value.length === 10) {
+        addDashes(e.target)
+      }
     })
 
-    return () => null
+    return () => {
+      document.getElementById("phone").removeEventListener("change", e => {
+        console.log("phone change listener removed")
+      })
+      document.getElementById("phone").removeEventListener("blur", e => {
+        console.log("phone blur listener removed")
+      })
+    }
   })
 }

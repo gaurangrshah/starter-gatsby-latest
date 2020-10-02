@@ -1,6 +1,5 @@
 import React from "react"
 import {
-  Accordion,
   Tabs as CHTabs,
   TabList,
   TabPanels,
@@ -9,7 +8,7 @@ import {
 } from "@chakra-ui/core"
 
 export const Tabs = ({ list = [], panels }) => {
-  console.log("⭕️panels: Tabs", panels)
+  // console.log("⭕️panels: Tabs", panels)
 
   return (
     <CHTabs>
