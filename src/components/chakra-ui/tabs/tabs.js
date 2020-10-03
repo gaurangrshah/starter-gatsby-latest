@@ -12,7 +12,15 @@ export const Tabs = ({ list = [], panels }) => {
 
   return (
     <CHTabs>
-      <TabList>
+      <TabList
+        position="fixed"
+        top={"4em"}
+        left={0}
+        background="white"
+        w={"100%"}
+        py={"sm"}
+        zIndex="docked"
+      >
         {list?.map((item, i) => (
           <Tab key={i} children={item} />
         ))}

@@ -70,12 +70,18 @@ const DefaultLayout = ({
             {header && (
               <Header siteTitle={title} siteTagline={seo?.siteTagline} />
             )}
-            <Box as="main" {...rest} mt="5rem">
+            <Box as="main" {...rest} mt={12}>
               {children}
             </Box>
           </Box>
         </PanelProvider>
-        <BaseContainer fluid bg="bg" py={12} mb={[12, null, 0]}>
+        <BaseContainer
+          className="pre-footer"
+          fluid
+          bg="bg"
+          py={12}
+          mb={[12, null, 0]}
+        >
           <PreFooter />
         </BaseContainer>
         <Footer siteTitle={title.toUpperCase()} siteTagline={""} />

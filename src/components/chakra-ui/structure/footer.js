@@ -1,12 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Box } from "@chakra-ui/core"
+import { Box, useStyleConfig } from "@chakra-ui/core"
 
 import { ContentLogic } from "../layout"
 import { SocialLinks } from "./social-links"
 import { component } from "../components"
 
 export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
+  const styles = useStyleConfig("footer", {})
+
   return (
     <ContentLogic
       as="footer"
@@ -15,7 +17,7 @@ export const Footer = ({ siteTitle, siteTagline, ...rest }) => {
       shadow={"maxtop"}
       {...rest}
     >
-      <Box position="relative" {...component?.footer}>
+      <Box position="relative" sx={styles}>
         <Box
           width={["100%", null, null, "80%"]}
           fontSize={["10px", "sm"]}

@@ -7,7 +7,10 @@ import { BaseContainer } from "../layout"
 const IndexBox = ({ title, zIndex, children }) => (
   <Box
     bg={"blue"}
-    {...component.box.fixedWidth}
+    color="inherit"
+    w="full"
+    maxW={["80%", null, null, "5xl"]}
+    mx="auto"
     zIndex={zIndex}
     flex={1}
     m={1}

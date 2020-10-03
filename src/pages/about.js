@@ -1,12 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { useMultiStyleConfig } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  padding,
-  component,
-  constants,
   BackgroundImage,
   BaseContainer,
   Block,
@@ -23,16 +21,18 @@ const AboutPage = ({ data }) => {
   const [preFooter, aboutHero, aboutUs, aboutTeam] = data.allStrapiSection.edges
 
   const [founder, ...rest] = aboutTeam.node.block.cards
+  const hero = useMultiStyleConfig("hero", {})
+
   return (
     <DefaultLayout seo={{ siteTitle: "About", siteTagline: "Penn Star" }}>
       <BaseContainer fluid overflow="hidden">
-        <BackgroundImage {...component.hero} />
-        <Row {...component.hero.content}>
+        <BackgroundImage sx={hero.base} />
+        <Row color sx={hero.content}>
           <Block
             fluid
-            alignItems="flex-start"
             shadow
-            {...component.hero.block}
+            sx={hero.block}
+            alignItems="flex-start"
             config={{
               tagline: { border: true, fontSize: ["md", "xl"] },
               link: {
@@ -45,13 +45,13 @@ const AboutPage = ({ data }) => {
           />
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern {...padding.main}>
+      <BaseContainer fluid pattern py={[12, null, null, 12 * 3]}>
         <Content
           bg="background"
           color="bg4"
           shadow
           rounded
-          maxW={constants?.MAX_WIDTH}
+          maxW={["5xl", null, null, null, "60%"]}
           mx="auto"
           py={6}
           px={4}
@@ -79,7 +79,7 @@ const AboutPage = ({ data }) => {
           color={`mode.${"light"}.text`}
           shadow
           rounded
-          maxW={constants?.MAX_WIDTH}
+          maxW={["5xl", null, null, null, "60%"]}
           mx="auto"
           my={12}
           py={6}
@@ -99,7 +99,7 @@ const AboutPage = ({ data }) => {
       </BaseContainer>
       <BaseContainer bg fluid color="brand" py={12}>
         <Row
-          maxW={constants.MAX_CONTENT_WIDTH}
+          maxW={"5xl"}
           responsive
           center
           justifyContent={["center", null, null, "space-around"]}
@@ -124,7 +124,7 @@ const AboutPage = ({ data }) => {
           shadow
           rounded
           bg="background"
-          maxW={constants?.MAX_WIDTH}
+          maxW={["5xl", null, null, null, "60%"]}
           py={6}
           mb={12}
           textAlign="center"

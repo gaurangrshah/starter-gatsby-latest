@@ -1,8 +1,7 @@
 import React from "react"
-import { Box } from "@chakra-ui/core"
+import { Box, theme } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
-import theme from "../gatsby-plugin-chakra-ui/theme"
 
 import {
   component,
@@ -93,7 +92,7 @@ const Entrances = ({ children, ...rest }) => {
 
 const TestPage = () => {
   const { breakpoints, zIndices, sizes, space, colors, shadows } = theme
-
+  console.log(sizes)
   return (
     <DefaultLayout
       seo={{ siteTitle: "test page", siteTagline: "testing ground" }}

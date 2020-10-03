@@ -1,13 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box } from "@chakra-ui/core"
+import { Box, useMultiStyleConfig } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  padding,
-  constants,
-  component,
   BackgroundImage,
   BaseContainer,
   Block,
@@ -20,23 +17,26 @@ const ServicesPage = ({ data }) => {
   const servicesHero = data.allStrapiSection.edges[1]
   const services = data.allStrapiSection.edges[2]
 
+  const hero = useMultiStyleConfig("hero", {})
   return (
     <DefaultLayout
       seo={{ siteTitle: "Services", siteTagline: "Land Transfer Services" }}
     >
       <BaseContainer fluid overflow="hidden" h="auto">
-        <BackgroundImage {...component.hero} />
+        <BackgroundImage sx={hero.base} />
         <Row
           fluid
-          {...component.hero.content}
+          shadow
           flexDirection="column"
           alignItems="flex-start"
-          mr={[12, null, null, 12 * 4]}
-          mt={[6, "20%", null, 12 * 2]}
+          sx={{
+            ...hero.content,
+            mt: [6, "14%", null, 6],
+            mr: [0, null, null, 12 * 2],
+          }}
           w="100%"
         >
           <Row
-            fluid
             color
             textAlign="right"
             position="relative"
@@ -47,8 +47,7 @@ const ServicesPage = ({ data }) => {
             <Block
               fluid
               shadow
-              position="relative"
-              mx={0}
+              sx={hero.block}
               config={{
                 heading: { border: true },
                 tagline: { border: true, fontSize: "xl" },
@@ -76,7 +75,13 @@ const ServicesPage = ({ data }) => {
                 truncate={80}
                 {...card}
                 config={{
-                  link: { as: Box, p: 3 },
+                  link: {
+                    as: Box,
+                    p: 3,
+                    isDefault: false,
+                    isMoreLink: true,
+                    isEnabled: true,
+                  },
                   icon: { color: "lightblue" },
                   heading: { fontSize: ["sm", "lg", null, null, "2xl"] },
                   content: { display: ["none", null, null, "block"] },
@@ -86,7 +91,7 @@ const ServicesPage = ({ data }) => {
           </Row>
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern {...padding.main}>
+      <BaseContainer fluid pattern py={[12, null, null, 12 * 3]}>
         <Content position="relative" mx="auto" textAlign="center">
           <Block
             position="relative"
@@ -103,7 +108,7 @@ const ServicesPage = ({ data }) => {
                   mx={3} // sets the margin around each card
                   flexGrow={0}
                   w={["100%", "45%", "30%"]}
-                  minH={constants?.CARD_WIDTH}
+                  minH={"3xs"}
                   m={3}
                   icon
                   config={{
@@ -112,9 +117,11 @@ const ServicesPage = ({ data }) => {
                       p: "1em",
                       isDefault: false,
                       isMoreLink: true,
+                      isEnabled: true,
                       size: "xs",
                       mt: 6,
                       alignSelf: "flex-end",
+                      to: "/",
                     },
                   }}
                   {...card}

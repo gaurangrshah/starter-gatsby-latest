@@ -3,7 +3,6 @@ import { Box, forwardRef } from "@chakra-ui/core"
 
 import { AnimatePresence } from "framer-motion"
 import { MotionBox, MotionBase } from "./motion"
-// import useInView from "react-cool-inview"
 import { shortid } from "../../utils"
 import { useInView } from "react-intersection-observer"
 

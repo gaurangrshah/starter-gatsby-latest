@@ -1,11 +1,9 @@
 import React from "react"
-import { Box, Button, Link as CHLink } from "@chakra-ui/core"
+import { Box, Button, Link as CHLink, useStyleConfig } from "@chakra-ui/core"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 import { Link as ReachLink } from "gatsby"
 import { isExternal, isTruthy } from "../../utils"
-import { component } from "./components"
-
 export const LinkWrapper = ({
   isDefault = true,
   isMoreLink = false,
@@ -19,6 +17,7 @@ export const LinkWrapper = ({
 }) => {
   const isPathExternal = isExternal(path)
   const Link = isPathExternal || isContact ? CHLink : ReachLink
+  const styles = useStyleConfig("Button", {})
   return (
     <>
       {isEnabled ? (
@@ -27,8 +26,8 @@ export const LinkWrapper = ({
           isDisabled={!isEnabled}
           color="inherit"
           my={2}
-          {...isTruthy(isDefault, component?.buttons?.default)}
-          {...isTruthy(isMoreLink && !isContact, component?.buttons.moreLink)}
+          {...isTruthy(isDefault, styles?.default)}
+          {...isTruthy(isMoreLink && !isContact, styles?.moreLink)}
           rightIcon={isMoreLink && <ArrowForwardIcon />}
           href={isPathExternal ? path : isContact ? path : undefined}
           to={!isPathExternal || !isContact ? path : undefined}

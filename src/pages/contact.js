@@ -1,13 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Stack, Text } from "@chakra-ui/core"
+import { Box, Stack, Text, useMultiStyleConfig } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  padding,
-  component,
-  constants,
   fields,
   BaseContainer,
   BGIcon,
@@ -39,6 +36,9 @@ const ContactPage = ({ data }) => {
     state,
     zip,
   } = preFooter?.node?.block?.addons[0]
+
+  const hero = useMultiStyleConfig("hero", {})
+
   return (
     <DefaultLayout
       seo={{ siteTitle: "Contact", siteTagline: "Penn Star Land Transfer" }}
@@ -53,7 +53,7 @@ const ContactPage = ({ data }) => {
         />
         <Content
           color="bg3"
-          {...component.hero.content}
+          sx={hero.content}
           mr={[12, null, null, 12 * 3]}
           pb={6}
           mt={["100%", "50%", "30%", "10%"]}
@@ -134,7 +134,7 @@ const ContactPage = ({ data }) => {
       </BaseContainer>
       {/* Form Layout Content */}
 
-      <BaseContainer bg fluid color="brand" {...padding.main}>
+      <BaseContainer bg fluid color="brand" py={[12, null, null, 12 * 3]}>
         <BlockText
           text="Send us a quick message!"
           type="heading"
@@ -149,7 +149,7 @@ const ContactPage = ({ data }) => {
             color="brand"
             bg="background"
             mx="auto"
-            w={constants.MAX_WIDTH}
+            w={["5xl", null, null, null, "60%"]}
             p={["15%", null, null, 12]}
             px={["15%", null, null, 4 * 4]}
             border="1px solid rgba(0,0,0,0.2)"

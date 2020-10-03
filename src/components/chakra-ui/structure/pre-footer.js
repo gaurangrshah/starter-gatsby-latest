@@ -7,7 +7,7 @@ import { Content, Row } from "../layout"
 import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
-import { component, constants } from "../components"
+import { component } from "../components"
 
 export const PreFooter = () => {
   const data = useStaticQuery(graphql`
@@ -64,7 +64,7 @@ export const PreFooter = () => {
 
   return (
     <Row
-      maxW={constants.MAX_WIDTH}
+      maxW={["5xl", null, null, null, "60%"]}
       responsive
       color="text"
       justifyContent="space-between"

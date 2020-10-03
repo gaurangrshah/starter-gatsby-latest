@@ -1,9 +1,8 @@
-import { theme as baseTheme } from "@chakra-ui/core"
+import { extendTheme } from "@chakra-ui/core"
+import components from "./components"
 
-const theme = {
-  ...baseTheme,
+const theme = extendTheme({
   colors: {
-    ...baseTheme.colors,
     blue: {
       50: "hsl(229, 66%, 96%)",
       100: "hsl(230, 67%, 90%)",
@@ -87,14 +86,10 @@ const theme = {
     },
   },
   fonts: {
-    ...baseTheme.fonts,
     body: `"Encode Sans", sans-serif`,
   },
-  space: {
-    ...baseTheme.space,
-  },
+  space: {},
   shadows: {
-    ...baseTheme.shadows,
     default: "0px 1px 0px 0px rgba(9,30,66,.25)",
     max: "0 1px 5px rgba(0, 0, 0, 0.15)",
     inset: "0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset",
@@ -105,6 +100,9 @@ const theme = {
     smlightbox: "0 4px 4px 0 rgba(0,0,0,.05)",
     icon: "0px 1px 2px 0px rgba(0,0,0,0.05)",
   },
-}
+  components: {
+    ...components,
+  },
+})
 
 export default theme

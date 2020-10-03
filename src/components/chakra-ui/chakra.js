@@ -1,21 +1,5 @@
-// import {variables, component} from "./components"
-import { isBoolean } from "../../utils/tools/tools"
-
-export const test = (color = "red", width = 2) => ({
-  border: `${width}px solid ${isBoolean(color) ? "red" : color}`,
-})
-
-export const padding = {
-  default: {
-    py: [5, null, null, 10],
-    px: 5,
-  },
-  main: {
-    py: [12, null, null, 12 * 3],
-  },
-}
-
 export const interactions = {
+  // used for social-links
   scaleUp: {
     transform: [`scale(1.2)`, null, null, `scale(0.8)`],
     transition: "transform 0.3s ease-in",

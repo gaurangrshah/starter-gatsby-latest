@@ -1,23 +1,22 @@
 import React from "react"
 import { Box, Flex, useColorMode, forwardRef } from "@chakra-ui/core"
 
-import { constants } from "../../components"
 import { extras } from "../../chakra"
 import { isBoolean } from "../../../../utils"
 
 const baseDefaults = {
   position: "relative",
   mx: "auto",
-  zIndex: 0,
+  zIndex: "base",
 }
 
 const base = ({ fluid, max, pattern, ...rest }) => ({
   backgroundImage: pattern && extras.ptrn,
   w: [
-    fluid ? "100%" : max ? constants?.MAX_CONTENT_WIDTH : "80%",
+    fluid ? "100%" : max ? "5xl" : "80%",
     null,
     null,
-    max && fluid ? constants?.MAX_CONTENT_WIDTH : null,
+    max && fluid ? "5xl" : null,
   ],
   px: !fluid && "15px",
   ...rest,
@@ -91,7 +90,7 @@ export const Row = ({
 
 export const Content = ({ maxW = true, children, ...rest }) => (
   <ContentLogic
-    maxW={maxW && constants?.MAX_CONTENT_WIDTH}
+    maxW={maxW && "5xl"}
     mx="auto"
     zIndex={10}
     className={`content`}

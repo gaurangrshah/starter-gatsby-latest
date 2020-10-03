@@ -1,12 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { useMultiStyleConfig } from "@chakra-ui/core"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
-  padding,
-  constants,
-  component,
   BackgroundImage,
   BaseContainer,
   Block,
@@ -17,18 +15,20 @@ import {
 
 const IndexPage = ({ data }) => {
   const [homeHero, homeAuthority] = data.allStrapiSection.edges
+  const hero = useMultiStyleConfig("hero", {})
+
   return (
     <DefaultLayout
       seo={{ siteTitle: "Penn Star", siteTagline: "Land Transfer" }}
     >
       <BaseContainer fluid overflow="hidden">
-        <BackgroundImage {...component.hero} />
-        <Row {...component.hero.content}>
+        <BackgroundImage sx={hero.base} />
+        <Row color sx={hero.content}>
           <Block
             fluid
             shadow
             alignItems="flex-start"
-            {...component.hero.block}
+            sx={hero.block}
             config={{
               heading: { border: true },
               tagline: { border: true, fontSize: "xl" },
@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
           />
         </Row>
       </BaseContainer>
-      <BaseContainer fluid pattern {...padding.main}>
+      <BaseContainer fluid pattern py={[12, null, null, 12 * 3]}>
         <Row fluid>
           <Content shadow rounded color="bg4" bg="background">
             <Block
@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => {
                   <FlexCard
                     key={i}
                     truncate
-                    flexbasis={constants?.CARD_WIDTH_LG}
+                    flexbasis={32 * 2}
                     maxH="400px"
                     mx={["auto", null, 3]}
                     my={[3]}

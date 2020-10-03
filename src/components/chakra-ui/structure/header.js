@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Flex, Heading, useColorMode } from "@chakra-ui/core"
+import { Flex, Heading, useColorMode, useStyleConfig } from "@chakra-ui/core"
 
 import { Nav } from "./nav"
 import { Logo } from "./logo"
@@ -9,9 +9,12 @@ import { component } from "../components"
 
 export const Header = ({ siteTitle, siteTagline, ...rest }) => {
   const { colorMode } = useColorMode()
+  const config = { variant: "base" }
+  const styles = useStyleConfig("header", config)
+  // console.log("⭕️ basestyles", styles)
   return (
     <ContentLogic as="header" bg={`brand`} shadow="minbttm">
-      <Flex color={`mode.${colorMode}.background`} {...component?.header}>
+      <Flex color={`mode.${colorMode}.background`} sx={styles}>
         <Heading
           as="h1"
           m={0}
@@ -31,8 +34,10 @@ export const Header = ({ siteTitle, siteTagline, ...rest }) => {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  siteTagline: PropTypes.string,
 }
 
 Header.defaultProps = {
   siteTitle: ``,
+  siteTagline: ``,
 }
