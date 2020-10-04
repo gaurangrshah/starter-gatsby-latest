@@ -1,10 +1,11 @@
 import React from "react"
 
-import { Presence } from "."
+import { Presence } from "./presence"
 import { Fade, ScaleFade, Slide, SlideFade } from "@chakra-ui/transition"
 
 import { BaseContainer } from "../layout/containers/containers"
 import { Box } from "@chakra-ui/core"
+
 const boxy = {
   id: "box-check",
   w: "300px",
@@ -18,6 +19,7 @@ export const Transitions = () => {
     <BaseContainer color="red" mt={6} py={"5em"} overflow="hidden" my={"120vh"}>
       {/* 🎉 completed */}
       <Presence
+        debug
         config={{ rootMargin: "-50px", threshold: [0.4, 0.8], delay: 100 }}
       >
         <ScaleFade initialScale={0.2} timeout={2000}>
@@ -28,13 +30,13 @@ export const Transitions = () => {
       </Presence>
 
       {/* 🎉 completed */}
-      <Presence config={{ rootMargin: "-50px", threshold: [0.2, 0.9] }}>
+      <Presence debug config={{ rootMargin: "-50px", threshold: [0.2, 0.9] }}>
         <Fade timeout={2000}>
           {styles => <Box {...boxy} style={{ ...styles }} children={"fade"} />}
         </Fade>
       </Presence>
       {/* 🎉 completed */}
-      <Presence config={{ rootMargin: "-80px", threshold: [0.4, 0.9] }}>
+      <Presence debug config={{ rootMargin: "-80px", threshold: [0.4, 0.9] }}>
         <Slide placement="left" timeout={2000}>
           {styles => (
             <Box {...boxy}>

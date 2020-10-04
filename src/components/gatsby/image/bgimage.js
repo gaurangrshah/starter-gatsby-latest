@@ -8,7 +8,7 @@ import { BgImage } from "./styledBgImg"
 export const BackgroundImage = ({
   height = "100%",
   overlay = "transparent",
-  gradientOverlay,
+  // gradientOverlay set via theme-components: "../../../gatsby-plugin-chakra-ui/components/hero.js"
   children,
   ...rest
 }) => {
@@ -46,7 +46,6 @@ export const BackgroundImage = ({
       className="bg-parent"
       position="relative"
       backgroundColor={overlay}
-      backgroundImage={gradientOverlay}
       maxW="100%"
       overflowY="hidden"
       height="100%"

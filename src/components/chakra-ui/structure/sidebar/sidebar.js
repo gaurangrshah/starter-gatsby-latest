@@ -85,6 +85,7 @@ export const Sidebar = ({ sidebarTitle, context = PanelContext, ...rest }) => {
                   "shadows",
                   "gradients",
                   "entrances",
+                  "motion-entrances",
                 ]}
                 panels={kids?.length && kids[1]}
               />

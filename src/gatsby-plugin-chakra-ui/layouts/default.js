@@ -26,6 +26,7 @@ import { PanelProvider } from "../../contexts/panel-context"
 
 const DefaultLayout = ({
   header = true,
+  prefooter = true,
   seo,
   allowPanelUpdate = false,
   children,
@@ -75,15 +76,17 @@ const DefaultLayout = ({
             </Box>
           </Box>
         </PanelProvider>
-        <BaseContainer
-          className="pre-footer"
-          fluid
-          bg="bg"
-          py={12}
-          mb={[12, null, 0]}
-        >
-          <PreFooter />
-        </BaseContainer>
+        {prefooter && (
+          <BaseContainer
+            className="pre-footer"
+            fluid
+            bg="bg"
+            py={12}
+            mb={[12, null, 0]}
+          >
+            <PreFooter />
+          </BaseContainer>
+        )}
         <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
       </ChakraProvider>
     </>

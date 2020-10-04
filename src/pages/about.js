@@ -18,7 +18,7 @@ import {
 } from "../components"
 
 const AboutPage = ({ data }) => {
-  const [preFooter, aboutHero, aboutUs, aboutTeam] = data.allStrapiSection.edges
+  const [aboutHero, aboutUs, aboutTeam] = data.allStrapiSection.edges
 
   const [founder, ...rest] = aboutTeam.node.block.cards
   const hero = useMultiStyleConfig("hero", {})

@@ -4,8 +4,9 @@ const hero = {
   parts: ["base", "content", "block"],
   baseStyle: {
     base: {
+      h: "50vh",
       maxH: "60vh",
-      gradientOverlay: linearGradient(14),
+      background: linearGradient(14),
     },
     content: {
       position: "absolute",

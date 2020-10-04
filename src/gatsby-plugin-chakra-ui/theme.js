@@ -45,7 +45,6 @@ const theme = extendTheme({
         cardBG: "#4078F2", // blue crayola
         cardBG2: "#6592F4", // cornflower blue
         icon: "#F2F2F2", // light gray
-
         text: "#2b4054", // charcoal
         textAlt: "#C9D7E3", // beau blue
         heading: "#0F4CD2", //
@@ -53,7 +52,6 @@ const theme = extendTheme({
         navlinkActive: "##F8F8FF", //
         navlinkHover: "#EBEBFF", //
         link: "#00a6ff", // blue jeans
-
         background: "#FFFFFF", // white
         bg: "#D9E4FD", // baby blue eyes
         bg2: "#8DAEF7", // french sky blue
