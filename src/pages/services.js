@@ -14,23 +14,24 @@ import {
 } from "../components"
 
 const ServicesPage = ({ data }) => {
-  const servicesHero = data.allStrapiSection.edges[1]
-  const services = data.allStrapiSection.edges[2]
+  const servicesHero = data.allStrapiSection.edges[0]
+  const services = data.allStrapiSection.edges[1]
 
   const hero = useMultiStyleConfig("hero", {})
+  console.log("services data", servicesHero.node.block.cards)
   return (
     <DefaultLayout
       seo={{ siteTitle: "Services", siteTagline: "Land Transfer Services" }}
     >
       <BaseContainer fluid overflow="hidden" h="auto">
-        <BackgroundImage sx={hero.base} />
+        <BackgroundImage sx={hero?.base} />
         <Row
           fluid
           shadow
           flexDirection="column"
           alignItems="flex-start"
           sx={{
-            ...hero.content,
+            ...hero?.content,
             mt: [6, "14%", null, 6],
             mr: [0, null, null, 12 * 2],
           }}
@@ -47,7 +48,7 @@ const ServicesPage = ({ data }) => {
             <Block
               fluid
               shadow
-              sx={hero.block}
+              sx={hero?.block}
               config={{
                 heading: { border: true },
                 tagline: { border: true, fontSize: "xl" },
@@ -56,7 +57,7 @@ const ServicesPage = ({ data }) => {
                   isMoreLink: true,
                 },
               }}
-              {...servicesHero.node.block.block}
+              {...servicesHero?.node?.block?.block}
             />
           </Row>
           <Row
@@ -68,7 +69,7 @@ const ServicesPage = ({ data }) => {
             justifyContent="flex-end"
             flexWrap="nowrap"
           >
-            {servicesHero.node.block.cards.map((card, i) => (
+            {servicesHero?.node?.block?.cards?.map((card, i) => (
               <FlexCard
                 key={i}
                 w={["50%", "30%", null, null]}
@@ -95,14 +96,14 @@ const ServicesPage = ({ data }) => {
         <Content position="relative" mx="auto" textAlign="center">
           <Block
             position="relative"
-            {...services.node.block.block}
+            {...services?.node?.block?.block}
             config={{
               heading: { fontSize: "2xl", order: 0 },
               misc: { order: 1 },
             }}
           >
             <Row fluid center flexWrap="wrap" order={5} my={12}>
-              {services.node.block.cards.map((card, i) => (
+              {services?.node?.block?.cards.map((card, i) => (
                 <FlexCard
                   key={i}
                   mx={3} // sets the margin around each card

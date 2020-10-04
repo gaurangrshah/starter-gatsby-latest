@@ -5,7 +5,7 @@ const hero = {
   baseStyle: {
     base: {
       h: "50vh",
-      maxH: "60vh",
+      maxH: "40vh",
       background: linearGradient(14),
     },
     content: {

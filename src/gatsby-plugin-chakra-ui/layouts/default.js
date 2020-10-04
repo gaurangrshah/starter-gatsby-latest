@@ -19,10 +19,11 @@ import {
 
 import useSiteMetadata from "../../hooks/use-site-metadata"
 
-import "../../styles/main.scss"
-
 // import { isDev } from "../../utils"
 import { PanelProvider } from "../../contexts/panel-context"
+import { isClient } from "../../utils/tools/tools"
+
+import "../../styles/main.scss"
 
 const DefaultLayout = ({
   header = true,
@@ -51,7 +52,7 @@ const DefaultLayout = ({
     },
   }
 
-  console.log("⭕️themeUpdate", themeUpdate)
+  isClient && console.log("⭕️themeUpdate", themeUpdate)
 
   return (
     <>
@@ -71,7 +72,7 @@ const DefaultLayout = ({
             {header && (
               <Header siteTitle={title} siteTagline={seo?.siteTagline} />
             )}
-            <Box as="main" {...rest} mt={12}>
+            <Box as="main" {...rest} mt={10}>
               {children}
             </Box>
           </Box>
