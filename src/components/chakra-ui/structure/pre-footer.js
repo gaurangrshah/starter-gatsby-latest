@@ -8,6 +8,7 @@ import { LinkWrapper } from "../link-wrapper"
 import { borderBottom, TextContent } from "../../blocks"
 import { Logo } from "./logo"
 import { component } from "../components"
+import useSiteMetadata from "../../../hooks/use-site-metadata"
 
 export const PreFooter = () => {
   const data = useStaticQuery(graphql`
@@ -50,8 +51,8 @@ export const PreFooter = () => {
     }
   `)
 
-  const { block, pages } = data.strapiSection
-  // console.log("⭕️pages", pages)
+  const { block } = data.strapiSection
+  const { pages } = useSiteMetadata()
   const {
     email,
     phone,
@@ -183,8 +184,8 @@ export const PreFooter = () => {
                 color="mode.light.text"
                 variant="ghost"
                 textTransform="upperCase"
-                path={`/${page?.name === "home" ? "" : page?.name}`}
-                label={`${page?.name}`}
+                path={`/${page?.label === "home" ? "" : page?.label}`}
+                label={`${page?.label}`}
               />
             ))}
           </Content>

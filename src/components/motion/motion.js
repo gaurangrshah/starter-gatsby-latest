@@ -15,24 +15,3 @@ export const MotionText = motion.custom(Text)
 export const MotionContent = motion.custom(Content)
 
 export const MotionBase = motion.custom(BaseContainer)
-
-// export const MotionRefBox = forwardRef(({ ...props }, ref) => {
-//   console.log("❗️ref", ref, props)
-//   return <MotionBox ref={ref} {...props} />
-// })
-// const MotionCHBox = forwardRef(
-//   chakra(motion.div, {
-//     baseStyle: {
-//       m: 2,
-//     },
-//   })
-// )
-
-// export const MotionCHRefBox = forwardRef((props, ref) => {
-//   console.log("❗️MotionCHRefBox", props, ref)
-//   return <MotionCHBox ref={ref} {...props} />
-// })
-
-// export const CHMotionBox = forwardRef((props, ref) => (
-//   <Box as={motion.div} ref={ref} {...props} />
-// ))

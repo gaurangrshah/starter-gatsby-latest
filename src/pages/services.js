@@ -18,7 +18,6 @@ const ServicesPage = ({ data }) => {
   const services = data.allStrapiSection.edges[1]
 
   const hero = useMultiStyleConfig("hero", {})
-  console.log("services data", servicesHero.node.block.cards)
   return (
     <DefaultLayout
       seo={{ siteTitle: "Services", siteTagline: "Land Transfer Services" }}

@@ -1,5 +1,5 @@
 import React from "react"
-import { Presence2 } from "./presence"
+import { Presence } from "./presence"
 import { Box } from "@chakra-ui/core"
 import { MotionBox } from "../../motion/motion"
 import { shortid } from "../../../utils"
@@ -43,7 +43,7 @@ const motionDefaults = {
 export const MotionEntrances = () => {
   return (
     <Box my={"100vh"}>
-      <Presence2
+      <Presence
         debug
         type="Fade"
         timeout={2000}
@@ -98,7 +98,7 @@ export const MotionEntrances = () => {
           transition={defaultProps.motionTransition}
           border="1px solid red"
         />
-      </Presence2>
+      </Presence>
     </Box>
   )
 }

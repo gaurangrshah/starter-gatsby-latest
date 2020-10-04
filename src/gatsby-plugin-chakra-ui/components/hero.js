@@ -4,8 +4,7 @@ const hero = {
   parts: ["base", "content", "block"],
   baseStyle: {
     base: {
-      h: "50vh",
-      maxH: "40vh",
+      h: ["30vh", null, null, "50vh"],
       background: linearGradient(14),
     },
     content: {
