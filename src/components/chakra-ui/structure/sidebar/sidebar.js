@@ -21,7 +21,10 @@ import { PanelContext } from "../../../../contexts/panel-context"
 export const Sidebar = ({ sidebarTitle, context = PanelContext, ...rest }) => {
   const { colorMode } = useColorMode()
 
-  const { kids, isOpen, onOpen, onClose } = usePanel(context)
+  const { setPanelList, panelList, kids, isOpen, onOpen, onClose } = usePanel(
+    context
+  )
+  console.log(kids, setPanelList, panelList)
   return (
     <>
       {kids?.length && (
@@ -53,7 +56,7 @@ export const Sidebar = ({ sidebarTitle, context = PanelContext, ...rest }) => {
             pt={4}
             mt={12 * 2}
             pb={"5em"}
-            overflowY="hidden"
+            overflow="hidden"
             maxH="85vh"
           >
             <DrawerCloseButton />
@@ -75,20 +78,7 @@ export const Sidebar = ({ sidebarTitle, context = PanelContext, ...rest }) => {
               top={12}
               mx={"auto"}
             >
-              <Tabs
-                list={[
-                  "breakpoints",
-                  "zIndices",
-                  "sizes",
-                  "space",
-                  "colors",
-                  "shadows",
-                  "gradients",
-                  "entrances",
-                  "motion-entrances",
-                ]}
-                panels={kids?.length && kids[1]}
-              />
+              <Tabs list={panelList} panels={kids?.length && kids[1]} />
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>

@@ -20,6 +20,13 @@ export const Tabs = ({ list = [], panels }) => {
         w={"100%"}
         py={"sm"}
         zIndex="docked"
+        overflowX="scroll"
+        sx={{
+          "::-webkit-scrollbar": {
+            width: 0,
+            height: 0,
+          },
+        }}
       >
         {list?.map((item, i) => (
           <Tab key={i} children={item} />

@@ -20,7 +20,7 @@ import {
 import useSiteMetadata from "../../hooks/use-site-metadata"
 
 // import { isDev } from "../../utils"
-import { PanelProvider } from "../../contexts/panel-context"
+import { PanelContext, PanelProvider } from "../../contexts/panel-context"
 import { isClient } from "../../utils/tools/tools"
 
 import "../../styles/main.scss"
@@ -61,7 +61,7 @@ const DefaultLayout = ({
       <ChakraProvider resetCSS theme={themeUpdate}>
         <ModeToggle />
         <PanelProvider {...{ allowPanelUpdate }}>
-          <Sidebar>
+          <Sidebar context={PanelContext}>
             <Sink />
           </Sidebar>
           <Box
