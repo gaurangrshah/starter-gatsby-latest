@@ -3,6 +3,7 @@ import { theme } from "@chakra-ui/core"
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
 import {
+  MotionBrand,
   MotionEntrances,
   Breakpoints,
   ZIndices,
@@ -16,13 +17,25 @@ import {
   SidebarContextWrapper,
 } from "../components/chakra-ui"
 
+const tabs = [
+  "breakpoints",
+  "zIndices",
+  "sizes",
+  "space",
+  "colors",
+  "shadows",
+  "gradients",
+  "entrances",
+  "motion-entrances",
+  "compositions",
+]
 const TestPage = () => {
   const { breakpoints, zIndices, sizes, space, colors, shadows } = theme
   return (
     <DefaultLayout
       seo={{ siteTitle: "test page", siteTagline: "testing ground" }}
     >
-      <SidebarContextWrapper id="testPage" allowSidebarUpdate>
+      <SidebarContextWrapper id="testPage" allowSidebarUpdate list={tabs}>
         <Breakpoints breakpoints={breakpoints} />
         <ZIndices zIndices={zIndices} />
         <Sizes sizes={sizes} />
@@ -32,6 +45,7 @@ const TestPage = () => {
         <Gradients gradients={gradients} />
         <Transitions />
         <MotionEntrances />
+        <MotionBrand />
       </SidebarContextWrapper>
     </DefaultLayout>
   )

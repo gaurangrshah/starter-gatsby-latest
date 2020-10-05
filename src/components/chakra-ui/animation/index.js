@@ -1,3 +1,6 @@
 export * from "./presence"
 export * from "./transitions"
+export * from "./motion-brand"
 export * from "./motion-entrances"
+export * from "./motion-settings"
+export * from "./transition-box"

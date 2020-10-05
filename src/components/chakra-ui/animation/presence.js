@@ -5,13 +5,13 @@ import { Box } from "@chakra-ui/core"
 import { AnimatePresence } from "framer-motion"
 import { Fade, ScaleFade, Slide, SlideFade } from "@chakra-ui/transition"
 import { BaseContainer } from "../layout/"
+import { TransitionBox } from "./transition-box"
 
 export const Presence = ({
   type = "Fade",
   once = false,
   config,
   debug,
-  wrapper,
   children,
   ...rest
 }) => {
@@ -37,7 +37,7 @@ export const Presence = ({
   }, [presenceRef, inView])
 
   return (
-    <Box ref={ref}>
+    <Box ref={ref} overflow="hidden">
       {debug && (
         <Box position="fixed" top="8em" left="1em" p={2} border="2px solid red">
           {`inView: ${inView}`}
@@ -59,7 +59,8 @@ export const Presence = ({
           <BaseContainer
             className="presence-container"
             {...config.container}
-            sx={{ minH: "20vh", mx: "auto", ...styles }}
+            overflow="hidden"
+            sx={{ ...styles }}
           >
             <AnimatePresence>{inView && <>{children}</>}</AnimatePresence>
           </BaseContainer>
@@ -69,19 +70,19 @@ export const Presence = ({
   )
 }
 
-const TransitionTypes = {
-  ScaleFade,
-  Fade,
-  Slide,
-  SlideFade,
-}
+// const TransitionTypes = {
+//   ScaleFade,
+//   Fade,
+//   Slide,
+//   SlideFade,
+// }
 
-export const TransitionBox = ({ type, inView, children, ...rest }) => {
-  const Transition = TransitionTypes[type]
+// export const TransitionBox = ({ type, inView, children, ...rest }) => {
+//   const Transition = TransitionTypes[type]
 
-  return (
-    <Transition in={inView} {...rest}>
-      {children}
-    </Transition>
-  )
-}
+//   return (
+//     <Transition in={inView} {...rest}>
+//       {children}
+//     </Transition>
+//   )
+// }

@@ -36,7 +36,7 @@ export const Transitions = () => {
         initialOffset="200px"
         timeout={2000}
         config={{
-          container: { bg: true, shadow: true },
+          container: { bg: true, shadow: true, minH: "20vh" },
         }}
       >
         <Box {...boxy} children={"fade"} />
@@ -50,7 +50,7 @@ export const Transitions = () => {
             rootMargin: "-50px",
             threshold: [0.2, 0.9],
           },
-          container: { bg: true, shadow: true },
+          container: { bg: true, shadow: true, minH: "20vh" },
         }}
       >
         <Box {...boxy} children={"fade"} />
@@ -67,7 +67,7 @@ export const Transitions = () => {
             // delay: 100,
             initialInView: false,
           },
-          container: { bg: true, shadow: true },
+          container: { bg: true, shadow: true, minH: "20vh" },
         }}
       >
         <Box {...boxy} children={"scale-fade"} />
