@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react"
+import React, { useState, createContext } from "react"
 export const PanelContext = createContext()
 
 export function PanelProvider({ allowPanelUpdate = false, children }) {
@@ -28,11 +28,11 @@ export function PanelProvider({ allowPanelUpdate = false, children }) {
     }
   }
 
-  useEffect(() => {
-    if (!panelList?.length) return
-    console.log("listed", panelList)
-    return () => null
-  }, [panelList])
+  // useEffect(() => {
+  //   if (!panelList?.length) return
+  //   console.log("listed", panelList)
+  //   return () => null
+  // }, [panelList])
 
   // useEffect(() => {
   //   // if (panelList?.length) return

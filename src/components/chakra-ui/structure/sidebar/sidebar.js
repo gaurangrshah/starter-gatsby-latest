@@ -24,7 +24,7 @@ export const Sidebar = ({ sidebarTitle, context = PanelContext, ...rest }) => {
   const { setPanelList, panelList, kids, isOpen, onOpen, onClose } = usePanel(
     context
   )
-  console.log(kids, setPanelList, panelList)
+
   return (
     <>
       {kids?.length && (
