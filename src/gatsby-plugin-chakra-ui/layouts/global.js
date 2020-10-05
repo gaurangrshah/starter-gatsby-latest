@@ -11,6 +11,10 @@ export const Global = () => {
         but it will still show up on keyboard focus.
         https://medium.com/@keeganfamouss/accessibility-on-demand-with-chakra-ui-and-focus-visible-19413b1bc6f9
       */
+
+        #gatsby-focus-wrapper {
+          color: white;
+        }
         .js-focus-visible :focus:not([data-focus-visible-added]) {
           outline: none;
           box-shadow: none;

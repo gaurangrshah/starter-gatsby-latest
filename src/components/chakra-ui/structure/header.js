@@ -5,7 +5,7 @@ import { Flex, Heading, useColorMode, useStyleConfig } from "@chakra-ui/core"
 import { Nav } from "./nav"
 import { Logo } from "./logo"
 import { ContentLogic } from "../layout"
-import { component } from "../components"
+import { useScrollRestoration } from "gatsby"
 
 export const Header = ({ siteTitle, siteTagline, ...rest }) => {
   const { colorMode } = useColorMode()
@@ -13,7 +13,7 @@ export const Header = ({ siteTitle, siteTagline, ...rest }) => {
   const styles = useStyleConfig("header", config)
   // console.log("⭕️ basestyles", styles)
   return (
-    <ContentLogic as="header" bg={`brand`} shadow="minbttm">
+    <ContentLogic as="header" bg={`brand`} shadow="minbttm" {...rest}>
       <Flex color={`mode.${colorMode}.background`} sx={styles}>
         <Heading
           as="h1"

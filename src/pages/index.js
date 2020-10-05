@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { useMultiStyleConfig } from "@chakra-ui/core"
+import { Slide } from "@chakra-ui/transition"
 
 import DefaultLayout from "../gatsby-plugin-chakra-ui/layouts/default"
 
@@ -9,8 +10,10 @@ import {
   BaseContainer,
   Block,
   Content,
-  Row,
   FlexCard,
+  MotionBox,
+  Row,
+  Presence,
 } from "../components"
 
 const IndexPage = ({ data }) => {
@@ -21,7 +24,15 @@ const IndexPage = ({ data }) => {
     <DefaultLayout
       seo={{ siteTitle: "Penn Star", siteTagline: "Land Transfer" }}
     >
-      <BaseContainer fluid overflow="hidden">
+      <Presence
+        type="SlideFade"
+        config={{
+          presence: { initialInView: true },
+          container: { fluid: true, minH: "20vh" },
+        }}
+        timeout={1000}
+        initialOffset="-200px"
+      >
         <BackgroundImage sx={hero.base} />
         <Row color sx={hero.content}>
           <Block
@@ -41,8 +52,22 @@ const IndexPage = ({ data }) => {
             {...homeHero.node.block.block}
           />
         </Row>
-      </BaseContainer>
-      <BaseContainer fluid pattern py={[12, null, null, 12 * 3]}>
+      </Presence>
+      <Presence
+        type="SlideFade"
+        timeout={2000}
+        initialOffset="-200px"
+        config={{
+          presence: {
+            initialInView: true,
+          },
+          container: {
+            fluid: true,
+            pattern: true,
+            py: [12, null, null, 12 * 3],
+          },
+        }}
+      >
         <Row fluid>
           <Content shadow rounded color="bg4" bg="background">
             <Block
@@ -74,26 +99,32 @@ const IndexPage = ({ data }) => {
                 color="background"
               >
                 {homeAuthority?.node?.block?.cards?.map((card, i) => (
-                  <FlexCard
+                  <MotionBox
                     key={i}
-                    truncate
-                    flexbasis={32 * 2}
-                    maxH="400px"
-                    mx={["auto", null, 3]}
-                    my={[3]}
-                    config={{
-                      heading: { fontSize: ["lg", null, "xl"] },
-                      text: { border: true },
-                      link: { p: 3 },
-                    }}
-                    {...card}
-                  />
+                    initial={{ opacity: 0, y: 400 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.5, duration: 1 }}
+                  >
+                    <FlexCard
+                      truncate
+                      flexbasis={32 * 2}
+                      maxH="400px"
+                      mx={["auto", null, 3]}
+                      my={[3]}
+                      config={{
+                        heading: { fontSize: ["lg", null, "xl"] },
+                        text: { border: true },
+                        link: { p: 3 },
+                      }}
+                      {...card}
+                    />
+                  </MotionBox>
                 ))}
               </Row>
             </Block>
           </Content>
         </Row>
-      </BaseContainer>
+      </Presence>
     </DefaultLayout>
   )
 }

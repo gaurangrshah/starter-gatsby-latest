@@ -2,18 +2,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Box, ChakraProvider, useColorMode } from "@chakra-ui/core"
 // import { merge } from "@chakra-ui/utils"
+import { SlideFade } from "@chakra-ui/transition"
 
 import theme from "../theme"
 import { Global } from "./global"
 
 import SEO from "../../components/seo"
 import {
-  BaseContainer,
   Header,
   Footer,
   ModeToggle,
   Sidebar,
-  Sink,
   PreFooter,
 } from "../../components"
 
@@ -61,34 +60,44 @@ const DefaultLayout = ({
       <ChakraProvider resetCSS theme={themeUpdate}>
         <ModeToggle />
         <PanelProvider {...{ allowPanelUpdate }}>
-          <Sidebar context={PanelContext}>
-            <Sink />
-          </Sidebar>
+          <Sidebar context={PanelContext} />
           <Box
             id="content-wrapper"
             color={`mode.${colorMode}.text`}
             fontFamily="body"
           >
-            {header && (
-              <Header siteTitle={title} siteTagline={seo?.siteTagline} />
-            )}
+            {header ? (
+              <SlideFade
+                // placement="top"
+                initialOffset="-20px"
+                timeout={800}
+                in={true}
+              >
+                {styles => (
+                  <Header
+                    siteTitle={title}
+                    siteTagline={seo?.siteTagline}
+                    sx={styles}
+                  />
+                )}
+              </SlideFade>
+            ) : null}
             <Box as="main" {...rest} mt={10}>
               {children}
             </Box>
           </Box>
         </PanelProvider>
-        {prefooter && (
-          <BaseContainer
-            className="pre-footer"
-            fluid
-            bg="bg"
-            py={12}
-            mb={[12, null, 0]}
-          >
-            <PreFooter />
-          </BaseContainer>
-        )}
-        <Footer siteTitle={title.toUpperCase()} siteTagline={""} />
+        {prefooter ? <PreFooter /> : null}
+
+        <SlideFade initialOffset="20px" timeout={2000} in={true}>
+          {styles => (
+            <Footer
+              siteTitle={title}
+              siteTagline={seo?.siteTagline}
+              sx={styles}
+            />
+          )}
+        </SlideFade>
       </ChakraProvider>
     </>
   )

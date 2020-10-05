@@ -39,7 +39,16 @@ export const Presence = ({
   return (
     <Box ref={ref} overflow="hidden">
       {debug && (
-        <Box position="fixed" top="8em" left="1em" p={2} border="2px solid red">
+        <Box
+          position="fixed"
+          top="8em"
+          left="1em"
+          p={2}
+          border="2px solid red"
+          zIndex="modal"
+          color="black"
+          background="white"
+        >
           {`inView: ${inView}`}
           <br />
           {`presence: ${presenceRef.current}`}
