@@ -4,18 +4,18 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Penn Star`,
-    tagline: `Land Transfer`,
-    description: `Lehigh Valley's Land Transfer & Title Insurance Pros`,
+    title: `Jammers.io`,
+    tagline: `Starter`,
+    description: `Gatsby, Chakra UI, Framer Motion Starter`,
     language: `en`,
     siteUrl: `https://www.livewebsiteURL.com`,
     author: `@jammersio`,
     pages: [
       { label: "home", path: "/" },
-      { label: "about us", path: "/about/" },
-      { label: "services", path: "/services/" },
-      { label: "policies", path: "/policies/" },
-      { label: "contact", path: "/contact/" },
+      // { label: "about us", path: "/about/" },
+      // { label: "services", path: "/services/" },
+      // { label: "policies", path: "/policies/" },
+      // { label: "contact", path: "/contact/" },
     ],
     socialLinks: [
       { label: "facebook", path: "https://www.facebook.com" },
@@ -75,20 +75,20 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-source-strapi",
-      options: {
-        apiURL: process.env.GATSBY_STRAPI_API_URL || "http://localhost:1337",
-        contentTypes: [
-          // List of the Content Types you want to be able to request from Gatsby.
-          "block",
-          "section",
-          "page",
-        ],
-        // singleTypes: ["page"],
-        queryLimit: 1000,
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-strapi",
+    //   options: {
+    //     apiURL: process.env.GATSBY_STRAPI_API_URL || "http://localhost:1337",
+    //     contentTypes: [
+    //       // List of the Content Types you want to be able to request from Gatsby.
+    //       "block",
+    //       "section",
+    //       "page",
+    //     ],
+    //     // singleTypes: ["page"],
+    //     queryLimit: 1000,
+    //   },
+    // },
   ],
   pathPrefix: "/starter-master-gatsby", // for ghpages - must match repo name
   // https://blog.bitsrc.io/deploy-a-gatsby-site-on-github-pages-for-free-f18853c1b7a9

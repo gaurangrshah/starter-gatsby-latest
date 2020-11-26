@@ -1,0 +1,11 @@
+{
+  "icon": "arrow-up",
+  "text": [
+    { "type": "lead", "order": 0, "text": "this is the lead" },
+    { "type": "heading", "order": 1, "text": "this is the heading" },
+    { "type": "tagline", "order": 2, "text": "this is the tagline" }
+  ],
+  "image": "https://source.unsplash.com/random",
+  "content": ["This is a paragraph.", "And this is another paragraph."],
+  "link": { "label": "Click here", "path": "#", "isEnabled": true }
+}

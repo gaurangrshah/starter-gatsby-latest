@@ -14,8 +14,8 @@ import {
 } from "../components"
 
 const ServicesPage = ({ data }) => {
-  const servicesHero = data.allStrapiSection.edges[0]
-  const services = data.allStrapiSection.edges[1]
+  // const servicesHero = data.allStrapiSection.edges[0]
+  // const services = data.allStrapiSection.edges[1]
 
   const hero = useMultiStyleConfig("hero", {})
   return (
@@ -44,7 +44,7 @@ const ServicesPage = ({ data }) => {
             p={0}
             mr={0}
           >
-            <Block
+            {/* <Block
               fluid
               shadow
               sx={hero?.block}
@@ -57,7 +57,7 @@ const ServicesPage = ({ data }) => {
                 },
               }}
               {...servicesHero?.node?.block?.block}
-            />
+            /> */}
           </Row>
           <Row
             display={["none", null, null, "flex"]}
@@ -68,7 +68,7 @@ const ServicesPage = ({ data }) => {
             justifyContent="flex-end"
             flexWrap="nowrap"
           >
-            {servicesHero?.node?.block?.cards?.map((card, i) => (
+            {/* {servicesHero?.node?.block?.cards?.map((card, i) => (
               <FlexCard
                 key={i}
                 w={["50%", "30%", null, null]}
@@ -87,13 +87,13 @@ const ServicesPage = ({ data }) => {
                   content: { display: ["none", null, null, "block"] },
                 }}
               />
-            ))}
+            ))} */}
           </Row>
         </Row>
       </BaseContainer>
       <BaseContainer fluid pattern py={[12, null, null, 12 * 3]}>
         <Content position="relative" mx="auto" textAlign="center">
-          <Block
+          {/* <Block
             position="relative"
             {...services?.node?.block?.block}
             config={{
@@ -128,7 +128,7 @@ const ServicesPage = ({ data }) => {
                 />
               ))}
             </Row>
-          </Block>
+          </Block> */}
         </Content>
       </BaseContainer>
     </DefaultLayout>
@@ -137,67 +137,67 @@ const ServicesPage = ({ data }) => {
 
 export default ServicesPage
 
-export const query = graphql`
-  query ServicesQueryBasic {
-    allStrapiSection(
-      filter: { pages: { elemMatch: { name: { eq: "services" } } } }
-    ) {
-      edges {
-        node {
-          block {
-            block {
-              text {
-                type
-                text
-                order
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-              image {
-                alternativeText
-                caption
-                size
-                name
-                formats {
-                  large {
-                    url
-                    width
-                    height
-                  }
-                  medium {
-                    url
-                    width
-                    height
-                  }
-                }
-              }
-              content {
-                content
-              }
-            }
-            cards {
-              text {
-                type
-                text
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-              icon
-              content {
-                content
-              }
-            }
-          }
-          name
-          order
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ServicesQueryBasic {
+//     allStrapiSection(
+//       filter: { pages: { elemMatch: { name: { eq: "services" } } } }
+//     ) {
+//       edges {
+//         node {
+//           block {
+//             block {
+//               text {
+//                 type
+//                 text
+//                 order
+//               }
+//               link {
+//                 path
+//                 label
+//                 isEnabled
+//               }
+//               image {
+//                 alternativeText
+//                 caption
+//                 size
+//                 name
+//                 formats {
+//                   large {
+//                     url
+//                     width
+//                     height
+//                   }
+//                   medium {
+//                     url
+//                     width
+//                     height
+//                   }
+//                 }
+//               }
+//               content {
+//                 content
+//               }
+//             }
+//             cards {
+//               text {
+//                 type
+//                 text
+//               }
+//               link {
+//                 path
+//                 label
+//                 isEnabled
+//               }
+//               icon
+//               content {
+//                 content
+//               }
+//             }
+//           }
+//           name
+//           order
+//         }
+//       }
+//     }
+//   }
+// `

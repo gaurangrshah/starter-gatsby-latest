@@ -22,20 +22,20 @@ const MAP =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.1127886739337!2d-75.37650524873258!3d40.67148374792818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c44070c952e4a7%3A0x28d3813f2b1ac854!2s3894%20Courtney%20St%20%23105%2C%20Bethlehem%2C%20PA%2018017!5e0!3m2!1sen!2sus!4v1581316131243!5m2!1sen!2sus"
 
 const ContactPage = ({ data }) => {
-  const [
-    preFooter,
-    //  contactHero, contactForm
-  ] = data.allStrapiSection.edges
+  // const [
+  //   preFooter,
+  //   //  contactHero, contactForm
+  // ] = data.allStrapiSection.edges
 
-  const {
-    email,
-    phone,
-    streetAddress,
-    suite,
-    city,
-    state,
-    zip,
-  } = preFooter?.node?.block?.addons[0]
+  // const {
+  //   email,
+  //   phone,
+  //   streetAddress,
+  //   suite,
+  //   city,
+  //   state,
+  //   zip,
+  // } = preFooter?.node?.block?.addons[0]
 
   const hero = useMultiStyleConfig("hero", {})
 
@@ -92,7 +92,7 @@ const ContactPage = ({ data }) => {
               textAlign={["left"]}
               color="brand"
             >
-              <Stack
+              {/* <Stack
                 isInline
                 flex={1}
                 w="50%"
@@ -127,7 +127,7 @@ const ContactPage = ({ data }) => {
                   <BGIcon shadow icon="mobile" bg="mode.light.icon" />
                   <Text>{`phone: ${phone}`}</Text>
                 </Stack>
-              </Box>
+              </Box> */}
             </Row>
           </Row>
         </Content>
@@ -177,68 +177,68 @@ const ContactPage = ({ data }) => {
 
 export default ContactPage
 
-export const query = graphql`
-  query ContactQueryBasic {
-    allStrapiSection(
-      filter: { pages: { elemMatch: { name: { eq: "contact" } } } }
-    ) {
-      edges {
-        node {
-          block {
-            block {
-              text {
-                type
-                text
-                order
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-              image {
-                alternativeText
-                caption
-                size
-                name
-                formats {
-                  large {
-                    url
-                    width
-                    height
-                  }
-                  medium {
-                    url
-                    width
-                    height
-                  }
-                }
-              }
-              content {
-                content
-              }
-            }
-            addons {
-              city
-              email
-              id
-              phone
-              state
-              streetAddress
-              suite
-              zip
-              data {
-                email
-                message
-                name
-                phone
-              }
-            }
-          }
-          name
-          order
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ContactQueryBasic {
+//     allStrapiSection(
+//       filter: { pages: { elemMatch: { name: { eq: "contact" } } } }
+//     ) {
+//       edges {
+//         node {
+//           block {
+//             block {
+//               text {
+//                 type
+//                 text
+//                 order
+//               }
+//               link {
+//                 path
+//                 label
+//                 isEnabled
+//               }
+//               image {
+//                 alternativeText
+//                 caption
+//                 size
+//                 name
+//                 formats {
+//                   large {
+//                     url
+//                     width
+//                     height
+//                   }
+//                   medium {
+//                     url
+//                     width
+//                     height
+//                   }
+//                 }
+//               }
+//               content {
+//                 content
+//               }
+//             }
+//             addons {
+//               city
+//               email
+//               id
+//               phone
+//               state
+//               streetAddress
+//               suite
+//               zip
+//               data {
+//                 email
+//                 message
+//                 name
+//                 phone
+//               }
+//             }
+//           }
+//           name
+//           order
+//         }
+//       }
+//     }
+//   }
+// `

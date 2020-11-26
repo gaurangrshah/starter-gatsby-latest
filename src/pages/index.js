@@ -16,10 +16,12 @@ import {
   Presence,
 } from "../components"
 
-const IndexPage = ({ data }) => {
-  const [homeHero, homeAuthority] = data.allStrapiSection.edges
-  const hero = useMultiStyleConfig("hero", {})
+import block from "../../data/block.json"
+import card from "../../data/card.json"
 
+const IndexPage = ({ data }) => {
+  // const [homeHero, homeAuthority] = data.allStrapiSection.edges
+  const hero = useMultiStyleConfig("hero", {})
   return (
     <DefaultLayout
       seo={{ siteTitle: "Penn Star", siteTagline: "Land Transfer" }}
@@ -49,7 +51,7 @@ const IndexPage = ({ data }) => {
                 colorScheme: "blue",
               },
             }}
-            {...homeHero.node.block.block}
+            {...block}
           />
         </Row>
       </Presence>
@@ -85,7 +87,7 @@ const IndexPage = ({ data }) => {
                 },
               }}
               textAlign="left"
-              {...homeAuthority?.node?.block?.block}
+              {...block}
             >
               <Row
                 w={["100%", null, "80%"]}
@@ -98,7 +100,7 @@ const IndexPage = ({ data }) => {
                 mx="auto"
                 color="background"
               >
-                {homeAuthority?.node?.block?.cards?.map((card, i) => (
+                {[1, 2, 3].map((_, i) => (
                   <MotionBox
                     key={i}
                     initial={{ opacity: 0, y: 400 }}
@@ -106,7 +108,7 @@ const IndexPage = ({ data }) => {
                     transition={{ delay: 1.5, duration: 1 }}
                   >
                     <FlexCard
-                      truncate
+                      // truncate
                       flexbasis={32 * 2}
                       maxH="400px"
                       mx={["auto", null, 3]}
@@ -130,82 +132,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query HomeQueryBasic {
-    allStrapiSection(
-      filter: { pages: { elemMatch: { name: { eq: "home" } } } }
-    ) {
-      edges {
-        node {
-          name
-          order
-          block {
-            name
-            block {
-              text {
-                text
-                type
-                order
-              }
-              content {
-                content
-              }
-              image {
-                alternativeText
-                name
-                height
-                width
-                formats {
-                  large {
-                    url
-                    size
-                    name
-                  }
-                  medium {
-                    url
-                    size
-                    name
-                  }
-                }
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-            }
-            cards {
-              text {
-                text
-                type
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-              icon
-              content {
-                content
-              }
-            }
-            addons {
-              city
-              email
-              id
-              phone
-              state
-              streetAddress
-              suite
-              zip
-            }
-          }
-          pages {
-            name
-          }
-        }
-      }
-    }
-  }
-`

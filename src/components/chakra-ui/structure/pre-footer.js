@@ -12,57 +12,57 @@ import useSiteMetadata from "../../../hooks/use-site-metadata"
 import { Presence } from "../animation"
 
 export const PreFooter = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      strapiSection(name: { eq: "pre_footer" }) {
-        name
-        order
-        block {
-          name
-          block {
-            text {
-              type
-              text
-              order
-            }
-            link {
-              path
-              label
-              isEnabled
-            }
-            content {
-              content
-            }
-          }
-          addons {
-            city
-            email
-            phone
-            state
-            streetAddress
-            suite
-            zip
-          }
-        }
-        pages {
-          name
-          path
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     strapiSection(name: { eq: "pre_footer" }) {
+  //       name
+  //       order
+  //       block {
+  //         name
+  //         block {
+  //           text {
+  //             type
+  //             text
+  //             order
+  //           }
+  //           link {
+  //             path
+  //             label
+  //             isEnabled
+  //           }
+  //           content {
+  //             content
+  //           }
+  //         }
+  //         addons {
+  //           city
+  //           email
+  //           phone
+  //           state
+  //           streetAddress
+  //           suite
+  //           zip
+  //         }
+  //       }
+  //       pages {
+  //         name
+  //         path
+  //       }
+  //     }
+  //   }
+  // `)
 
-  const { block } = data.strapiSection
+  // const { block } = data.strapiSection
   const { pages } = useSiteMetadata()
-  const {
-    email,
-    phone,
-    streetAddress,
-    suite,
-    city,
-    state,
-    zip,
-  } = block?.addons[0]
+  // const {
+  //   email,
+  //   phone,
+  //   streetAddress,
+  //   suite,
+  //   city,
+  //   state,
+  //   zip,
+  // } = block?.addons[0]
 
   return (
     <Presence
@@ -107,12 +107,12 @@ export const PreFooter = () => {
           >
             <Logo siteTitle={"Penn Star"} />
           </Heading>
-          <TextContent
+          {/* <TextContent
             fontSize={"sm"}
             maxW={["100%", null, null, "100%"]}
             content={block?.block?.content}
             color="mode.light.text"
-          />
+          /> */}
         </Content>
         <Row
           flex={1}
@@ -133,7 +133,7 @@ export const PreFooter = () => {
               {"CONTACT US"}
             </Heading>
             <Box>
-              <Stack my={3} align={["flex-end"]} {...borderBottom(true)}>
+              {/* <Stack my={3} align={["flex-end"]} {...borderBottom(true)}>
                 <LinkWrapper
                   isEnabled
                   isDefault
@@ -175,7 +175,7 @@ export const PreFooter = () => {
                   {suite && <Text>{`Suite#: ${suite}`}</Text>}
                   <Text>{`${city}, ${state} ${zip}`}</Text>
                 </Box>
-              </Stack>
+              </Stack> */}
             </Box>
           </Content>
           <Content
@@ -194,7 +194,7 @@ export const PreFooter = () => {
               alignItems="flex-end"
               mt={3}
             >
-              {pages?.map((page, i) => (
+              {/* {pages?.map((page, i) => (
                 <LinkWrapper
                   key={i}
                   isEnabled
@@ -205,7 +205,7 @@ export const PreFooter = () => {
                   path={`/${page?.label === "home" ? "" : page?.label}`}
                   label={`${page?.label}`}
                 />
-              ))}
+              ))} */}
             </Content>
           </Content>
         </Row>

@@ -18,9 +18,9 @@ import {
 } from "../components"
 
 const AboutPage = ({ data }) => {
-  const [aboutHero, aboutUs, aboutTeam] = data.allStrapiSection.edges
+  // const [aboutHero, aboutUs, aboutTeam] = data.allStrapiSection.edges
 
-  const [founder, ...rest] = aboutTeam.node.block.cards
+  // const [founder, ...rest] = aboutTeam.node.block.cards
   const hero = useMultiStyleConfig("hero", {})
 
   return (
@@ -28,7 +28,7 @@ const AboutPage = ({ data }) => {
       <BaseContainer fluid overflow="hidden">
         <BackgroundImage sx={hero.base} />
         <Row color sx={hero.content}>
-          <Block
+          {/* <Block
             fluid
             shadow
             sx={hero.block}
@@ -42,7 +42,7 @@ const AboutPage = ({ data }) => {
               },
             }}
             {...aboutHero.node.block.block}
-          />
+          /> */}
         </Row>
       </BaseContainer>
       <BaseContainer fluid pattern py={[12, null, null, 12 * 3]}>
@@ -57,7 +57,7 @@ const AboutPage = ({ data }) => {
           px={4}
           textAlign="center"
         >
-          <Block
+          {/* <Block
             fluid
             {...aboutUs.node.block.block}
             config={{
@@ -72,7 +72,7 @@ const AboutPage = ({ data }) => {
                 textAlign: ["left", null, "center"],
               },
             }}
-          />
+          /> */}
         </Content>
         <Content
           bg="background"
@@ -92,9 +92,9 @@ const AboutPage = ({ data }) => {
               link: { isDefault: false, isEnabled: false },
             }}
           >
-            <Profile {...founder} />
+            {/* <Profile {...founder} /> */}
           </SimpleCard>
-          <Block fluid py={12} {...aboutTeam.node.block.block} />
+          {/* <Block fluid py={12} {...aboutTeam.node.block.block} /> */}
         </Content>
       </BaseContainer>
       <BaseContainer bg fluid color="brand" py={12}>
@@ -138,7 +138,7 @@ const AboutPage = ({ data }) => {
             order={8}
             my={12}
           >
-            {rest?.map((card, i) => (
+            {/* {rest?.map((card, i) => (
               <FlexCard
                 key={i}
                 minH={"180px"}
@@ -151,7 +151,7 @@ const AboutPage = ({ data }) => {
               >
                 <Profile {...card} />
               </FlexCard>
-            ))}
+            ))} */}
           </Row>
         </Content>
       </BaseContainer>
@@ -161,67 +161,67 @@ const AboutPage = ({ data }) => {
 
 export default AboutPage
 
-export const query = graphql`
-  query AboutQueryBasic {
-    allStrapiSection(
-      filter: { pages: { elemMatch: { name: { eq: "about" } } } }
-    ) {
-      edges {
-        node {
-          block {
-            block {
-              text {
-                type
-                text
-                order
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-              image {
-                alternativeText
-                caption
-                size
-                name
-                formats {
-                  large {
-                    url
-                    width
-                    height
-                  }
-                  medium {
-                    url
-                    width
-                    height
-                  }
-                }
-              }
-              content {
-                content
-              }
-            }
-            cards {
-              text {
-                type
-                text
-              }
-              link {
-                path
-                label
-                isEnabled
-              }
-              icon
-              content {
-                content
-              }
-            }
-          }
-          name
-          order
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query AboutQueryBasic {
+//     allStrapiSection(
+//       filter: { pages: { elemMatch: { name: { eq: "about" } } } }
+//     ) {
+//       edges {
+//         node {
+//           block {
+//             block {
+//               text {
+//                 type
+//                 text
+//                 order
+//               }
+//               link {
+//                 path
+//                 label
+//                 isEnabled
+//               }
+//               image {
+//                 alternativeText
+//                 caption
+//                 size
+//                 name
+//                 formats {
+//                   large {
+//                     url
+//                     width
+//                     height
+//                   }
+//                   medium {
+//                     url
+//                     width
+//                     height
+//                   }
+//                 }
+//               }
+//               content {
+//                 content
+//               }
+//             }
+//             cards {
+//               text {
+//                 type
+//                 text
+//               }
+//               link {
+//                 path
+//                 label
+//                 isEnabled
+//               }
+//               icon
+//               content {
+//                 content
+//               }
+//             }
+//           }
+//           name
+//           order
+//         }
+//       }
+//     }
+//   }
+// `
